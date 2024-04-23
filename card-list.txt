@@ -17,20 +17,16 @@ https://pokeprofessional.com/base-set-sealed-product-master-list/#booster-packs
 blister packs (packaged booster packs, 1 special 2-pack blister.)
 https://pokeprofessional.com/base-set-sealed-product-master-list/#blister-packs
 
-booster box
+booster box (each expansion set also had their own box x36 cards each.)
 https://pokeprofessional.com/base-set-sealed-product-master-list/#booster-boxes
-
-special 2 player starter
-https://bulbapedia.bulbagarden.net/wiki/2-Player_Starter_Set_(TCG)
-
 
 /// base theme decks
 
+https://bulbapedia.bulbagarden.net/wiki/2-Player_Starter_Set_(TCG)
 https://www.serebii.net/card/themedeck/blackout.shtml
 https://www.serebii.net/card/themedeck/brushfire.shtml
 https://www.serebii.net/card/themedeck/overgrowth.shtml
 https://www.serebii.net/card/themedeck/zap.shtml
-
 
 /// expansion set theme decks
 
@@ -57,7 +53,6 @@ https://www.serebii.net/card/themedeck/sabrina.shtml
 https://www.serebii.net/card/themedeck/koga.shtml
 https://www.serebii.net/card/themedeck/blaine.shtml
 https://www.serebii.net/card/themedeck/giovanni.shtml
-
 
 /// base card set
 
@@ -164,6 +159,9 @@ Water Energy
 Weedle
 Zapdos
 
+/// base card set 2
+
+
 
 /// fossil card set
 
@@ -229,7 +227,6 @@ weezing
 zapdos-alt
 zapdos
 zubat
-
 
 /// jungle card set
 
@@ -297,7 +294,6 @@ vileplume
 weepinbell
 wigglytuff-alt
 wigglytuff
-
 
 /// ro card set
 
@@ -519,7 +515,6 @@ Tickling Machine
 Trash Exchange
 Vermilion City Gym
 Water Energy
-
 
 /// gym challenge card set
 
