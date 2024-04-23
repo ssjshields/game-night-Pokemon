@@ -356,3 +356,274 @@ squirtle
 the-bosss-way
 voltorb
 zubat
+
+/// gym heroes card set
+
+Blaines Charmander
+Blaines Gamble
+Blaines Growlithe
+Blaines Kangaskhan
+Blaines Last Resort
+Blaines Magmar
+Blaines Moltres
+Blaines Ponyta
+Blaines Quiz 1
+Blaines Tauros
+Blaines Vulpix
+blaines-growlithe-gym-heroes-62
+Brock (Alt)
+Brock
+Brocks Geodude (Alt)
+Brocks Geodude
+Brocks Golbat
+Brocks Golem
+Brocks Graveler
+Brocks Lickitung
+Brocks Mankey (Alt)
+Brocks Mankey
+Brocks Onix
+Brocks Rhydon
+Brocks Rhyhorn
+Brocks Sandshrew
+Brocks Sandslash
+Brocks Training Method
+Brocks Vulpix
+Brocks Zubat
+brocks-onix-gym-heroes-69
+brocks-rhyhorn-gym-heroes-70
+brocks-sandshrew-gym-heroes-72
+brocks-zubat-gym-heroes-74
+Celadon City Gym
+Cerulean City Gym
+Charity
+Energy Flow
+erika-gym-heroes-16
+Erika
+Erikas Bellsprout
+Erikas Clefable
+Erikas Clefairy
+Erikas Dragonair
+Erikas Dratini
+Erikas Exeggcute
+Erikas Exeggutor
+Erikas Gloom
+Erikas Maids
+Erikas Oddish
+Erikas Perfume
+Erikas Tangela
+Erikas Victreebel
+Erikas Vileplume
+Erikas Weepinbell
+erikas-bellsprout-gym-heroes-76
+erikas-exeggcute-gym-heroes-77
+erikas-gloom-gym-heroes-46
+erikas-oddish-gym-heroes-78
+erikas-weepinbell-gym-heroes-49
+Fighting Energy
+Fire Energy
+Good Manners
+Grass Energy
+Lightning Energy
+Lt. Surge
+Lt. Surges Electabuzz
+Lt. Surges Fearow
+Lt. Surges Magnemite
+Lt. Surges Magneton
+Lt. Surges Pikachu
+Lt. Surges Raichu
+Lt. Surges Raticate
+Lt. Surges Rattata
+Lt. Surges Spearow
+Lt. Surges Treaty
+Lt. Surges Voltorb
+lt.-surge-gym-heroes-17
+lt.-surges-electabuzz-gym-heroes-6
+lt.-surges-magnemite-gym-heroes-80
+lt.-surges-spearow-gym-heroes-83
+Minion Of Team Rocket
+misty-gym-heroes-18
+Misty
+Mistys Cloyster
+Mistys Duel
+Mistys Goldeen
+Mistys Horsea
+Mistys Poliwag
+Mistys Poliwhirl
+Mistys Poliwrath
+Mistys Psyduck
+Mistys Seadra
+Mistys Seaking
+Mistys Seel
+Mistys Shellder
+Mistys Starmie
+Mistys Staryu
+Mistys Tentacool
+Mistys Tentacruel
+Mistys Wrath
+mistys-goldeen-gym-heroes-85
+mistys-tentacool-gym-heroes-57
+Narrow Gym
+No Removal Gym
+Pewter City Gym
+Psychic Energy
+Recall
+Rockets Hitmonchan
+Rockets Moltres
+Rockets Scyther
+Rockets Snorlax
+Sabrinas Abra
+Sabrinas Drowzee
+Sabrinas Esp
+Sabrinas Gastly
+Sabrinas Gaze
+Sabrinas Gengar
+Sabrinas Haunter
+Sabrinas Jynx
+Sabrinas Mr. Mime
+Sabrinas Slowbro
+Sabrinas Slowpoke
+Sabrinas Venomoth
+Sabrinas Venonat
+Secret Mission
+The Rockets Training Gym
+The Rockets Trap
+Tickling Machine
+Trash Exchange
+Vermilion City Gym
+Water Energy
+
+
+/// gym challenge card set
+
+blaine-gym-challenge-100
+blaine-gym-challenge-17
+blaines-arcanine-gym-challenge-1
+blaines-charizard-gym-challenge-2
+blaines-charmander-gym-challenge-60
+blaines-charmeleon-gym-challenge-31
+blaines-dodrio-gym-challenge-32
+blaines-doduo-gym-challenge-61
+blaines-growlithe-gym-challenge-62
+blaines-mankey-gym-challenge-63
+blaines-ninetales-gym-challenge-21
+blaines-ponyta-gym-challenge-64
+blaines-quiz-2-gym-challenge-111
+blaines-quiz-3-gym-challenge-112
+blaines-rapidash-gym-challenge-33
+blaines-rhyhorn-gym-challenge-65
+blaines-vulpix-gym-challenge-66
+brocks-diglett-gym-challenge-67
+brocks-dugtrio-gym-challenge-22
+brocks-geodude-gym-challenge-68
+brocks-graveler-gym-challenge-34
+brocks-ninetales-gym-challenge-3
+brocks-primeape-gym-challenge-35
+brocks-protection-gym-challenge-101
+brocks-sandslash-gym-challenge-36
+brocks-vulpix-gym-challenge-37
+chaos-gym-gym-challenge-102
+cinnabar-city-gym-gym-challenge-113
+erikas-bellsprout-gym-challenge-38
+erikas-bulbasaur-gym-challenge-39
+erikas-clefairy-gym-challenge-40
+erikas-ivysaur-gym-challenge-41
+erikas-jigglypuff-gym-challenge-69
+erikas-kindness-gym-challenge-103
+erikas-oddish-gym-challenge-70
+erikas-paras-gym-challenge-71
+erikas-venusaur-gym-challenge-4
+fervor-gym-challenge-124
+fighting-energy-gym-challenge-127
+fire-energy-gym-challenge-128
+fuchsia-city-gym-gym-challenge-114
+giovanni-gym-challenge-104
+giovanni-gym-challenge-18
+giovannis-gyarados-gym-challenge-5
+giovannis-last-resort-gym-challenge-105
+giovannis-machamp-gym-challenge-6
+giovannis-machoke-gym-challenge-42
+giovannis-machop-gym-challenge-72
+giovannis-magikarp-gym-challenge-73
+giovannis-meowth-gym-challenge-43
+giovannis-meowth-gym-challenge-74
+giovannis-nidoking-gym-challenge-7
+giovannis-nidoqueen-gym-challenge-23
+giovannis-nidoran-female-gym-challenge-75
+giovannis-nidoran-male-gym-challenge-76
+giovannis-nidorina-gym-challenge-44
+giovannis-nidorino-gym-challenge-45
+giovannis-persian-gym-challenge-8
+giovannis-pinsir-gym-challenge-24
+grass-energy-gym-challenge-129
+koga-gym-challenge-106
+koga-gym-challenge-19
+kogas-arbok-gym-challenge-25
+kogas-beedrill-gym-challenge-9
+kogas-ditto-gym-challenge-10
+kogas-ekans-gym-challenge-77
+kogas-golbat-gym-challenge-46
+kogas-grimer-gym-challenge-78
+kogas-kakuna-gym-challenge-47
+kogas-koffing-gym-challenge-48
+kogas-koffing-gym-challenge-79
+kogas-muk-gym-challenge-26
+kogas-ninja-trick-gym-challenge-115
+kogas-pidgeotto-gym-challenge-27
+kogas-pidgey-gym-challenge-49
+kogas-pidgey-gym-challenge-80
+kogas-tangela-gym-challenge-81
+kogas-weedle-gym-challenge-82
+kogas-weezing-gym-challenge-50
+kogas-zubat-gym-challenge-83
+lightning-energy-gym-challenge-130
+lit.-surges-jolteon-gym-challenge-28
+lt.-surges-eevee-gym-challenge-51
+lt.-surges-electrode-gym-challenge-52
+lt.-surges-pikachu-gym-challenge-84
+lt.-surges-raichu-gym-challenge-11
+lt.-surges-raticate-gym-challenge-53
+lt.-surges-rattata-gym-challenge-85
+lt.-surges-secret-plan-gym-challenge-107
+lt.-surges-voltorb-gym-challenge-86
+master-ball-gym-challenge-116
+max-revive-gym-challenge-117
+mistys-dewgong-gym-challenge-54
+mistys-golduck-gym-challenge-12
+mistys-gyarados-gym-challenge-13
+mistys-horsea-gym-challenge-87
+mistys-magikarp-gym-challenge-88
+mistys-poliwag-gym-challenge-89
+mistys-psyduck-gym-challenge-90
+mistys-seel-gym-challenge-91
+mistys-staryu-gym-challenge-92
+mistys-tears-gym-challenge-118
+mistys-wish-gym-challenge-108
+psychic-energy-gym-challenge-131
+resistance-gym-gym-challenge-109
+rockets-mewtwo-gym-challenge-14
+rockets-minefield-gym-gym-challenge-119
+rockets-secret-experiment-gym-challenge-120
+rockets-zapdos-gym-challenge-15
+sabrina-gym-challenge-110
+sabrina-gym-challenge-20
+sabrinas-abra-gym-challenge-93
+sabrinas-abra-gym-challenge-94
+sabrinas-alakazam-gym-challenge-16
+sabrinas-drowzee-gym-challenge-95
+sabrinas-gastly-gym-challenge-96
+sabrinas-gastly-gym-challenge-97
+sabrinas-gengar-gym-challenge-29
+sabrinas-golduck-gym-challenge-30
+sabrinas-haunter-gym-challenge-55
+sabrinas-hypno-gym-challenge-56
+sabrinas-jynx-gym-challenge-57
+sabrinas-kadabra-gym-challenge-58
+sabrinas-mr.-mime-gym-challenge-59
+sabrinas-porygon-gym-challenge-98
+sabrinas-psychic-control-gym-challenge-121
+sabrinas-psyduck-gym-challenge-99
+saffron-city-gym-gym-challenge-122
+transparent-walls-gym-challenge-125
+viridian-city-gym-gym-challenge-123
+warp-point-gym-challenge-126
+water-energy-gym-challenge-132
