@@ -1,0 +1,26 @@
+module Base
+{
+
+    item mtgStarterKit
+    {
+        DisplayCategory = GameBox, Weight = 0.1, Type = Normal,
+        DisplayName = Magic the Gathering Starter Kit,
+
+        Icon = Boxes/MTGStarterBox, WorldStaticModel = MTG_StarterBox,
+    }
+
+    item mtgBoosterPack
+    {
+        DisplayCategory = GameBox, Weight = 0.1, Type = Normal,
+        DisplayName = Magic the Gathering Booster Pack,
+
+        Icon = Boxes/MTGBoosterPack, WorldStaticModel = MTG_Booster,
+    }
+
+    item mtgCards
+    {
+        DisplayCategory = Deck, Weight = 0.01, Type = Normal,
+        DisplayName = Magic The Gathering Cards, Icon = mtgCards/deck, WorldStaticModel = MTG_Card,
+    }
+
+}
