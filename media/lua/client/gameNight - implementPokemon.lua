@@ -27,7 +27,7 @@ Pokemon.tradingCards = {
         "Staryu", "Super Energy Removal", "Super Potion", "Switch", "Tangela", 
         "Venusaur", "Voltorb", "Vulpix", "Wartortle", "Water Energy", 
         "Weedle", "Zapdos"
-    }
+    },
 
     ["Jungle"] = {
 
@@ -55,52 +55,60 @@ Pokemon.tradingCards = {
 }
 
 --[[
-MTG.catalogue = {}
-MTG.altNames = {}
+Pokemon.catalogue = {}
+Pokemon.altNames = {}
 
-MTG.alphaRare = {
-    "Artifacts 2", "Artifacts 5", "Artifacts 8", "Artifacts 11", "Artifacts 16", "Artifacts 17", "Artifacts 18",
-    "Artifacts 19", "Artifacts 20", "Artifacts 22", "Artifacts 23", "Artifacts 28", "Artifacts 29", "Artifacts 35",
-    "Artifacts 36", "Artifacts 37", "Artifacts 38", "Artifacts 44", "Artifacts 45", "Black 2", "Black 3", "Black 6",
-    "Black 18", "Black 19", "Black 20", "Black 21", "Black 26", "Black 36", "Black Blue Land 1", "Black Green Land 1",
-    "Blue Red Land 1", "Blue 4", "Blue 7", "Blue 10", "Blue 12", "Blue 15", "Blue 16", "Blue 18", "Blue 25", "Blue 26",
-    "Blue 33", "Blue 34", "Blue 37", "Blue 46", "Blue White Land 1", "Green 5", "Green 16", "Green 20", "Green 23",
-    "Green 25", "Green 27", "Green 31", "Green 37", "Green 39", "Green 41", "Green 45", "Green Blue Land 1",
-    "Green Red Land 1", "Red 1", "Red 2", "Red 5", "Red 6", "Red 22", "Red 24", "Red 31", "Red 32", "Red 33",
-    "Red 34", "Red 35", "Red 39", "Red Black Land 1", "Red White Land 1", "White 3", "White 12", "White 13",
-    "White 14", "White 15", "White 20", "White 22", "White 27", "White 31", "White Black Land 1", "White Green Land 1",
+-- Base Set
+Pokemon.baseRare = {
+    
 }
 
-MTG.alphaUncommon = {
-    "Artifacts 1", "Artifacts 6", "Artifacts 7", "Artifacts 8", "Artifacts 9", "Artifacts 12", "Artifacts 13",
-    "Artifacts 14", "Artifacts 15", "Artifacts 21", "Artifacts 25", "Artifacts 26", "Artifacts 27", "Artifacts 30",
-    "Artifacts 33", "Artifacts 34", "Artifacts 39", "Artifacts 40", "Artifacts 41", "Artifacts 43", "Black 9",
-    "Black 11", "Black 14", "Black 16", "Black 17", "Black 23", "Black 24", "Black 25", "Black 29", "Black 32",
-    "Black 34", "Black 38", "Black 40", "Black 43", "Black 45", "Blue 2", "Blue 8", "Blue 9", "Blue 17", "Blue 19",
-    "Blue 22", "Blue 23", "Blue 27", "Blue 29", "Blue 32", "Blue 42", "Blue 43", "Blue 44", "Blue 45", "Green 3",
-    "Green 4", "Green 6", "Green 7", "Green 11", "Green 14", "Green 17", "Green 21", "Green 26", "Green 28",
-    "Green 35", "Green 38", "Green 40", "Green 43", "Green 44", "Red 3", "Red 4", "Red 7", "Red 12", "Red 13",
-    "Red 15", "Red 17", "Red 18", "Red 19", "Red 21", "Red 30", "Red 37", "Red 42", "Red 44", "Red 46", "White 2",
-    "White 8", "White 9", "White 11", "White 18", "White 21", "White 24", "White 28", "White 32", "White 33",
-    "White 34", "White 35", "White 39", "White 41", "White 42",
+Pokemon.baseUncommon = {
+   
 }
 
-MTG.alphaCommon = {
-    "Black 4", "Black 5", "Black 7", "Black 8", "Black 10", "Black 12", "Black 15", "Black 22", "Black 30",
-    "Black 37", "Black 41", "Black 42", "Black 44", "Black 46", "Blue 1", "Blue 3", "Blue 5", "Blue 11",
-    "Blue 13", "Blue 14", "Blue 20", "Blue 21", "Blue 28", "Blue 31", "Blue 35", "Blue 38", "Blue 39",
-    "Blue 40", "Blue 41", "Green 2", "Green 8", "Green 9", "Green 10", "Green 13", "Green 15", "Green 18",
-    "Green 19", "Green 22", "Green 30", "Green 32", "Green 33", "Green 34", "Green 42", "Red 8", "Red 9",
-    "Red 10", "Red 11", "Red 16", "Red 20", "Red 23", "Red 25", "Red 26", "Red 27", "Red 36", "Red 38",
-    "Red 40", "Red 43", "Red 45", "White 1", "White 4", "White 5", "White 7", "White 17", "White 19",
-    "White 25", "White 26", "White 29", "White 38", "White 40", "White 43", "White 44",
+Pokemon.baseCommon = {
+    
 }
 
-MTG.alphaLand = {
-    "Red Land 1", "Red Land 2", "Red Land 3", "Blue Land 1", "Blue Land 2", "Blue Land 3",
-    "Green Land 1", "Green Land 2", "Green Land 3", "White Land 1", "White Land 2", "White Land 3",
-    "Black Land 1", "Black Land 2", "Black Land 3",
+Pokemon.baseEnergy = {
+    
 }
+
+-- Jungle Set
+Pokemon.jungleRare = {
+    
+}
+
+Pokemon.jungleUncommon = {
+    
+}
+
+Pokemon.jungleCommon = {
+    
+}
+
+Pokemon.jungleEnergy = {
+    
+}
+
+-- Fossil Set
+Pokemon.fossilRare = {
+    
+}
+
+Pokemon.fossilUncommon = {
+    
+}
+
+Pokemon.fossilCommon = {
+    
+}
+
+Pokemon.fossilEnergy = {
+    
+}
+
 ]]
 
 
