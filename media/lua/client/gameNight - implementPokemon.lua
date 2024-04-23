@@ -4,96 +4,57 @@ local gamePieceAndBoardHandler = applyItemDetails.gamePieceAndBoardHandler
 
 local Pokemon = {}
 
-MTG.alphaCards = { --"MTG Alpha "
+Pokemon.tradingCards = {
 
-    ["Artifacts"] = {
-        "Juggernaut", "Gauntlet of Might", "Glasses of Urza", "Jayemdae Tome", "Disrupting Scepter",
-        "Conservator", "Sol Ring", "Sunglasses of Urza", "Wooden Sphere", "Black Lotus", "Mox Emerald",
-        "Rod of Ruin", "Celestial Prism", "Throne of Bone", "Ivory Cup", "Winter Orb", "Mox Jet",
-        "Chaos Orb", "Time Vault", "Mox Pearl", "Jade Statue", "Cyclopean Tomb", "Mox Ruby", "Mox Sapphire",
-        "Black Vise", "Crystal Rod", "Basalt Monolith", "Dingus Egg", "Illusionary Mask", "Iron Star",
-        "The Hive", "Howling Mine", "Obsianus Golem", "Living Wall", "Jade Monolith", "Kormus Bell",
-        "Forcefield", "Helm of Chatzuk", "Copper Tablet", "Soul Net", "Icy Manipulator", "Clockwork Beast",
-        "Library of Leng", "Mana Vault", "Meekstone", "Nevinyrral's Disk", "Ankh of Mishra",
+    ["Base"] = {
+        "Abra", "Alakazam", "Arcanine", "Beedrill", "Bill", "Blastoise",
+        "Bulbasaur", "Caterpie", "Chansey", "Charizard", "Charmander", "Charmeleon",
+        "Clefairy Doll", "Clefairy", "Computer Search", "Defender", "Devolution Spray", "Dewgong",
+        "Diglett", "Doduo", "Double Colorless Energy", "Dragonair", "Dratini", "Drowzee", 
+        "Dugtrio", "Electabuzz", "Electrode", "Energy Removal", "Energy Retrieval", "Farfetchd", 
+        "Fighting Energy", "Fire Energy", "Full Heal", "Gastly", "Grass Energy", 
+        "Growlithe", "Gust Of Wind", "Gyarados", "Haunter", "Hitmonchan", 
+        "Impostor Professor Oak", "Item Finder", "Ivysaur", "Jynx", "Kadabra", 
+        "Kakuna", "Koffing", "Lass", "Lightning Energy", "Machamp", 
+        "Machoke", "Machop", "Magikarp", "Magmar", "Magnemite", 
+        "Magneton", "Maintenance", "Metapod", "Mewtwo", "Nidoking", 
+        "Nidoran (Male)", "Nidorino", "Ninetales", "Onix", "Pidgeotto", 
+        "Pidgey", "Pikachu", "Pluspower", "Pokedex", "Pokemon Breeder", 
+        "Pokemon Center", "Pokemon Flute", "Pokemon Trader", "Poliwag", "Poliwhirl", 
+        "Poliwrath", "Ponyta", "Porygon", "Potion", "Professor Oak", 
+        "Psychic Energy", "Raichu", "Raticate", "Rattata", "Revive", 
+        "Sandshrew", "Scoop Up", "Seel", "Squirtle", "Starmie", 
+        "Staryu", "Super Energy Removal", "Super Potion", "Switch", "Tangela", 
+        "Venusaur", "Voltorb", "Vulpix", "Wartortle", "Water Energy", 
+        "Weedle", "Zapdos"
+    }
+
+    ["Jungle"] = {
+
     },
 
-    ["Black"] = {
-        "Demonic Attorney", "Nether Shadow", "Mind Twist", "Dark Ritual", "Scathe Zombies", "Darkpact",
-        "Pestilence", "Frozen Shade", "Cursed Land", "Raise Dead", "Black Knight", "Paralyze", "Nightmare",
-        "Hypnotic Specter", "Plague Rats", "Wall of Bone", "Gloom", "Will-O-The-Wisp", "Warp Artifact",
-        "Contract from Below", "World of Command", "Unholy Strength", "Animate Dead", "Nettling Imp",
-        "Demonic Tutor", "Deathlace", "Demonic Hordes", "Howl from Beyond", "Bog Wraith", "Drain Life",
-        "Royal Assassin", "Sengir Vampire", "Bad Moon", "Scavenging Ghoul", "Lich", "Zombie Master",
-        "Weakness", "Simulacrum", "Lord of the Pit", "Deathgrip ", "Drudge Skeletons", "Terror",
-        "Sacrifice", "Fear", "Evil Presence", "Sinkhole",
+    ["Fossil"] = {
+
     },
 
-    ["White"] = {
-        "Death Ward", "Serra Angel", "Blessing", "Samite Healer", "Mesa Pegasus", "Holy Strength",
-        "Healing Salve", "Red Ward", "Lance", "Animate Wall", "Consecrate Land", "Righteousness",
-        "Savannah Lions", "Veteran Bodyguard", "Personal Incarnation", "Island Sanctuary",
-        "Circle of Protection: Red", "Castle", "Holy Armor", "Wrath of God", "Wall of Swords",
-        "Blaze of Glory", "Reverse Damage", "Blue Ward", "Circle of Protection: White",
-        "Circle of Protection: Blue", "Balance", "Karma", "Pearled Unicorn", "Northern Paladin",
-        "Armageddon", "White Knight", "Ressurection", "White Ward", "Swords to Plowshares",
-        "Farmstead", "Purelace", "Disenchant", "Green Ward", "Circle of Protection: Green",
-        "Black Ward", "Conversion", "Benalish Hero", "Guardian Angel", "Crusade", "Circle of Protection: Black",
+    ["Rocket"] = {
+
     },
 
-    ["Green"] = {
-        "Aspect of Wolf", "Wild Growth", "Ley Druid", "Thicket Basilisk", "Gaea's Liege", "Lifeforce",
-        "Berserk", "Llanowar Elves", "Fog", "Grizzly Bears", "Wall of Ice", "Living Artifact", "War Mammoth",
-        "Channel", "Craw Wurm", "Timber Wolves", "Regrowth", "Ironroot Treefolk", "Regeneration", "Kudzu",
-        "Wall of Brambles", "Stream of Life", "Natural Selection", "Fastbond", "Verduran Enchantress",
-        "Tsunami", "Cockatrice", "Ice Storm", "Wall of Wood", "Shanodin Dryads", "Living Lands", "Giant Spider",
-        "Tranquility", "Scryb Sprites", "Instill Energy", "Fungusaur", "Birds of Paradise", "Hurricane",
-        "Lifelace", "Camouflage", "Web", "Giant Growth", "Lure", "Wanderlust", "Force of Nature", "Elvish Archers",
+    ["Energy"] = {
+
     },
 
-    ["Blue"] = {
-        "Psychic Venom", "Clone", "Creature Bond", "Drain Power", "Prodigal Sorcerer", "Phantom Monster",
-        "Time Walk", "Wall of Air", "Siren's Call", "Sleight of Mind", "Sea Serpent", "Pirate Ship",
-        "Power Leak", "Jump", "Stasis", "Volcanic Eruption", "Psionic Blast", "Timetwister", "Water Elemental",
-        "Unsummon", "Spell Blast", "Steal Artifact", "Control Magic", "Vesuvan Doppelganger", "Mana Short",
-        "Ancestral Recall", "Air Elemental", "Flight", "Animate Artifact", "Braingeyser", "Twiddle",
-        "Wall of Water", "Mahamoti Djinn", "Magical Hack", "Merfolk of the Pearl Trident", "Thoughtlace",
-        "Lord of Atlantis", "Blue Elemental Blast", "Phantasmal Terrain", "Power Sink", "Invisibility",
-        "Lifetap", "Feedback", "Counterspell", "Phantasmal Forces", "Copy Artifact",
+    ["Trainer"] = {
+
     },
 
-    ["Red"] = {
-        "Shivan Dragon", "Granite Gargoyle", "Wall of Fire", "Flashfires", "Fork", "Earthquake", "Fire Elemental",
-        "Lightning Bolt", "Ironclaw Orcs", "Fireball", "Mons's Goblin Raiders", "Earth Elemental", "Tunnel",
-        "Sedge Troll", "Orcish Artillery", "Earthbind", "Burrowing", "Orcish Oriflamme", "Keldon Warlord",
-        "Disintegrate", "Stone Giant", "Mana Flare", "False Orders", "Smoke", "Hurloon Minotaur",
-        "Red Elemental Blast", "Gray Ogre", "Roc of Kher Ridges", "Chaoslace", "Dragon Whelp",
-        "Wheel of Fortune", "Power Surge", "Raging River", "Manabarbs", "Goblin King", "Stone Rain",
-        "Goblin balloon Brigade", "Shatter", "Rock Hydra", "Firebreathing", "Two-Handed Giant of Foriys",
-        "Uthden Troll", "Dwarven Warriors", "Wall of Stone", "Hill Giant", "Dwarven Demolition Team",
+    ["Item"] = {
+
     },
-
-    ["Spells"] = {},
-    ["Special Land"] = {},
-
-    ["Black Land"] = { "Swamp", "Swamp", "Swamp"},
-    ["White Land"] = { "Plains", "Plains", "Plains"},
-    ["Green Land"] = { "Forest", "Forest", "Forest"},
-    ["Blue Land"] = { "Island", "Island", "Island"},
-    ["Red Land"] = { "Mountain", "Mountain", "Mountain"},
-
-    ["Blue White Land"] = { "Tundra" },
-    ["Black Blue Land"] = { "Underground Sea" },
-    ["White Black Land"] = { "Scrubland" },
-    ["Red Black Land"] = { "Badlands" },
-    ["Red White Land"] = { "Plateau" },
-    ["Green Red Land"] = { "Taiga" },
-    ["White Green Land"] = { "Savannah" },
-    ["Green Blue Land"] = { "Tropical Island" },
-    ["Black Green Land"] = { "Bayou" },
-    ["Blue Red Land"] = { "Volcanic Island" },
-
 }
 
+--[[
 MTG.catalogue = {}
 MTG.altNames = {}
 
@@ -140,12 +101,13 @@ MTG.alphaLand = {
     "Green Land 1", "Green Land 2", "Green Land 3", "White Land 1", "White Land 2", "White Land 3",
     "Black Land 1", "Black Land 2", "Black Land 3",
 }
+]]
 
 
 MTG.colorCodedRarity = {Land={}, Common={}, Uncommon={}, Rare={}}
 
 --- Build entire catalogue as a deck
-for set,cards in pairs(MTG.alphaCards) do
+for set,cards in pairs(Pokemon.tradingCards) do
     for i,card in pairs(cards) do
         local cardID = "MTG Alpha "..set.." "..i
         MTG.altNames[cardID] = card
