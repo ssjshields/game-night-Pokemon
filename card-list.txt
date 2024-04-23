@@ -1,10 +1,38 @@
-/// theme decks
+575 Total Cards
+Base: x6 Energy, x26 Trainer, x69 Pokémon
+Jungle: 
+Fossil:
+Team Rocket:
+Gym Heroes:
+Gym Challenge:
 
-base
+/// boosters and boxes
+
+demo game
+https://pokeprofessional.com/base-set-sealed-product-master-list/#Gift-Boxes
+
+booster packs
+https://pokeprofessional.com/base-set-sealed-product-master-list/#booster-packs
+
+blister packs (packaged booster packs, 1 special 2-pack blister.)
+https://pokeprofessional.com/base-set-sealed-product-master-list/#blister-packs
+
+booster box
+https://pokeprofessional.com/base-set-sealed-product-master-list/#booster-boxes
+
+special 2 player starter
+https://bulbapedia.bulbagarden.net/wiki/2-Player_Starter_Set_(TCG)
+
+
+/// base theme decks
+
 https://www.serebii.net/card/themedeck/blackout.shtml
 https://www.serebii.net/card/themedeck/brushfire.shtml
 https://www.serebii.net/card/themedeck/overgrowth.shtml
 https://www.serebii.net/card/themedeck/zap.shtml
+
+
+/// expansion set theme decks
 
 jungle
 https://www.serebii.net/card/themedeck/powerreserve.shtml
