@@ -1,110 +1,143 @@
-/// base
+/// theme decks
 
-abra
-alakazam
-arcanine
-beedrill
-bill
-blastoise
-bulbasaur
-caterpie
-chansey
-charizard
-charmander
-charmeleon
-clefairy-doll
-clefairy
-computer-search
-defender
-devolution-spray
-dewgong
-diglett
-doduo
-double-colorless-energy
-dragonair
-dratini
-drowzee
-dugtrio
-electabuzz
-electrode
-energy-removal
-energy-retrieval
-farfetchd
-fighting-energy
-fire-energy
-full-heal
-gastly
-grass-energy
-growlithe
-gust-of-wind
-gyarados
-haunter
-hitmonchan
-impostor-professor-oak
-item-finder
-ivysaur
-jynx
-kadabra
-kakuna
-koffing
-lass
-lightning-energy
-machamp
-machoke
-machop
-magikarp
-magmar
-magnemite
-magneton
-maintenance
-metapod
-mewtwo
-nidoking
-nidoran-male
-nidorino
-ninetales
-onix
-pidgeotto
-pidgey
-pikachu
-pluspower
-pokedex
-pokemon-breeder
-pokemon-center
-pokemon-flute
-pokemon-trader
-poliwag
-poliwhirl
-poliwrath
-ponyta
-porygon
-potion
-professor-oak
-psychic-energy
-raichu
-raticate
-rattata
-revive
-sandshrew
-scoop-up
-seel
-squirtle
-starmie
-staryu
-super-energy-removal
-super-potion
-switch
-tangela
-venusaur
-voltorb
-vulpix
-wartortle
-water-energy
-weedle
-zapdos
+base
+https://www.serebii.net/card/themedeck/blackout.shtml
+https://www.serebii.net/card/themedeck/brushfire.shtml
+https://www.serebii.net/card/themedeck/overgrowth.shtml
+https://www.serebii.net/card/themedeck/zap.shtml
+
+jungle
+https://www.serebii.net/card/themedeck/powerreserve.shtml
+https://www.serebii.net/card/themedeck/waterblast.shtml
+
+fossil
+https://www.serebii.net/card/themedeck/bodyguard.shtml
+https://www.serebii.net/card/themedeck/lockdown.shtml
+
+ro
+https://www.serebii.net/card/themedeck/trouble.shtml
+https://www.serebii.net/card/themedeck/devastation.shtml
+
+gym heroes
+https://www.serebii.net/card/themedeck/brock.shtml
+https://www.serebii.net/card/themedeck/misty.shtml
+https://www.serebii.net/card/themedeck/lt.surge.shtml
+https://www.serebii.net/card/themedeck/erika.shtml
+
+gym challenge
+https://www.serebii.net/card/themedeck/sabrina.shtml
+https://www.serebii.net/card/themedeck/koga.shtml
+https://www.serebii.net/card/themedeck/blaine.shtml
+https://www.serebii.net/card/themedeck/giovanni.shtml
 
 
-/// fossil
+/// base card set
+
+Abra
+Alakazam
+Arcanine
+Beedrill
+Bill
+Blastoise
+Bulbasaur
+Caterpie
+Chansey
+Charizard
+Charmander
+Charmeleon
+Clefairy Doll
+Clefairy
+Computer Search
+Defender
+Devolution Spray
+Dewgong
+Diglett
+Doduo
+Double Colorless Energy
+Dragonair
+Dratini
+Drowzee
+Dugtrio
+Electabuzz
+Electrode
+Energy Removal
+Energy Retrieval
+Farfetchd
+Fighting Energy
+Fire Energy
+Full Heal
+Gastly
+Grass Energy
+Growlithe
+Gust Of Wind
+Gyarados
+Haunter
+Hitmonchan
+Impostor Professor Oak
+Item Finder
+Ivysaur
+Jynx
+Kadabra
+Kakuna
+Koffing
+Lass
+Lightning Energy
+Machamp
+Machoke
+Machop
+Magikarp
+Magmar
+Magnemite
+Magneton
+Maintenance
+Metapod
+Mewtwo
+Nidoking
+Nidoran (Male)
+Nidorino
+Ninetales
+Onix
+Pidgeotto
+Pidgey
+Pikachu
+Pluspower
+Pokedex
+Pokemon Breeder
+Pokemon Center
+Pokemon Flute
+Pokemon Trader
+Poliwag
+Poliwhirl
+Poliwrath
+Ponyta
+Porygon
+Potion
+Professor Oak
+Psychic Energy
+Raichu
+Raticate
+Rattata
+Revive
+Sandshrew
+Scoop Up
+Seel
+Squirtle
+Starmie
+Staryu
+Super Energy Removal
+Super Potion
+Switch
+Tangela
+Venusaur
+Voltorb
+Vulpix
+Wartortle
+Water Energy
+Weedle
+Zapdos
+
+
+/// fossil card set
 
 aerodactyl-alt
 aerodactyl
@@ -170,7 +203,7 @@ zapdos
 zubat
 
 
-/// jungle
+/// jungle card set
 
 bellsprout
 butterfree
@@ -238,7 +271,7 @@ wigglytuff-alt
 wigglytuff
 
 
-/// ro
+/// ro card set
 
 abra
 challenge
