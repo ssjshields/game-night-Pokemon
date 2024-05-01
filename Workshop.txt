@@ -1,0 +1,19 @@
+version=1
+title=Game Night: Pokemon
+description=[h2]Add-On for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3058279917]GameNight[/url].[/h2]
+description=[h3]Gotta Catch ‘Em All![/h3]
+description=
+description=Features the Base, Jungle, Fossil, Team Rocket, Gym Heroes, and Gym Challenge sets.
+description=
+description=
+description=[url=https://discord.gg/SReMnbV4V7][img]https://raw.githubusercontent.com/Chuckleberry-Finn/chuckImages/main/PZmodCommBanner2.png[/img][/url]
+description=
+description=[url=https://github.com/Chuckleberry-Finn/game-night][img]https://raw.githubusercontent.com/Chuckleberry-Finn/game-night/main/images/addOnGuideBanner.png[/img][/url]
+description=
+description=[i]The literal and graphical information presented in this download about the Pokémon Trading Card Game, including card text and images, are copyright The Pokémon Company (Pokémon), Nintendo, Game Freak, Creatures, and/or Wizards of the Coast.[/i]
+description=[i]This content is not produced by, endorsed by, supported by, or affiliated with The Pokémon Company (Pokémon), Nintendo, Game Freak, Creatures, or Wizards of the Coast.[/i]
+description=
+description=
+description=[h3]Copyright 2024 Nurver, and Oppolla. This item is not authorized for posting on Steam, except under the Steam account(s) named Nurver, and Oppolla.[/h3]
+tags=Build 41;Multiplayer;Pop Culture;Silly/Fun
+visibility=public

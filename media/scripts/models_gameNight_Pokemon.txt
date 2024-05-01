@@ -1,8 +1,0 @@
-module Base
-{
-    model MTG_Booster { mesh = WorldItems/gameNightMoney, texture = Item_Boxes/MTGBoosterPack_ground, scale = 0.0009, }
-    model MTG_StarterBox { mesh = WorldItems/cardpack, texture = Item_Boxes/MTGStarterBox_ground, scale = 0.06, }
-
-    model MTG_Deck { mesh = WorldItems/cardpack, texture = Item_mtgCards/deckTexture, scale = 0.024, }
-    model MTG_Card { mesh = WorldItems/cardpack, texture = Item_mtgCards/deckTexture, scale = 0.024, }
-}
