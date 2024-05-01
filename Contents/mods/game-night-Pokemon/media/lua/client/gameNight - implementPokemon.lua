@@ -331,25 +331,121 @@ Pokemon.tradingCards = {
 
 }
 
---[[
+
 Pokemon.catalogue = {}
 Pokemon.altNames = {}
 
 -- Base Set
 Pokemon.baseRare = {
-    
+    "Base Alakazam",
+    "Base Beedrill",
+    "Base Blastoise",
+    "Base Chansey",
+    "Base Charizard",
+    "Base Clefairy Doll",
+    "Base Clefairy",
+    "Base Computer Search",
+    "Base Devolution Spray",
+    "Base Dragonair",
+    "Base Dugtrio",
+    "Base Electabuzz",
+    "Base Electrode",
+    "Base Gyarados",
+    "Base Hitmonchan",
+    "Base Impostor Professor Oak",
+    "Base Item Finder",
+    "Base Lass",
+    "Base Machamp",
+    "Base Magneton",
+    "Base Mewtwo",
+    "Base Nidoking",
+    "Base Ninetales",
+    "Base Pidgeotto",
+    "Base Pokemon Breeder",
+    "Base Pokemon Trader",
+    "Base Poliwrath",
+    "Base Raichu",
+    "Base Scoop Up",
+    "Base Super Energy Removal",
+    "Base Venusaur",
+    "Base Zapdos",  
 }
 
 Pokemon.baseUncommon = {
-   
+    "Base Arcanine",
+    "Base Charmeleon",
+    "Base Defender",
+    "Base Dewgong",
+    "Base Double Colorless Energy",
+    "Base Dratini",
+    "Base Energy Retrieval",
+    "Base Farfetchd",
+    "Base Full Heal",
+    "Base Growlithe",
+    "Base Haunter",
+    "Base Ivysaur",
+    "Base Jynx",
+    "Base Kadabra",
+    "Base Kakuna",
+    "Base Machoke",
+    "Base Magikarp",
+    "Base Magmar",
+    "Base Maintenance",
+    "Base Nidorino",
+    "Base Pluspower",
+    "Base Pokedex",
+    "Base Pokemon Center",
+    "Base Pokemon Flute",
+    "Base Poliwhirl",
+    "Base Porygon",
+    "Base Professor Oak",
+    "Base Raticate",
+    "Base Revive",
+    "Base Seel",
+    "Base Super Potion",
+    "Base Wartortle",
 }
 
 Pokemon.baseCommon = {
-    
+    "Base Abra",
+    "Base Bill",
+    "Base Bulbasaur",
+    "Base Caterpie",
+    "Base Diglett",
+    "Base Doduo",
+    "Base Drowzee",
+    "Base Energy Removal",
+    "Base Gastly",
+    "Base Gust Of Wind",
+    "Base Koffing",
+    "Base Machop",
+    "Base Magnemite",
+    "Base Metapod",
+    "Base Nidoran (Male)",
+    "Base Onix",
+    "Base Pidgey",
+    "Base Pikachu",
+    "Base Poliwag",
+    "Base Ponyta",
+    "Base Potion",
+    "Base Rattata",
+    "Base Sandshrew",
+    "Base Squirtle",
+    "Base Starmie",
+    "Base Staryu",
+    "Base Tangela",
+    "Base Voltorb",
+    "Base Vulpix",
+    "Base Weedle",   
 }
 
 Pokemon.baseEnergy = {
-    
+    "Base Fighting Energy",
+    "Base Fire Energy",
+    "Base Grass Energy",
+    "Base Lightning Energy",
+    "Base Psychic Energy",
+    "Base Water Energy",  
 }
 
 -- Jungle Set
@@ -386,7 +482,6 @@ Pokemon.fossilEnergy = {
     
 }
 
-]]
 
 
 MTG.colorCodedRarity = {Land={}, Common={}, Uncommon={}, Rare={}}
