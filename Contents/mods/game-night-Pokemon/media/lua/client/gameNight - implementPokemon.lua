@@ -66,41 +66,70 @@ Pokemon.tradingCards = {
 
 }
 
+--Pokemon.tradingCards = {}
+Pokemon.cardByType = {}
+Pokemon.cardByRarity = {}
+Pokemon.sets = {}
+-- Grass, Fire, Water, Lightning, Fighting, Psychic, Colorless, Trainer
+Pokemon.cardData = {}
 
-Pokemon.rarities = {}
+function Pokemon.generatePokemonCards()
+    for set,rarities in pairs(Pokemon.cardData) do
+        Pokemon.sets[set] = {}
+        for rarity,cards in pairs(rarities) do
+            for card,type in pairs(cards) do
+                local cardID = set.." "..card
+                table.insert(Pokemon.sets[set], cardID)
+                Pokemon.cardByType[cardID] = type
+                Pokemon.cardByRarity[cardID] = rarity
+            end
+        end
+    end
+end
+Events.OnGameBoot.Add(Pokemon.generatePokemonCards)
 
 -- Base Set
-Pokemon.rarities["Base"] = {
+Pokemon.cardData["Base"] = {
     rare = {
-        "Alakazam", "Beedrill", "Blastoise", "Chansey", "Charizard", "Clefairy Doll", "Clefairy", "Computer Search",
-        "Devolution Spray", "Dragonair", "Dugtrio", "Electabuzz", "Electrode", "Gyarados", "Hitmonchan",
-        "Impostor Professor Oak", "Item Finder", "Lass", "Machamp", "Magneton", "Mewtwo", "Nidoking", "Ninetales",
-        "Pidgeotto", "Pokemon Breeder", "Pokemon Trader", "Poliwrath", "Raichu", "Scoop Up", "Super Energy Removal",
-        "Venusaur", "Zapdos",
+        ["Alakazam"]="Psychic", ["Beedrill"]="Grass", ["Blastoise"]="Water", ["Chansey"]="Colorless", 
+        ["Charizard"]="Fire", ["Clefairy Doll"]="Trainer", ["Clefairy"]="Fairy", ["Computer Search"]="Trainer",
+        ["Devolution Spray"]="Trainer", ["Dragonair"]="Dragon", ["Dugtrio"]="Fighting", ["Electabuzz"]="Lightning", 
+        ["Electrode"]="Lightning", ["Gyarados"]="Water", ["Hitmonchan"]="Fighting", ["Impostor Professor Oak"]="Trainer", 
+        ["Item Finder"]="Trainer", ["Lass"]="Trainer", ["Machamp"]="Fighting", ["Magneton"]="Metal", ["Mewtwo"]="Psychic", 
+        ["Nidoking"]="Grass", ["Ninetales"]="Fire", ["Pidgeotto"]="Colorless", ["Pokemon Breeder"]="Trainer", 
+        ["Pokemon Trader"]="Trainer", ["Poliwrath"]="Water", ["Raichu"]="Lightning", ["Scoop Up"]="Trainer", 
+        ["Super Energy Removal"]="Trainer", ["Venusaur"]="Grass", ["Zapdos"]="Lightning",
     },
 
     uncommon = {
-        "Arcanine", "Charmeleon", "Defender", "Dewgong", "Double Colorless Energy", "Dratini", "Energy Retrieval",
-        "Farfetchd", "Full Heal", "Growlithe", "Haunter", "Ivysaur", "Jynx", "Kadabra", "Kakuna", "Machoke", "Magikarp",
-        "Magmar", "Maintenance", "Nidorino", "Pluspower", "Pokedex", "Pokemon Center", "Pokemon Flute", "Poliwhirl",
-        "Porygon", "Professor Oak", "Raticate", "Revive", "Seel", "Super Potion", "Wartortle",
+        ["Arcanine"]="Fire", ["Charmeleon"]="Fire", ["Defender"]="Trainer", ["Dewgong"]="Water", 
+        ["Double Colorless Energy"]="Colorless", ["Dratini"]="Dragon", ["Energy Retrieval"]="Trainer", ["Farfetchd"]="Colorless", 
+        ["Full Heal"]="Trainer", ["Growlithe"]="Fire", ["Haunter"]="Psychic", ["Ivysaur"]="Grass", ["Jynx"]="Psychic", 
+        ["Kadabra"]="Psychic", ["Kakuna"]="Grass", ["Machoke"]="Fighting", ["Magikarp"]="Water", ["Magmar"]="Fire", 
+        ["Maintenance"]="Trainer", ["Nidorino"]="Grass", ["Pluspower"]="Trainer", ["Pokedex"]="Trainer", 
+        ["Pokemon Center"]="Trainer", ["Pokemon Flute"]="Trainer", ["Poliwhirl"]="Water", ["Porygon"]="Colorless", 
+        ["Professor Oak"]="Trainer", ["Raticate"]="Colorless", ["Revive"]="Trainer", ["Seel"]="Water", 
+        ["Super Potion"]="Trainer", ["Wartortle"]="Water",
     },
 
     common = {
-        "Abra", "Bill", "Bulbasaur", "Caterpie", "Diglett", "Doduo", "Drowzee", "Energy Removal", "Gastly",
-        "Gust Of Wind", "Koffing", "Machop", "Magnemite", "Metapod", "Nidoran (Male)", "Onix", "Pidgey", "Pikachu",
-        "Poliwag", "Ponyta", "Potion", "Rattata", "Sandshrew", "Squirtle", "Starmie", "Staryu", "Tangela", "Voltorb",
-        "Vulpix", "Weedle",
+        ["Abra"]="Psychic", ["Bill"]="Trainer", ["Bulbasaur"]="Grass", ["Caterpie"]="Grass", ["Diglett"]="Ground", 
+        ["Doduo"]="Colorless", ["Drowzee"]="Psychic", ["Energy Removal"]="Trainer", ["Gastly"]="Psychic",
+        ["Gust Of Wind"]="Trainer", ["Koffing"]="Grass", ["Machop"]="Fighting", ["Magnemite"]="Metal", ["Metapod"]="Grass", 
+        ["Nidoran (Male)"]="Grass", ["Onix"]="Fighting", ["Pidgey"]="Colorless", ["Pikachu"]="Lightning", ["Poliwag"]="Water", 
+        ["Ponyta"]="Fire", ["Potion"]="Trainer", ["Rattata"]="Colorless", ["Sandshrew"]="Fighting", ["Squirtle"]="Water", 
+        ["Starmie"]="Water", ["Staryu"]="Water", ["Tangela"]="Grass", ["Voltorb"]="Lightning", ["Vulpix"]="Fire", ["Weedle"]="Grass",
     },
 
     energy = {
-        "Fighting Energy", "Fire Energy", "Grass Energy", "Lightning Energy", "Psychic Energy", "Water Energy",
+        ["Fighting Energy"]="Fighting", ["Fire Energy"]="Fire", ["Grass Energy"]="Grass", 
+        ["Lightning Energy"]="Lightning", ["Psychic Energy"]="Psychic", ["Water Energy"]="Water",
     },
 }
 
 
 -- Jungle Set
-Pokemon.rarities["Jungle"] = {
+Pokemon.cardData["Jungle"] = {
     rare = {
     },
 
@@ -115,7 +144,7 @@ Pokemon.rarities["Jungle"] = {
 }
 
 -- Fossil Set
-Pokemon.rarities["Fossil"] = {
+Pokemon.cardData["Fossil"] = {
     rare = {
     },
 
