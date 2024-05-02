@@ -2,7 +2,7 @@ require "Items/SuburbsDistributions"
 
 local gameNightDistro = require "gameNight - Distributions"
 
-gameNightDistro.proceduralDistGameNight.itemsToAdd["mtgStarterKit"] = {
+gameNightDistro.proceduralDistGameNight.itemsToAdd["pokemonStarterKit"] = {
     perDistFactor = {
         ["ClassroomDesk"] = 0.01,
         ["BedroomDresser"] = 0.01,
@@ -16,12 +16,12 @@ gameNightDistro.proceduralDistGameNight.itemsToAdd["mtgStarterKit"] = {
     }
 }
 
-gameNightDistro.proceduralDistGameNight.itemsToAdd["mtgBoosterPack"] = {
+gameNightDistro.proceduralDistGameNight.itemsToAdd["pokemonBoosterPack"] = {
     perDistFactor = {
-        ["ClassroomDesk"] = 0.01,
+        ["ClassroomDesk"] = 0.015,
         ["BedroomDresser"] = 0.01,
         ["ClassroomMisc"] = 0.01,
-        ["SchoolLockers"] = 0.01,
+        ["SchoolLockers"] = 0.015,
         ["OfficeDeskHome"]=0,
         ["BarCounterMisc"]=0,
         ["Hobbies"]=0.01,
@@ -30,7 +30,7 @@ gameNightDistro.proceduralDistGameNight.itemsToAdd["mtgBoosterPack"] = {
     }
 }
 
-gameNightDistro.proceduralDistGameNight.itemsToAdd["mtgCards"] = {
+gameNightDistro.proceduralDistGameNight.itemsToAdd["pokemonCards"] = {
     perDistFactor = {
         ["Gifts"]=0,
         ["GigamartToys"]=0,
