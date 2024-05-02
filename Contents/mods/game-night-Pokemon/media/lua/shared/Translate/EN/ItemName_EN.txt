@@ -1,5 +1,5 @@
 ItemName_EN = {
-    ItemName_Base.UnoCards = "Uno Cards",
-    ItemName_Base.UnoBox = "Uno Box",
-    ItemName_Base.UnoBox_sealed = "Uno Box (Sealed)",
+    ItemName_Base.pokemonCards = "Pokemon Cards",
+    ItemName_Base.pokemonStarterKit = "Pokemon Starter Kit",
+    ItemName_Base.pokemonStarterKit_sealed = "Pokemon Starter Kit (Sealed)",
 }
