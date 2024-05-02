@@ -483,6 +483,7 @@ Pokemon.fossilEnergy = {
 }
 
 
+--[[
 
 MTG.colorCodedRarity = {Land={}, Common={}, Uncommon={}, Rare={}}
 
@@ -626,7 +627,6 @@ function deckActionHandler.tapCard(deckItem, player)
     gamePieceAndBoardHandler.pickupAndPlaceGamePiece(player, deckItem, {gamePieceAndBoardHandler.setModDataValue, deckItem, "gameNight_rotation", state})
 end
 
-
 MTG.deckArchetypesList = {
     --- 5 mono decks
     White = {"White"},
@@ -675,15 +675,15 @@ function MTG.buildDeck(archetype)
 
     local colors = MTG.deckArchetypesList[archetype]
 
-    --[[DEBUG]] local colorString = ""
+    local colorString = ""
     for i,c in ipairs(colors) do colorString = colorString..c..((#colors>1 and i~=#colors) and "/" or "") end
-    --[[DEBUG]] local rarities = {Common=0, Uncommon = 0, Rare =0}
+    local rarities = {Common=0, Uncommon = 0, Rare =0}
     --avg goal of 6 artifacts
     --11 instead of 10 skews the average lower
     local artifactGoal = math.floor(deckSize/11)+ZombRand(3) -- 0 to 2 additional
     for i=1, artifactGoal do
         local rarity = applyItemDetails.MTG.weighedProbability({ Uncommon = 3, Rare = 1})
-        --[[DEBUG]] rarities[rarity] = rarities[rarity]+1
+        rarities[rarity] = rarities[rarity]+1
         local card = applyItemDetails.MTG.rollCardOfParticularColor(rarity, "Artifacts")
         table.insert(cards, card)
     end
@@ -700,7 +700,7 @@ function MTG.buildDeck(archetype)
     for i=1, remainingCount do
         local color = colors[ZombRand(#colors)+1]
         local rarity = applyItemDetails.MTG.weighedProbability({ Common = 11, Uncommon = 3, Rare = 1})
-        --[[DEBUG]] rarities[rarity] = rarities[rarity]+1
+        rarities[rarity] = rarities[rarity]+1
         local card = applyItemDetails.MTG.rollCardOfParticularColor(rarity, color)
         table.insert(cards, card)
     end
@@ -714,3 +714,5 @@ function MTG.buildDeck(archetype)
 
     return cards
 end
+
+--]]
