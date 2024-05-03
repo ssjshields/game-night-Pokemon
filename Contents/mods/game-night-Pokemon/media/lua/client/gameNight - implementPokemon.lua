@@ -7,65 +7,6 @@ local Pokemon = {}
 Pokemon.catalogue = {}
 Pokemon.altNames = {}
 
---- Maybe the sets can be compiled using their rarity tables, rather than listing the same names twice?
-
-Pokemon.tradingCards = {
-
-    ["Base"] = {
-        "Abra", "Alakazam", "Arcanine", "Beedrill", "Bill", "Blastoise", "Bulbasaur", "Caterpie", "Chansey", "Charizard",
-        "Charmander", "Charmeleon", "Clefairy Doll", "Clefairy", "Computer Search", "Defender", "Devolution Spray",
-        "Dewgong", "Diglett", "Doduo", "Double Colorless Energy", "Dragonair", "Dratini", "Drowzee", "Dugtrio",
-        "Electabuzz", "Electrode", "Energy Removal", "Energy Retrieval", "Farfetchd", "Fighting Energy", "Fire Energy",
-        "Full Heal", "Gastly", "Grass Energy", "Growlithe", "Gust Of Wind", "Gyarados", "Haunter", "Hitmonchan",
-        "Impostor Professor Oak", "Item Finder", "Ivysaur", "Jynx", "Kadabra", "Kakuna", "Koffing", "Lass",
-        "Lightning Energy", "Machamp", "Machoke", "Machop", "Magikarp", "Magmar", "Magnemite", "Magneton", "Maintenance",
-        "Metapod", "Mewtwo", "Nidoking", "Nidoran (Male)", "Nidorino", "Ninetales", "Onix", "Pidgeotto", "Pidgey",
-        "Pikachu", "Pluspower", "Pokedex", "Pokemon Breeder", "Pokemon Center", "Pokemon Flute", "Pokemon Trader",
-        "Poliwag", "Poliwhirl", "Poliwrath", "Ponyta", "Porygon", "Potion", "Professor Oak", "Psychic Energy", "Raichu",
-        "Raticate", "Rattata", "Revive", "Sandshrew", "Scoop Up", "Seel", "Squirtle", "Starmie", "Staryu",
-        "Super Energy Removal", "Super Potion", "Switch", "Tangela", "Venusaur", "Voltorb", "Vulpix", "Wartortle",
-        "Water Energy", "Weedle", "Zapdos"
-    },
-
-    ["Jungle"] = {
-        "Bellsprout", "Butterfree", "Clefable (Alt)", "Clefable", "Cubone", "Dodrio", "Eevee", "Electrode (Alt)",
-        "Electrode", "Exeggcute", "Exeggutor", "Fearow", "Flareon (Alt)", "Flareon", "Gloom", "Goldeen", "Jigglypuff",
-        "Jolteon (Alt)", "Jolteon", "Kangaskhan (Alt)", "Kangaskhan", "Lickitung", "Mankey", "Marowak", "Meowth",
-        "Mr Mime", "Mr. Mime (Alt)", "Nidoqueen (Alt)", "Nidoqueen", "Nidoran (Female)", "Nidorina", "Oddish", "Paras",
-        "Parasect", "Persian", "Pidgeot (Alt)", "Pidgeot", "Pikachu", "Pinsir (Alt)", "Pinsir", "Poke Ball", "Primeape",
-        "Rapidash", "Rhydon", "Rhyhorn", "Scyther (Alt)", "Scyther", "Seaking", "Snorlax (Alt)", "Snorlax", "Spearow",
-        "Tauros", "Vaporeon (Alt)", "Vaporeon", "Venomoth (Alt)", "Venomoth", "Venonat", "Victreebel (Alt)", "Victreebel",
-        "Vileplume (Alt)", "Vileplume", "Weepinbell", "Wigglytuff (Alt)", "Wigglytuff"
-    },
-
-    ["Fossil"] = {
-        "Aerodactyl (Alt)", "Aerodactyl", "Arbok", "Articuno (Alt)", "Articuno", "Cloyster", "Ditto (Alt)", "Ditto",
-        "Dragonite (Alt)", "Dragonite", "Ekans", "Energy Search", "Gambler", "Gastly", "Gengar (Alt)", "Gengar",
-        "Geodude", "Golbat", "Golduck", "Golem", "Graveler", "Grimer", "Haunter (Alt)", "Haunter", "Hitmonlee (Alt)",
-        "Hitmonlee", "Horsea", "Hypno (Alt)", "Hypno", "Kabuto", "Kabutops (Alt)", "Kabutops", "Kingler", "Krabby",
-        "Lapras (Alt)", "Lapras", "Magmar", "Magneton (Alt)", "Magneton", "Moltres (Alt)", "Moltres", "Mr. Fuji",
-        "Muk (Alt)", "Muk", "Mysterious Fossil", "Omanyte", "Omastar", "Psyduck", "Raichu (Alt)", "Raichu", "Recycle",
-        "Sandslash", "Seadra", "Shellder", "Slowbro", "Slowpoke", "Tentacool", "Tentacruel", "Weezing", "Zapdos (Alt)",
-        "Zapdos", "Zubat" },
-
-    ["Rocket"] = {
-        "Challenge", "Charmander", "Dark Alakazam (Alt)", "Dark Alakazam", "Dark Arbok (Alt)", "Dark Arbok",
-        "Dark Blastoise (Alt)", "Dark Blastoise", "Dark Charizard (Alt)", "Dark Charizard", "Dark Charmeleon",
-        "Dark Dragonair", "Dark Dragonite (Alt)", "Dark Dragonite", "Dark Dugtrio (Alt)", "Dark Dugtrio",
-        "Dark Electrode", "Dark Flareon", "Dark Gloom", "Dark Golbat (Alt)", "Dark Golbat", "Dark Golduck",
-        "Dark Gyarados (Alt)", "Dark Gyarados", "Dark Hypno (Alt)", "Dark Hypno", "Dark Jolteon", "Dark Kadabra",
-        "Dark Machamp (Alt)", "Dark Machamp", "Dark Machoke", "Dark Magneton (Alt)", "Dark Magneton", "Dark Muk",
-        "Dark Persian", "Dark Primeape", "Dark Raichu", "Dark Rapidash", "Dark Raticate", "Dark Slowbro (Alt)",
-        "Dark Slowbro", "Dark Vaporeon", "Dark Vileplume (Alt)", "Dark Vileplume", "Dark Wartortle",
-        "Dark Weezing (Alt)", "Dark Weezing", "Digger", "Diglett", "Dratini", "Drowzee", "Eevee", "Ekans",
-        "filename", "Full Heal Energy", "Goop Gas Attack", "Grimer", "Here Comes Team Rocket (Alt)",
-        "Here Comes Team Rocket", "Imposter Oaks Revenge", "Koffing", "Machop", "Magikarp", "Magnemite", "Mankey",
-        "Meowth", "Nightly Garbage Run", "Oddish", "Ponyta", "Porygon", "Potion Energy", "Psyduck",
-        "Rainbow Energy (Alt)", "Rainbow Energy", "Rattata", "Rockets Sneak Attack (Alt)", "Rockets Sneak Attack",
-        "Sleep", "Slowpoke", "Squirtle", "The Bosss Way", "Voltorb", "Zubat" },
-
-}
-
 --Pokemon.tradingCards = {}
 Pokemon.cardByType = {}
 Pokemon.cardByRarity = {}
@@ -131,34 +72,107 @@ Pokemon.cardData["Base"] = {
 -- Jungle Set
 Pokemon.cardData["Jungle"] = {
     rare = {
+        ["Clefable (Alt)"]="Colorless", ["Clefable"]="Colorless", ["Electrode (Alt)"]="Lightning", ["Electrode"]="Lightning",
+        ["Flareon (Alt)"]="Fire", ["Flareon"]="Fire", ["Jolteon (Alt)"]="Lightning", ["Jolteon"]="Lightning",
+        ["Kangaskhan (Alt)"]="Colorless", ["Kangaskhan"]="Colorless", ["Mr Mime"]="Psychic", ["Mr. Mime (Alt)"]="Psychic",
+        ["Nidoqueen (Alt)"]="Grass", ["Nidoqueen"]="Grass", ["Pidgeot (Alt)"]="Colorless", ["Pidgeot"]="Colorless",
+        ["Pinsir (Alt)"]="Grass", ["Pinsir"]="Grass", ["Snorlax (Alt)"]="Colorless", ["Snorlax"]="Colorless",
+        ["Scyther (Alt)"]="Grass", ["Scyther"]="Grass", ["Vaporeon (Alt)"]="Water", ["Vaporeon"]="Water",
+        ["Venomoth (Alt)"]="Grass", ["Venomoth"]="Grass", ["Victreebel (Alt)"]="Grass", ["Victreebel"]="Grass",
+        ["Vileplume (Alt)"]="Grass", ["Vileplume"]="Grass", ["Wigglytuff (Alt)"]="Colorless", ["Wigglytuff"]="Colorless",
     },
 
     uncommon = {
+        ["Clefairy"]="Colorless", ["Exeggutor"]="Grass", ["Fearow"]="Colorless", ["Goldeen"]="Water", ["Jigglypuff"]="Colorless",
+        ["Lickitung"]="Colorless", ["Mankey"]="Fighting", ["Marowak"]="Fighting", ["Meowth"]="Colorless", ["Nidoqueen"]="Grass",
+        ["Nidoran (Female)"]="Grass", ["Nidorina"]="Grass", ["Paras"]="Grass", ["Parasect"]="Grass", ["Persian"]="Colorless",
+        ["Primeape"]="Fighting", ["Rapidash"]="Fire", ["Rhydon"]="Fighting", ["Rhyhorn"]="Fighting", ["Seaking"]="Water",
+        ["Spearow"]="Colorless", ["Tauros"]="Colorless", ["Venonat"]="Grass", ["Weepinbell"]="Grass",
     },
 
     common = {
+        ["Bellsprout"]="Grass", ["Butterfree"]="Grass", ["Cubone"]="Fighting", ["Dodrio"]="Colorless", ["Eevee"]="Colorless",
+        ["Exeggcute"]="Grass", ["Flareon"]="Fire", ["Gloom"]="Grass", ["Jolteon"]="Lightning", ["Kangaskhan"]="Colorless",
+        ["Mankey"]="Fighting", ["Meowth"]="Colorless", ["Nidoqueen"]="Grass", ["Nidoran (Female)"]="Grass", ["Oddish"]="Grass",
+        ["Paras"]="Grass", ["Pikachu"]="Lightning", ["Poke Ball"]="Trainer", ["Rapidash"]="Fire", ["Rhyhorn"]="Fighting",
+        ["Scyther"]="Grass", ["Spearow"]="Colorless", ["Tauros"]="Colorless", ["Venonat"]="Grass", ["Vileplume"]="Grass",
+        ["Weepinbell"]="Grass", ["Wigglytuff"]="Colorless",
     },
 
     energy = {
+        ["Fighting Energy"]="Fighting", ["Fire Energy"]="Fire", ["Grass Energy"]="Grass",
+        ["Lightning Energy"]="Lightning", ["Water Energy"]="Water",
     },
 }
+
 
 -- Fossil Set
 Pokemon.cardData["Fossil"] = {
     rare = {
+        ["Aerodactyl (Alt)"]="Fighting", ["Aerodactyl"]="Fighting", ["Articuno (Alt)"]="Water", ["Articuno"]="Water",
+        ["Ditto (Alt)"]="Colorless", ["Ditto"]="Colorless", ["Dragonite (Alt)"]="Colorless", ["Dragonite"]="Colorless",
+        ["Gengar (Alt)"]="Psychic", ["Gengar"]="Psychic", ["Haunter (Alt)"]="Psychic", ["Haunter"]="Psychic",
+        ["Hitmonlee (Alt)"]="Fighting", ["Hitmonlee"]="Fighting", ["Hypno (Alt)"]="Psychic", ["Hypno"]="Psychic",
+        ["Kabutops (Alt)"]="Fighting", ["Kabutops"]="Fighting", ["Lapras (Alt)"]="Water", ["Lapras"]="Water",
+        ["Magneton (Alt)"]="Colorless", ["Magneton"]="Colorless", ["Moltres (Alt)"]="Fire", ["Moltres"]="Fire",
+        ["Raichu (Alt)"]="Lightning", ["Raichu"]="Lightning", ["Zapdos (Alt)"]="Lightning", ["Zapdos"]="Lightning",
     },
 
     uncommon = {
+        ["Arbok"]="Colorless", ["Cloyster"]="Water", ["Dragonite"]="Colorless", ["Geodude"]="Fighting", ["Golbat"]="Colorless",
+        ["Golduck"]="Water", ["Golem"]="Fighting", ["Graveler"]="Fighting", ["Grimer"]="Colorless", ["Kingler"]="Water",
+        ["Kabuto"]="Fighting", ["Mr. Fuji"]="Trainer", ["Muk (Alt)"]="Colorless", ["Muk"]="Colorless", ["Omanyte"]="Water",
+        ["Omastar"]="Water", ["Psyduck"]="Water", ["Recycle"]="Trainer", ["Sandslash"]="Fighting", ["Seadra"]="Water",
+        ["Shellder"]="Water", ["Slowbro"]="Water", ["Slowpoke"]="Water", ["Tentacool"]="Water", ["Tentacruel"]="Water",
+        ["Weezing"]="Colorless", ["Zubat"]="Colorless",
     },
 
     common = {
+        ["Ekans"]="Colorless", ["Energy Search"]="Trainer", ["Gambler"]="Trainer", ["Gastly"]="Psychic", ["Horsea"]="Water",
     },
 
     energy = {
+        ["Fighting Energy"]="Fighting", ["Fire Energy"]="Fire", ["Water Energy"]="Water",
+        ["Lightning Energy"]="Lightning", ["Psychic Energy"]="Psychic",
     },
 }
 
 
+Pokemon.cardData["Rocket"] = {
+    rare = {
+        ["Challenge"]="Colorless", ["Charmander"]="Fire", ["Dark Alakazam (Alt)"]="Psychic", ["Dark Alakazam"]="Psychic",
+        ["Dark Arbok (Alt)"]="Grass", ["Dark Arbok"]="Grass", ["Dark Blastoise (Alt)"]="Water", ["Dark Blastoise"]="Water",
+        ["Dark Charizard (Alt)"]="Fire", ["Dark Charizard"]="Fire", ["Dark Charmeleon"]="Fire", ["Dark Dragonair"]="Dragon",
+        ["Dark Dragonite (Alt)"]="Dragon", ["Dark Dragonite"]="Dragon", ["Dark Dugtrio (Alt)"]="Fighting", ["Dark Dugtrio"]="Fighting",
+        ["Dark Electrode"]="Lightning", ["Dark Flareon"]="Fire", ["Dark Gloom"]="Grass", ["Dark Golbat (Alt)"]="Colorless",
+        ["Dark Golbat"]="Colorless", ["Dark Golduck"]="Water", ["Dark Gyarados (Alt)"]="Water", ["Dark Gyarados"]="Water",
+        ["Dark Hypno (Alt)"]="Psychic", ["Dark Hypno"]="Psychic", ["Dark Jolteon"]="Lightning", ["Dark Kadabra"]="Psychic",
+        ["Dark Machamp (Alt)"]="Fighting", ["Dark Machamp"]="Fighting", ["Dark Machoke"]="Fighting", ["Dark Magneton (Alt)"]="Metal",
+        ["Dark Magneton"]="Metal", ["Dark Muk"]="Grass", ["Dark Persian"]="Colorless", ["Dark Primeape"]="Fighting",
+        ["Dark Raichu"]="Lightning", ["Dark Rapidash"]="Fire", ["Dark Raticate"]="Colorless", ["Dark Slowbro (Alt)"]="Water",
+        ["Dark Slowbro"]="Water", ["Dark Vaporeon"]="Water", ["Dark Vileplume (Alt)"]="Grass", ["Dark Vileplume"]="Grass",
+        ["Dark Wartortle"]="Water", ["Dark Weezing (Alt)"]="Grass", ["Dark Weezing"]="Grass",
+    },
+
+    uncommon = {
+        ["Digger"]="Trainer", ["Diglett"]="Fighting", ["Dratini"]="Dragon", ["Drowzee"]="Psychic", ["Eevee"]="Colorless",
+        ["Ekans"]="Grass", ["Full Heal Energy"]="Special", ["Goop Gas Attack"]="Trainer", ["Grimer"]="Grass",
+        ["Here Comes Team Rocket (Alt)"]="Trainer", ["Here Comes Team Rocket"]="Trainer", ["Imposter Oaks Revenge"]="Trainer",
+        ["Koffing"]="Grass", ["Machop"]="Fighting", ["Magikarp"]="Water", ["Magnemite"]="Metal", ["Mankey"]="Fighting",
+        ["Meowth"]="Colorless", ["Nightly Garbage Run"]="Trainer", ["Oddish"]="Grass", ["Ponyta"]="Fire", ["Porygon"]="Colorless",
+        ["Potion Energy"]="Special", ["Psyduck"]="Water", ["Rainbow Energy (Alt)"]="Special", ["Rainbow Energy"]="Special",
+        ["Rattata"]="Colorless", ["Rockets Sneak Attack (Alt)"]="Trainer", ["Rockets Sneak Attack"]="Trainer", ["Sleep"]="Trainer",
+        ["Slowpoke"]="Water", ["Squirtle"]="Water", ["The Bosss Way"]="Trainer", ["Voltorb"]="Lightning", ["Zubat"]="Grass",
+    },
+
+    common = {
+        ["filename"]="Colorless",
+    },
+
+    energy = {
+        ["Colorless Energy"]="Colorless",
+    },
+}
 
 
 --[[
