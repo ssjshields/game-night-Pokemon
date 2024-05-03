@@ -83,20 +83,19 @@ Pokemon.cardData["Jungle"] = {
     },
 
     uncommon = {
-        ["Clefairy"]="Colorless", ["Exeggutor"]="Grass", ["Fearow"]="Colorless", ["Goldeen"]="Water", ["Jigglypuff"]="Colorless",
-        ["Lickitung"]="Colorless", ["Mankey"]="Fighting", ["Marowak"]="Fighting", ["Meowth"]="Colorless", ["Nidoqueen"]="Grass",
-        ["Nidoran (Female)"]="Grass", ["Nidorina"]="Grass", ["Paras"]="Grass", ["Parasect"]="Grass", ["Persian"]="Colorless",
-        ["Primeape"]="Fighting", ["Rapidash"]="Fire", ["Rhydon"]="Fighting", ["Rhyhorn"]="Fighting", ["Seaking"]="Water",
-        ["Spearow"]="Colorless", ["Tauros"]="Colorless", ["Venonat"]="Grass", ["Weepinbell"]="Grass",
+        ["Clefairy"]="Colorless", ["Exeggutor"]="Grass", ["Fearow"]="Colorless", ["Goldeen"]="Water",
+        ["Jigglypuff"]="Colorless", ["Lickitung"]="Colorless", ["Marowak"]="Fighting", ["Nidoran (Female)"]="Grass",
+        ["Nidorina"]="Grass", ["Parasect"]="Grass", ["Persian"]="Colorless", ["Primeape"]="Fighting",
+        ["Rapidash"]="Fire", ["Rhydon"]="Fighting", ["Rhyhorn"]="Fighting", ["Seaking"]="Water",
+        ["Tauros"]="Colorless", ["Weepinbell"]="Grass",
     },
 
     common = {
-        ["Bellsprout"]="Grass", ["Butterfree"]="Grass", ["Cubone"]="Fighting", ["Dodrio"]="Colorless", ["Eevee"]="Colorless",
-        ["Exeggcute"]="Grass", ["Flareon"]="Fire", ["Gloom"]="Grass", ["Jolteon"]="Lightning", ["Kangaskhan"]="Colorless",
-        ["Mankey"]="Fighting", ["Meowth"]="Colorless", ["Nidoqueen"]="Grass", ["Nidoran (Female)"]="Grass", ["Oddish"]="Grass",
-        ["Paras"]="Grass", ["Pikachu"]="Lightning", ["Poke Ball"]="Trainer", ["Rapidash"]="Fire", ["Rhyhorn"]="Fighting",
-        ["Scyther"]="Grass", ["Spearow"]="Colorless", ["Tauros"]="Colorless", ["Venonat"]="Grass", ["Vileplume"]="Grass",
-        ["Weepinbell"]="Grass", ["Wigglytuff"]="Colorless",
+        ["Bellsprout"]="Grass", ["Butterfree"]="Grass", ["Cubone"]="Fighting", ["Dodrio"]="Colorless",
+        ["Eevee"]="Colorless", ["Exeggcute"]="Grass", ["Gloom"]="Grass", ["Mankey"]="Fighting", ["Meowth"]="Colorless",
+        ["Nidoran (Female)"]="Grass", ["Oddish"]="Grass", ["Paras"]="Grass", ["Pikachu"]="Lightning",
+        ["Poke Ball"]="Trainer", ["Rapidash"]="Fire", ["Rhyhorn"]="Fighting", ["Scyther"]="Grass",
+        ["Spearow"]="Colorless", ["Venonat"]="Grass",
     },
 
     energy = {
