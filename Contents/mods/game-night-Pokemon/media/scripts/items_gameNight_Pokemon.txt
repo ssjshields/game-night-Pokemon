@@ -4,7 +4,7 @@ module Base
     item pokemonStarterKit
     {
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal,
-        DisplayName = Magic the Gathering Starter Kit,
+        DisplayName = Pokemon Starter Kit,
 
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox,
     }
@@ -12,7 +12,7 @@ module Base
     item pokemonBoosterPack
     {
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal,
-        DisplayName = Magic the Gathering Booster Pack,
+        DisplayName = Pokemon Booster Pack,
 
         Icon = Boxes/pokemonBoosterPack, WorldStaticModel = pokemon_Booster,
     }
@@ -20,7 +20,7 @@ module Base
     item pokemonCards
     {
         DisplayCategory = Deck, Weight = 0.01, Type = Normal,
-        DisplayName = Magic The Gathering Cards, Icon = pokemonCards/deck, WorldStaticModel = pokemon_Card,
+        DisplayName = Pokemon Cards, Icon = pokemonCards/deck, WorldStaticModel = pokemon_Card,
     }
 
 }
