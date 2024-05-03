@@ -1,5 +1,5 @@
 version=1
-title=Game Night: Pokemon
+title=Game Night: Pokémon Trading Card Game [Unofficial]
 description=[h2]Add-On for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3058279917]GameNight[/url].[/h2]
 description=[h3]Gotta Catch ‘Em All![/h3]
 description=
@@ -10,10 +10,10 @@ description=[url=https://discord.gg/SReMnbV4V7][img]https://raw.githubuserconten
 description=
 description=[url=https://github.com/Chuckleberry-Finn/game-night][img]https://raw.githubusercontent.com/Chuckleberry-Finn/game-night/main/images/addOnGuideBanner.png[/img][/url]
 description=
-description=[i]The literal and graphical information presented in this download about the Pokémon Trading Card Game, including card text and images, are copyright The Pokémon Company (Pokémon), Nintendo, Game Freak, Creatures, and/or Wizards of the Coast.[/i]
+description=[i]This project is Fan Content. The literal and graphical information presented in this download about the Pokémon Trading Card Game, including card text and images, are copyright and/or property of The Pokémon Company (Pokémon), Nintendo, Game Freak, Creatures, and/or Wizards of the Coast.[/i]
 description=[i]This content is not produced by, endorsed by, supported by, or affiliated with The Pokémon Company (Pokémon), Nintendo, Game Freak, Creatures, or Wizards of the Coast.[/i]
 description=
 description=
-description=[h3]Copyright 2024 Nurver, and Oppolla. This item is not authorized for posting on Steam, except under the Steam account(s) named Nurver, and Oppolla.[/h3]
+description=[h3]The remainder of the content is Copyright 2024 Nurver, and Oppolla. This item is not authorized for posting on Steam, except under the Steam account(s) named Nurver, and Oppolla.[/h3]
 tags=Build 41;Multiplayer;Pop Culture;Silly/Fun
 visibility=public

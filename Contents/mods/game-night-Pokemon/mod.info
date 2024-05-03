@@ -1,6 +1,6 @@
-name=Game Night - Pokémon Trading Card Game
+name=Game Night - Pokémon Trading Card Game [Unofficial]
 id=gamenight_PokémonTCG
-description=
+description=Unofficial Fan Content
 poster=poster.png
 require=gamenight
 icon=icon.png
