@@ -69,17 +69,17 @@ Pokemon.tradingCards = {
 --Pokemon.tradingCards = {}
 Pokemon.cardByType = {}
 Pokemon.cardByRarity = {}
-Pokemon.sets = {}
+Pokemon.cardSets = {}
 -- Grass, Fire, Water, Lightning, Fighting, Psychic, Colorless, Trainer
 Pokemon.cardData = {}
 
 function Pokemon.generatePokemonCards()
     for set,rarities in pairs(Pokemon.cardData) do
-        Pokemon.sets[set] = {}
+        Pokemon.cardSets[set] = {}
         for rarity,cards in pairs(rarities) do
             for card,type in pairs(cards) do
                 local cardID = set.." "..card
-                table.insert(Pokemon.sets[set], cardID)
+                table.insert(Pokemon.cardSets[set], cardID)
                 Pokemon.cardByType[cardID] = type
                 Pokemon.cardByRarity[cardID] = rarity
             end
