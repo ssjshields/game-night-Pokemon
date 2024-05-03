@@ -7,7 +7,10 @@ local Pokemon = {}
 Pokemon.catalogue = {}
 Pokemon.altNames = {}
 
---Pokemon.tradingCards = {}
+Pokemon.tradingCards = {}
+Pokemon.altIcons = {}
+Pokemon.altNames = {}
+
 Pokemon.cardByType = {}
 Pokemon.cardByRarity = {}
 Pokemon.cardSets = {}
@@ -16,13 +19,18 @@ Pokemon.cardData = {}
 
 function Pokemon.generatePokemonCards()
     for set,rarities in pairs(Pokemon.cardData) do
-        Pokemon.cardSets[set] = {}
+        table.insert(Pokemon.cardSets, set)
+        Pokemon.cardByRarity[set] = {}
         for rarity,cards in pairs(rarities) do
+            Pokemon.cardByRarity[set][rarity] = {}
             for card,type in pairs(cards) do
                 local cardID = card.." ("..set..")"
-                table.insert(Pokemon.cardSets[set], cardID)
                 Pokemon.cardByType[cardID] = type
-                Pokemon.cardByRarity[cardID] = rarity
+                table.insert(Pokemon.cardByRarity[set][rarity], cardID)
+                table.insert(Pokemon.tradingCards, cardID)
+
+                Pokemon.altIcons[cardID] = set.."/"..cardID
+                --Pokemon.altNames[cardID] = card
             end
         end
     end
@@ -68,11 +76,8 @@ Pokemon.cardData["Base"] = {
         ["Squirtle"] = "Water", ["Starmie"] = "Water", ["Staryu"] = "Water", ["Tangela"] = "Grass",
         ["Voltorb"] = "Lightning", ["Vulpix"] = "Fire", ["Weedle"] = "Grass", ["Bill"] = "Trainer",
         ["Energy Removal"] = "Trainer", ["Gust of Wind"] = "Trainer", ["Potion"] = "Trainer",
-        ["Switch"] = "Trainer", ["Double Colorless Energy"] = "Colorless"
-    },
-
-    ---Base set single energies don't have a "rarity"
-    energy = {
+        ["Switch"] = "Trainer", ["Double Colorless Energy"] = "Colorless",
+    --}, energy = {
         ["Fighting Energy"] = "Fighting", ["Fire Energy"] = "Fire", ["Grass Energy"] = "Grass",
         ["Lightning Energy"] = "Lightning", ["Psychic Energy"] = "Psychic", ["Water Energy"] = "Water"
     },
@@ -166,9 +171,7 @@ Pokemon.cardData["Rocket"] = {
         ["Dark Muk"] = "Grass", ["Dark Persian"] = "Colorless", ["Dark Primeape"] = "Fighting",
         ["Dark Rapidash"] = "Fire", ["Dark Vaporeon"] = "Water", ["Dark Wartortle"] = "Water",
         ["Magikarp"] = "Water", ["Porygon"] = "Colorless",
-    },
-
-    common = {
+    --}, common = {
         ["Abra"] = "Psychic", ["Charmander"] = "Fire", ["Dark Raticate"] = "Colorless", ["Diglett"] = "Fighting",
         ["Dratini"] = "Colorless", ["Drowzee"] = "Psychic", ["Eevee"] = "Colorless", ["Ekans"] = "Grass",
         ["Grimer"] = "Grass", ["Koffing"] = "Grass", ["Machop"] = "Fighting", ["Magnemite"] = "Lightning",
@@ -222,10 +225,8 @@ Pokemon.cardData["Base 2"] = {
         ["Squirtle"] = "Water", ["Starmie"] = "Water", ["Staryu"] = "Water", ["Tangela"] = "Grass",
         ["Venonat"] = "Grass", ["Voltorb"] = "Lightning", ["Vulpix"] = "Fire", ["Weedle"] = "Grass",
         ["Bill"] = "Trainer", ["Energy Removal"] = "Trainer", ["Gust of Wind"] = "Trainer", ["Poké Ball"] = "Trainer",
-        ["Potion"] = "Trainer", ["Switch"] = "Trainer"
-    },
-
-    energy = {
+        ["Potion"] = "Trainer", ["Switch"] = "Trainer",
+    --}, energy = {
         ["Double Colorless Energy"] = "Colorless", ["Fighting Energy"] = "Fighting",
         ["Fire Energy"] = "Fire", ["Grass Energy"] = "Grass", ["Lightning Energy"] = "Lightning",
         ["Psychic Energy"] = "Psychic", ["Water Energy"] = "Water"
@@ -326,14 +327,95 @@ Pokemon.cardData["Gym Heroes"] = {
         ["Sabrina's Gastly"] = "Psychic", ["Sabrina's Mr. Mime"] = "Psychic", ["Sabrina's Slowpoke"] = "Psychic",
         ["Sabrina's Venonat"] = "Grass", ["Blaine's Gamble"] = "Trainer", ["Energy Flow"] = "Trainer",
         ["Misty's Duel"] = "Trainer", ["Narrow Gym"] = "Trainer", ["Sabrina's Gaze"] = "Trainer",
-        ["Trash Exchange"] = "Trainer"
-    },
-
-    energy = {
+        ["Trash Exchange"] = "Trainer",
+    --, energy = {
         ["Fighting"] = "Fighting", ["Fire"] = "Fire", ["Grass"] = "Grass",
         ["Lightning"] = "Lightning", ["Psychic"] = "Psychic", ["Water"] = "Water"
     },
 }
+
+-- 1:3 packs are holo
+-- 1 Rare card (which could be a Rare Holo or a non-foil Rare)
+-- 3 Uncommon cards
+-- 7 Common cards
+
+
+applyItemDetails.pokemon = {}
+
+function applyItemDetails.pokemon.rollCard(setID, rarity)
+    if rarity == "rare" and ZombRand(3)==0 then rarity = "rareHolo" end
+
+    local set = Pokemon.cardByRarity[setID]
+    --if not set then return end
+    local cards = set[rarity]
+    if not cards and rarity == "rareHolo" then cards = Pokemon.cardByRarity[setID]["rare"] end
+
+    --if not cards then return end
+    local card = cards[ZombRand(#cards)+1]
+    --if not card then return end
+
+    return card
+end
+
+
+function applyItemDetails.pokemon.unpackBooster(setID, cards)
+    for i=1, 7 do
+        local card = applyItemDetails.pokemon.rollCard(setID, "common")
+        table.insert(cards, card)
+    end
+
+    for i=1, 3 do
+        local card = applyItemDetails.pokemon.rollCard(setID, "uncommon")
+        table.insert(cards, card)
+    end
+
+    for i=1, 1 do
+        local card = applyItemDetails.pokemon.rollCard(setID, "rare")
+        table.insert(cards, card)
+    end
+
+    return cards
+end
+
+
+function applyItemDetails.applyBoostersToPokemonCards(item, n, setID)
+    local cards = {}
+    n = n or 1
+
+    setID = setID or Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
+
+    for i=1, n do applyItemDetails.pokemon.unpackBooster(setID, cards) end
+    item:getModData()["gameNight_cardDeck"] = cards
+    item:getModData()["gameNight_cardFlipped"] = {}
+    for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
+end
+
+
+function applyItemDetails.applyCardForPokemon(item)
+    local applyBoosters = item:getModData()["gameNight_specialOnCardApplyBoosters"]
+    ---TEMPORARY
+    applyBoosters = applyBoosters or 1
+    if applyBoosters then
+        item:getModData()["gameNight_specialOnCardApplyBoosters"] = nil
+        applyItemDetails.applyBoostersToPokemonCards(item, applyBoosters)
+        return
+    end
+
+    --[[
+    if not item:getModData()["gameNight_cardDeck"] then
+        local cards = Pokemon.buildDeck()
+        item:getModData()["gameNight_cardDeck"] = cards
+        item:getModData()["gameNight_cardFlipped"] = {}
+        for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
+    end
+    --]]
+end
+
+deckActionHandler.addDeck("pokemonCards", Pokemon.tradingCards)
+
+gamePieceAndBoardHandler.registerSpecial("Base.pokemonCards", {
+    actions = { examineCard=true}, examineScale = 0.75, applyCards = "applyCardForPokemon", textureSize = {100,140}
+})
 
 
 --[[
