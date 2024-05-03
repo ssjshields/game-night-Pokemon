@@ -19,7 +19,7 @@ function Pokemon.generatePokemonCards()
         Pokemon.cardSets[set] = {}
         for rarity,cards in pairs(rarities) do
             for card,type in pairs(cards) do
-                local cardID = set.." "..card
+                local cardID = card.." ("..set..")"
                 table.insert(Pokemon.cardSets[set], cardID)
                 Pokemon.cardByType[cardID] = type
                 Pokemon.cardByRarity[cardID] = rarity
@@ -33,7 +33,7 @@ Events.OnGameBoot.Add(Pokemon.generatePokemonCards)
 Pokemon.cardData["Base"] = {
     rare = {
         ["Alakazam"]="Psychic", ["Beedrill"]="Grass", ["Blastoise"]="Water", ["Chansey"]="Colorless", 
-        ["Charizard"]="Fire", ["Clefairy Doll"]="Trainer", ["Clefairy"]="Fairy", ["Computer Search"]="Trainer",
+        ["Charizard"]="Fire", ["Clefairy Doll"]="Trainer", ["Clefairy"]="Colorless", ["Computer Search"]="Trainer",
         ["Devolution Spray"]="Trainer", ["Dragonair"]="Dragon", ["Dugtrio"]="Fighting", ["Electabuzz"]="Lightning", 
         ["Electrode"]="Lightning", ["Gyarados"]="Water", ["Hitmonchan"]="Fighting", ["Impostor Professor Oak"]="Trainer", 
         ["Item Finder"]="Trainer", ["Lass"]="Trainer", ["Machamp"]="Fighting", ["Magneton"]="Metal", ["Mewtwo"]="Psychic", 
@@ -114,17 +114,17 @@ Pokemon.cardData["Fossil"] = {
         ["Gengar (Alt)"]="Psychic", ["Gengar"]="Psychic", ["Haunter (Alt)"]="Psychic", ["Haunter"]="Psychic",
         ["Hitmonlee (Alt)"]="Fighting", ["Hitmonlee"]="Fighting", ["Hypno (Alt)"]="Psychic", ["Hypno"]="Psychic",
         ["Kabutops (Alt)"]="Fighting", ["Kabutops"]="Fighting", ["Lapras (Alt)"]="Water", ["Lapras"]="Water",
-        ["Magneton (Alt)"]="Colorless", ["Magneton"]="Colorless", ["Moltres (Alt)"]="Fire", ["Moltres"]="Fire",
+        ["Magneton (Alt)"]="Lightning", ["Magneton"]="Lightning", ["Moltres (Alt)"]="Fire", ["Moltres"]="Fire",
         ["Raichu (Alt)"]="Lightning", ["Raichu"]="Lightning", ["Zapdos (Alt)"]="Lightning", ["Zapdos"]="Lightning",
     },
 
     uncommon = {
-        ["Arbok"]="Colorless", ["Cloyster"]="Water", ["Dragonite"]="Colorless", ["Geodude"]="Fighting", ["Golbat"]="Colorless",
-        ["Golduck"]="Water", ["Golem"]="Fighting", ["Graveler"]="Fighting", ["Grimer"]="Colorless", ["Kingler"]="Water",
-        ["Kabuto"]="Fighting", ["Mr. Fuji"]="Trainer", ["Muk (Alt)"]="Colorless", ["Muk"]="Colorless", ["Omanyte"]="Water",
+        ["Arbok"]="Grass", ["Cloyster"]="Water", ["Dragonite"]="Colorless", ["Geodude"]="Fighting", ["Golbat"]="Grass",
+        ["Golduck"]="Water", ["Golem"]="Fighting", ["Graveler"]="Fighting", ["Grimer"]="Grass", ["Kingler"]="Water",
+        ["Kabuto"]="Fighting", ["Mr. Fuji"]="Trainer", ["Muk (Alt)"]="Grass", ["Muk"]="Grass", ["Omanyte"]="Water",
         ["Omastar"]="Water", ["Psyduck"]="Water", ["Recycle"]="Trainer", ["Sandslash"]="Fighting", ["Seadra"]="Water",
         ["Shellder"]="Water", ["Slowbro"]="Water", ["Slowpoke"]="Water", ["Tentacool"]="Water", ["Tentacruel"]="Water",
-        ["Weezing"]="Colorless", ["Zubat"]="Colorless",
+        ["Weezing"]="Grass", ["Zubat"]="Grass",
     },
 
     common = {
@@ -140,12 +140,12 @@ Pokemon.cardData["Fossil"] = {
 
 Pokemon.cardData["Rocket"] = {
     rare = {
-        ["Challenge"]="Colorless", ["Charmander"]="Fire", ["Dark Alakazam (Alt)"]="Psychic", ["Dark Alakazam"]="Psychic",
+        ["Challenge"]="Trainer", ["Charmander"]="Fire", ["Dark Alakazam (Alt)"]="Psychic", ["Dark Alakazam"]="Psychic",
         ["Dark Arbok (Alt)"]="Grass", ["Dark Arbok"]="Grass", ["Dark Blastoise (Alt)"]="Water", ["Dark Blastoise"]="Water",
         ["Dark Charizard (Alt)"]="Fire", ["Dark Charizard"]="Fire", ["Dark Charmeleon"]="Fire", ["Dark Dragonair"]="Dragon",
         ["Dark Dragonite (Alt)"]="Dragon", ["Dark Dragonite"]="Dragon", ["Dark Dugtrio (Alt)"]="Fighting", ["Dark Dugtrio"]="Fighting",
-        ["Dark Electrode"]="Lightning", ["Dark Flareon"]="Fire", ["Dark Gloom"]="Grass", ["Dark Golbat (Alt)"]="Colorless",
-        ["Dark Golbat"]="Colorless", ["Dark Golduck"]="Water", ["Dark Gyarados (Alt)"]="Water", ["Dark Gyarados"]="Water",
+        ["Dark Electrode"]="Lightning", ["Dark Flareon"]="Fire", ["Dark Gloom"]="Grass", ["Dark Golbat (Alt)"]="Grass",
+        ["Dark Golbat"]="Grass", ["Dark Golduck"]="Water", ["Dark Gyarados (Alt)"]="Water", ["Dark Gyarados"]="Water",
         ["Dark Hypno (Alt)"]="Psychic", ["Dark Hypno"]="Psychic", ["Dark Jolteon"]="Lightning", ["Dark Kadabra"]="Psychic",
         ["Dark Machamp (Alt)"]="Fighting", ["Dark Machamp"]="Fighting", ["Dark Machoke"]="Fighting", ["Dark Magneton (Alt)"]="Metal",
         ["Dark Magneton"]="Metal", ["Dark Muk"]="Grass", ["Dark Persian"]="Colorless", ["Dark Primeape"]="Fighting",
@@ -166,7 +166,7 @@ Pokemon.cardData["Rocket"] = {
     },
 
     common = {
-        ["filename"]="Colorless",
+
     },
 
     energy = {
