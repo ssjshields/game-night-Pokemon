@@ -57,8 +57,8 @@ Pokemon.cardData["Base"] = {
         ["Beedrill"] = "Grass", ["Dragonair"] = "Colorless", ["Dugtrio"] = "Fighting", ["Electabuzz"] = "Lightning",
         ["Electrode"] = "Lightning", ["Pidgeotto"] = "Colorless", ["Clefairy Doll"] = "Trainer",
         ["Computer Search"] = "Trainer", ["Devolution Spray"] = "Trainer", ["Imposter Professor Oak"] = "Trainer",
-        ["Item Finder"] = "Trainer", ["Lass"] = "Trainer", ["Pokémon Breeder"] = "Trainer",
-        ["Pokémon Trader"] = "Trainer", ["Scoop Up"] = "Trainer", ["Super Energy Removal"] = "Trainer"
+        ["Item Finder"] = "Trainer", ["Lass"] = "Trainer", ["Pokemon Breeder"] = "Trainer",
+        ["Pokemon Trader"] = "Trainer", ["Scoop Up"] = "Trainer", ["Super Energy Removal"] = "Trainer"
     },
 
     uncommon = {
@@ -68,8 +68,8 @@ Pokemon.cardData["Base"] = {
         ["Magikarp"] = "Water", ["Magmar"] = "Fire", ["Nidorino"] = "Grass", ["Poliwhirl"] = "Water",
         ["Porygon"] = "Colorless", ["Raticate"] = "Colorless", ["Seel"] = "Water", ["Wartortle"] = "Water",
         ["Defender"] = "Trainer", ["Energy Retrieval"] = "Trainer", ["Full Heal"] = "Trainer",
-        ["Maintenance"] = "Trainer", ["PlusPower"] = "Trainer", ["Pokémon Center"] = "Trainer",
-        ["Pokémon Flute"] = "Trainer", ["Pokédex"] = "Trainer", ["Professor Oak"] = "Trainer",
+        ["Maintenance"] = "Trainer", ["PlusPower"] = "Trainer", ["Pokemon Center"] = "Trainer",
+        ["Pokemon Flute"] = "Trainer", ["Pokedex"] = "Trainer", ["Professor Oak"] = "Trainer",
         ["Revive"] = "Trainer", ["Super Potion"] = "Trainer"
     },
 
@@ -77,7 +77,7 @@ Pokemon.cardData["Base"] = {
         ["Abra"] = "Psychic", ["Bulbasaur"] = "Grass", ["Caterpie"] = "Grass", ["Charmander"] = "Fire",
         ["Diglett"] = "Fighting", ["Doduo"] = "Colorless", ["Drowzee"] = "Psychic", ["Gastly"] = "Psychic",
         ["Koffing"] = "Grass", ["Machop"] = "Fighting", ["Magnemite"] = "Lightning", ["Metapod"] = "Grass",
-        ["Nidoran ♂"] = "Grass", ["Onix"] = "Fighting", ["Pidgey"] = "Colorless", ["Pikachu"] = "Lightning",
+        ["Nidoran (Male)"] = "Grass", ["Onix"] = "Fighting", ["Pidgey"] = "Colorless", ["Pikachu"] = "Lightning",
         ["Poliwag"] = "Water", ["Ponyta"] = "Fire", ["Rattata"] = "Colorless", ["Sandshrew"] = "Fighting",
         ["Squirtle"] = "Water", ["Starmie"] = "Water", ["Staryu"] = "Water", ["Tangela"] = "Grass",
         ["Voltorb"] = "Lightning", ["Vulpix"] = "Fire", ["Weedle"] = "Grass", ["Bill"] = "Trainer",
@@ -115,8 +115,8 @@ Pokemon.cardData["Jungle"] = {
     common = {
         ["Bellsprout"] = "Grass", ["Cubone"] = "Fighting", ["Eevee"] = "Colorless", ["Exeggcute"] = "Grass",
         ["Goldeen"] = "Water", ["Jigglypuff"] = "Colorless", ["Mankey"] = "Fighting", ["Meowth"] = "Colorless",
-        ["Nidoran ♀"] = "Grass", ["Oddish"] = "Grass", ["Paras"] = "Grass", ["Pikachu"] = "Lightning",
-        ["Rhyhorn"] = "Fighting", ["Spearow"] = "Colorless", ["Venonat"] = "Grass", ["Poké Ball"] = "Trainer"
+        ["Nidoran (Female)"] = "Grass", ["Oddish"] = "Grass", ["Paras"] = "Grass", ["Pikachu"] = "Lightning",
+        ["Rhyhorn"] = "Fighting", ["Spearow"] = "Colorless", ["Venonat"] = "Grass", ["Poke Ball"] = "Trainer"
     },
 }
 
@@ -153,6 +153,18 @@ Pokemon.cardData["Fossil"] = {
 
 
 Pokemon.cardData["Rocket"] = {
+    --TODO: Check missing cards: Seems to be most rocket trainers
+    -- The Boss's Way,
+    -- Nightly Garbage Run,
+    -- Potion Energy
+    -- Full Heal Energy
+    -- Goop Gas Attack
+    -- Digger
+    -- Challenge!
+    -- Imposter Oak's Revenge
+    -- Rainbow Energy
+    -- Sleep
+
     rareHolo = {
         ["Dark Alakazam"] = "Psychic", ["Dark Arbok"] = "Grass", ["Dark Blastoise"] = "Water",
         ["Dark Charizard"] = "Fire", ["Dark Dragonite"] = "Colorless", ["Dark Dugtrio"] = "Fighting",
@@ -202,7 +214,7 @@ Pokemon.cardData["Base 2"] = {
         ["Electrode"] = "Lightning", ["Kangaskhan"] = "Colorless", ["Mr. Mime"] = "Psychic", ["Pidgeotto"] = "Colorless",
         ["Pinsir"] = "Grass", ["Snorlax"] = "Colorless", ["Venomoth"] = "Grass", ["Victreebel"] = "Grass",
         ["Computer Search"] = "Trainer", ["Imposter Professor Oak"] = "Trainer", ["Item Finder"] = "Trainer",
-        ["Lass"] = "Trainer", ["Pokémon Breeder"] = "Trainer", ["Pokémon Trader"] = "Trainer",
+        ["Lass"] = "Trainer", ["Pokemon Breeder"] = "Trainer", ["Pokemon Trader"] = "Trainer",
         ["Scoop Up"] = "Trainer", ["Super Energy Removal"] = "Trainer"
     },
 
@@ -216,8 +228,8 @@ Pokemon.cardData["Base 2"] = {
         ["Poliwhirl"] = "Water", ["Raticate"] = "Colorless", ["Rhydon"] = "Fighting", ["Seaking"] = "Water",
         ["Seel"] = "Water", ["Tauros"] = "Colorless", ["Wartortle"] = "Water", ["Weepinbell"] = "Grass",
         ["Defender"] = "Trainer", ["Energy Retrieval"] = "Trainer", ["Full Heal"] = "Trainer",
-        ["Maintenance"] = "Trainer", ["PlusPower"] = "Trainer", ["Pokémon Center"] = "Trainer",
-        ["Pokédex"] = "Trainer", ["Professor Oak"] = "Trainer", ["Super Potion"] = "Trainer"
+        ["Maintenance"] = "Trainer", ["PlusPower"] = "Trainer", ["Pokemon Center"] = "Trainer",
+        ["Pokedex"] = "Trainer", ["Professor Oak"] = "Trainer", ["Super Potion"] = "Trainer"
     },
 
     common = {
@@ -225,12 +237,12 @@ Pokemon.cardData["Base 2"] = {
         ["Charmander"] = "Fire", ["Cubone"] = "Fighting", ["Diglett"] = "Fighting", ["Doduo"] = "Colorless",
         ["Drowzee"] = "Psychic", ["Exeggcute"] = "Grass", ["Gastly"] = "Psychic", ["Goldeen"] = "Water",
         ["Jigglypuff"] = "Colorless", ["Machop"] = "Fighting", ["Magnemite"] = "Lightning", ["Meowth"] = "Colorless",
-        ["Metapod"] = "Grass", ["Nidoran ♀"] = "Grass", ["Nidoran ♂"] = "Grass", ["Onix"] = "Fighting",
+        ["Metapod"] = "Grass", ["Nidoran (Female)"] = "Grass", ["Nidoran (Male)"] = "Grass", ["Onix"] = "Fighting",
         ["Paras"] = "Grass", ["Pidgey"] = "Colorless", ["Pikachu"] = "Lightning", ["Poliwag"] = "Water",
         ["Rattata"] = "Colorless", ["Rhyhorn"] = "Fighting", ["Sandshrew"] = "Fighting", ["Spearow"] = "Colorless",
         ["Squirtle"] = "Water", ["Starmie"] = "Water", ["Staryu"] = "Water", ["Tangela"] = "Grass",
         ["Venonat"] = "Grass", ["Voltorb"] = "Lightning", ["Vulpix"] = "Fire", ["Weedle"] = "Grass",
-        ["Bill"] = "Trainer", ["Energy Removal"] = "Trainer", ["Gust of Wind"] = "Trainer", ["Poké Ball"] = "Trainer",
+        ["Bill"] = "Trainer", ["Energy Removal"] = "Trainer", ["Gust of Wind"] = "Trainer", ["Poke Ball"] = "Trainer",
         ["Potion"] = "Trainer", ["Switch"] = "Trainer",
     --}, energy = {
         ["Double Colorless Energy"] = "Colorless", ["Fighting Energy"] = "Fighting",
@@ -282,6 +294,24 @@ Pokemon.cardData["Gym Challenge"] = {
 
 
 Pokemon.cardData["Gym Heroes"] = {
+    --TODO: Some pokemon have 2 variants
+    --Gym Leaders have 2 variants too
+    -- bl growlithe
+    -- br Onix
+    -- br Rhyhorn
+    -- br Sandshrew
+    -- br Zubat
+    -- er Bellsprout
+    -- er Exeggcute
+    -- er Gloom
+    -- er Oddish
+    -- er Weepinbell
+    -- lt Magnemite
+    -- lt Electabuzz
+    -- lt Spearow
+    -- ms Goldeen
+    -- ms Tentacool
+    --
     rareHolo = {
         ["Blaine's Moltres"] = "Fire", ["Brock's Rhydon"] = "Fighting", ["Erika's Clefable"] = "Colorless",
         ["Erika's Dragonair"] = "Colorless", ["Erika's Vileplume"] = "Grass",
