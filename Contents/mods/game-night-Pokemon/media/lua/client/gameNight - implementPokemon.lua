@@ -295,27 +295,13 @@ Pokemon.cardData["Gym Challenge"] = {
 
 Pokemon.cardData["Gym Heroes"] = {
     --TODO: Some pokemon have 2 variants
-    --Gym Leaders have 2 variants too
-    -- bl growlithe
-    -- br Onix
-    -- br Rhyhorn
-    -- br Sandshrew
-    -- br Zubat
-    -- er Bellsprout
-    -- er Exeggcute
-    -- er Gloom
-    -- er Oddish
-    -- er Weepinbell
-    -- lt Magnemite
-    -- lt Electabuzz
-    -- lt Spearow
-    -- ms Goldeen
-    -- ms Tentacool
-    --
+    -- [x] added variants to non-rareHolos, except for electabuz.
+    -- [ ] confirm the 2 variants aren't rareHolos vs other types.
+
     rareHolo = {
         ["Blaine's Moltres"] = "Fire", ["Brock's Rhydon"] = "Fighting", ["Erika's Clefable"] = "Colorless",
         ["Erika's Dragonair"] = "Colorless", ["Erika's Vileplume"] = "Grass",
-        ["Lt. Surge's Electabuzz"] = "Lightning", ["Lt. Surge's Fearow"] = "Colorless",
+        ["Lt. Surge's Electabuzz 1"] = "Lightning",  ["Lt. Surge's Electabuzz 2"] = "Lightning", ["Lt. Surge's Fearow"] = "Colorless",
         ["Lt. Surge's Magneton"] = "Lightning", ["Misty's Seadra"] = "Water", ["Misty's Tentacruel"] = "Water",
         ["Rocket's Hitmonchan"] = "Fighting", ["Rocket's Moltres"] = "Fire", ["Rocket's Scyther"] = "Grass",
         ["Sabrina's Gengar"] = "Psychic", ["Blaine"] = "Trainer", ["Erika"] = "Trainer", ["Lt. Surge"] = "Trainer",
@@ -323,23 +309,23 @@ Pokemon.cardData["Gym Heroes"] = {
     },
 
     rare = {
-        ["Brock's Golem"] = "Fighting", ["Brock's Onix"] = "Fighting", ["Brock's Rhyhorn"] = "Fighting",
+        ["Brock's Golem"] = "Fighting", ["Brock's Onix 1"] = "Fighting", ["Brock's Onix 2"] = "Fighting", ["Brock's Rhyhorn"] = "Fighting",
         ["Brock's Sandslash"] = "Fighting", ["Brock's Zubat"] = "Grass", ["Erika's Clefairy"] = "Colorless",
         ["Erika's Victreebel"] = "Grass", ["Lt. Surge's Raichu"] = "Lightning",
-        ["Lt. Surge's Magnemite"] = "Lightning", ["Misty's Cloyster"] = "Water", ["Misty's Goldeen"] = "Water",
+        ["Lt. Surge's Magnemite (Alt)"] = "Lightning", ["Misty's Cloyster"] = "Water", ["Misty's Goldeen (Alt)"] = "Water",
         ["Misty's Poliwrath"] = "Water", ["Misty's Tentacool 1"] = "Water", ["Misty's Tentacool 2"] = "Water",
         ["Rocket's Snorlax"] = "Colorless", ["Sabrina's Venomoth"] = "Grass", ["Blaine's Quiz #1"] = "Trainer",
-        ["Brock"] = "Trainer", ["Charity"] = "Trainer", ["Erika"] = "Trainer", ["Lt. Surge"] = "Trainer",
-        ["Misty"] = "Trainer", ["No Removal Gym"] = "Trainer", ["The Rocket's Training Gym"] = "Trainer"
+        ["Brock 1"] = "Trainer", ["Brock 2"] = "Trainer", ["Charity"] = "Trainer", ["Erika 1"] = "Trainer", ["Erika 2"] = "Trainer", ["Lt. Surge 1"] = "Trainer", ["Lt. Surge 2"] = "Trainer",
+        ["Misty 1"] = "Trainer", ["Misty 2"] = "Trainer", ["No Removal Gym"] = "Trainer", ["The Rocket's Training Gym"] = "Trainer"
     },
 
     uncommon = {
-        ["Blaine's Growlithe"] = "Fire", ["Blaine's Kangaskhan"] = "Colorless", ["Blaine's Magmar"] = "Fire",
+        ["Blaine's Growlithe 1"] = "Fire", ["Blaine's Growlithe 2"] = "Fire", ["Blaine's Kangaskhan"] = "Colorless", ["Blaine's Magmar"] = "Fire",
         ["Brock's Geodude"] = "Fighting", ["Brock's Golbat"] = "Grass", ["Brock's Graveler"] = "Fighting",
-        ["Brock's Lickitung"] = "Colorless", ["Erika's Dratini"] = "Colorless", ["Erika's Exeggcute"] = "Grass",
-        ["Erika's Exeggutor"] = "Grass", ["Erika's Gloom"] = "Grass", ["Erika's Oddish"] = "Grass",
-        ["Erika's Weepinbell"] = "Grass", ["Lt. Surge's Raticate"] = "Colorless",
-        ["Lt. Surge's Spearow"] = "Colorless", ["Misty's Poliwhirl"] = "Water", ["Misty's Psyduck"] = "Water",
+        ["Brock's Lickitung"] = "Colorless", ["Erika's Dratini"] = "Colorless", ["Erika's Exeggcute 1"] = "Grass", ["Erika's Exeggcute 2"] = "Grass",
+        ["Erika's Exeggutor"] = "Grass", ["Erika's Gloom 1"] = "Grass", ["Erika's Gloom 2"] = "Grass", ["Erika's Oddish 1"] = "Grass", ["Erika's Oddish 2"] = "Grass",
+        ["Erika's Weepinbell 1"] = "Grass", ["Erika's Weepinbell 2"] = "Grass", ["Lt. Surge's Raticate"] = "Colorless",
+        ["Lt. Surge's Spearow 1"] = "Colorless", ["Lt. Surge's Spearow 2"] = "Colorless", ["Misty's Poliwhirl"] = "Water", ["Misty's Psyduck"] = "Water",
         ["Misty's Seaking"] = "Water", ["Misty's Starmie"] = "Water", ["Sabrina's Haunter"] = "Psychic",
         ["Sabrina's Jynx"] = "Psychic", ["Sabrina's Slowbro"] = "Psychic", ["Blaine's Last Resort"] = "Trainer",
         ["Brock's Training Method"] = "Trainer", ["Celadon City Gym"] = "Trainer", ["Cerulean City Gym"] = "Trainer",
@@ -352,19 +338,21 @@ Pokemon.cardData["Gym Heroes"] = {
     common = {
         ["Blaine's Charmander"] = "Fire", ["Blaine's Growlithe"] = "Fire", ["Blaine's Ponyta"] = "Fire",
         ["Blaine's Tauros"] = "Colorless", ["Blaine's Vulpix"] = "Fire", ["Brock's Geodude"] = "Fighting",
-        ["Brock's Mankey"] = "Fighting", ["Brock's Onix"] = "Fighting", ["Brock's Rhyhorn"] = "Fighting",
-        ["Brock's Sandshrew"] = "Fighting", ["Brock's Vulpix"] = "Fire", ["Brock's Zubat"] = "Grass",
-        ["Erika's Bellsprout"] = "Grass", ["Erika's Oddish"] = "Grass", ["Erika's Exeggcute"] = "Grass",
-        ["Erika's Tangela"] = "Grass", ["Lt. Surge's Magnemite 1"] = "Lightning",
-        ["Lt. Surge's Magnemite 2"] = "Lightning", ["Lt. Surge's Pikachu"] = "Lightning",
-        ["Lt. Surge's Rattata"] = "Colorless", ["Lt. Surge's Spearow"] = "Colorless",
-        ["Lt. Surge's Voltorb"] = "Lightning", ["Misty's Goldeen"] = "Water", ["Misty's Horsea"] = "Water",
-        ["Misty's Poliwag"] = "Water", ["Misty's Seel"] = "Water", ["Misty's Shellder"] = "Water",
-        ["Misty's Staryu"] = "Water", ["Sabrina's Abra"] = "Psychic", ["Sabrina's Drowzee"] = "Psychic",
-        ["Sabrina's Gastly"] = "Psychic", ["Sabrina's Mr. Mime"] = "Psychic", ["Sabrina's Slowpoke"] = "Psychic",
-        ["Sabrina's Venonat"] = "Grass", ["Blaine's Gamble"] = "Trainer", ["Energy Flow"] = "Trainer",
-        ["Misty's Duel"] = "Trainer", ["Narrow Gym"] = "Trainer", ["Sabrina's Gaze"] = "Trainer",
-        ["Trash Exchange"] = "Trainer",
+        ["Brock's Mankey"] = "Fighting", ["Brock's Onix"] = "Fighting", ["Brock's Rhyhorn 1"] = "Fighting", 
+        ["Brock's Rhyhorn 2"] = "Fighting", ["Brock's Sandshrew 1"] = "Fighting", 
+        ["Brock's Sandshrew 2"] = "Fighting", ["Brock's Vulpix"] = "Fire", ["Brock's Zubat 1"] = "Grass", 
+        ["Brock's Zubat 2"] = "Grass", ["Erika's Bellsprout 1"] = "Grass", ["Erika's Bellsprout 2"] = "Grass", 
+        ["Erika's Oddish"] = "Grass", ["Erika's Exeggcute"] = "Grass", ["Erika's Tangela"] = "Grass", 
+        ["Lt. Surge's Magnemite 1"] = "Lightning", ["Lt. Surge's Magnemite 2"] = "Lightning", 
+        ["Lt. Surge's Pikachu"] = "Lightning", ["Lt. Surge's Rattata"] = "Colorless", 
+        ["Lt. Surge's Spearow"] = "Colorless",
+        ["Lt. Surge's Voltorb"] = "Lightning", ["Misty's Goldeen 1"] = "Water", ["Misty's Goldeen 2"] = "Water", 
+        ["Misty's Horsea"] = "Water", ["Misty's Poliwag"] = "Water", ["Misty's Seel"] = "Water", 
+        ["Misty's Shellder"] = "Water", ["Misty's Staryu"] = "Water", ["Sabrina's Abra"] = "Psychic", 
+        ["Sabrina's Drowzee"] = "Psychic", ["Sabrina's Gastly"] = "Psychic", ["Sabrina's Mr. Mime"] = "Psychic",
+        ["Sabrina's Slowpoke"] = "Psychic", ["Sabrina's Venonat"] = "Grass", ["Blaine's Gamble"] = "Trainer", 
+        ["Energy Flow"] = "Trainer", ["Misty's Duel"] = "Trainer", ["Narrow Gym"] = "Trainer", 
+        ["Sabrina's Gaze"] = "Trainer", ["Trash Exchange"] = "Trainer",
     --, energy = {
         ["Fighting Energy"] = "Fighting", ["Fire Energy"] = "Fire", ["Grass Energy"] = "Grass",
         ["Lightning Energy"] = "Lightning", ["Psychic Energy"] = "Psychic", ["Water Energy"] = "Water"
