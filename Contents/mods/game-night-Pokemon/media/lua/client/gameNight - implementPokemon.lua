@@ -297,10 +297,10 @@ Pokemon.cardData["Gym Heroes"] = {
         ["Brock's Sandslash"] = "Fighting", ["Brock's Zubat"] = "Grass", ["Erika's Clefairy"] = "Colorless",
         ["Erika's Victreebel"] = "Grass", ["Lt. Surge's Raichu"] = "Lightning",
         ["Lt. Surge's Magnemite"] = "Lightning", ["Misty's Cloyster"] = "Water", ["Misty's Goldeen"] = "Water",
-        ["Misty's Poliwrath"] = "Water", ["Misty's Tentacool"] = "Water", ["Rocket's Snorlax"] = "Colorless",
-        ["Sabrina's Venomoth"] = "Grass", ["Blaine's Quiz #1"] = "Trainer", ["Brock"] = "Trainer",
-        ["Charity"] = "Trainer", ["Erika"] = "Trainer", ["Lt. Surge"] = "Trainer", ["Misty"] = "Trainer",
-        ["No Removal Gym"] = "Trainer", ["The Rocket's Training Gym"] = "Trainer"
+        ["Misty's Poliwrath"] = "Water", ["Misty's Tentacool 1"] = "Water", ["Misty's Tentacool 2"] = "Water",
+        ["Rocket's Snorlax"] = "Colorless", ["Sabrina's Venomoth"] = "Grass", ["Blaine's Quiz #1"] = "Trainer",
+        ["Brock"] = "Trainer", ["Charity"] = "Trainer", ["Erika"] = "Trainer", ["Lt. Surge"] = "Trainer",
+        ["Misty"] = "Trainer", ["No Removal Gym"] = "Trainer", ["The Rocket's Training Gym"] = "Trainer"
     },
 
     uncommon = {
@@ -325,7 +325,8 @@ Pokemon.cardData["Gym Heroes"] = {
         ["Brock's Mankey"] = "Fighting", ["Brock's Onix"] = "Fighting", ["Brock's Rhyhorn"] = "Fighting",
         ["Brock's Sandshrew"] = "Fighting", ["Brock's Vulpix"] = "Fire", ["Brock's Zubat"] = "Grass",
         ["Erika's Bellsprout"] = "Grass", ["Erika's Oddish"] = "Grass", ["Erika's Exeggcute"] = "Grass",
-        ["Erika's Tangela"] = "Grass", ["Lt. Surge's Magnemite"] = "Lightning", ["Lt. Surge's Pikachu"] = "Lightning",
+        ["Erika's Tangela"] = "Grass", ["Lt. Surge's Magnemite 1"] = "Lightning",
+        ["Lt. Surge's Magnemite 2"] = "Lightning", ["Lt. Surge's Pikachu"] = "Lightning",
         ["Lt. Surge's Rattata"] = "Colorless", ["Lt. Surge's Spearow"] = "Colorless",
         ["Lt. Surge's Voltorb"] = "Lightning", ["Misty's Goldeen"] = "Water", ["Misty's Horsea"] = "Water",
         ["Misty's Poliwag"] = "Water", ["Misty's Seel"] = "Water", ["Misty's Shellder"] = "Water",
@@ -335,8 +336,8 @@ Pokemon.cardData["Gym Heroes"] = {
         ["Misty's Duel"] = "Trainer", ["Narrow Gym"] = "Trainer", ["Sabrina's Gaze"] = "Trainer",
         ["Trash Exchange"] = "Trainer",
     --, energy = {
-        ["Fighting"] = "Fighting", ["Fire"] = "Fire", ["Grass"] = "Grass",
-        ["Lightning"] = "Lightning", ["Psychic"] = "Psychic", ["Water"] = "Water"
+        ["Fighting Energy"] = "Fighting", ["Fire Energy"] = "Fire", ["Grass Energy"] = "Grass",
+        ["Lightning Energy"] = "Lightning", ["Psychic Energy"] = "Psychic", ["Water Energy"] = "Water"
     },
 }
 
