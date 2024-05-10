@@ -77,7 +77,7 @@ Pokemon.cardData["Base"] = {
         ["Abra"] = "Psychic", ["Bulbasaur"] = "Grass", ["Caterpie"] = "Grass", ["Charmander"] = "Fire",
         ["Diglett"] = "Fighting", ["Doduo"] = "Colorless", ["Drowzee"] = "Psychic", ["Gastly"] = "Psychic",
         ["Koffing"] = "Grass", ["Machop"] = "Fighting", ["Magnemite"] = "Lightning", ["Metapod"] = "Grass",
-        ["Nidoran♂"] = "Grass", ["Onix"] = "Fighting", ["Pidgey"] = "Colorless", ["Pikachu"] = "Lightning",
+        ["Nidoran ♂"] = "Grass", ["Onix"] = "Fighting", ["Pidgey"] = "Colorless", ["Pikachu"] = "Lightning",
         ["Poliwag"] = "Water", ["Ponyta"] = "Fire", ["Rattata"] = "Colorless", ["Sandshrew"] = "Fighting",
         ["Squirtle"] = "Water", ["Starmie"] = "Water", ["Staryu"] = "Water", ["Tangela"] = "Grass",
         ["Voltorb"] = "Lightning", ["Vulpix"] = "Fire", ["Weedle"] = "Grass", ["Bill"] = "Trainer",
@@ -115,7 +115,7 @@ Pokemon.cardData["Jungle"] = {
     common = {
         ["Bellsprout"] = "Grass", ["Cubone"] = "Fighting", ["Eevee"] = "Colorless", ["Exeggcute"] = "Grass",
         ["Goldeen"] = "Water", ["Jigglypuff"] = "Colorless", ["Mankey"] = "Fighting", ["Meowth"] = "Colorless",
-        ["Nidoran♀"] = "Grass", ["Oddish"] = "Grass", ["Paras"] = "Grass", ["Pikachu"] = "Lightning",
+        ["Nidoran ♀"] = "Grass", ["Oddish"] = "Grass", ["Paras"] = "Grass", ["Pikachu"] = "Lightning",
         ["Rhyhorn"] = "Fighting", ["Spearow"] = "Colorless", ["Venonat"] = "Grass", ["Poké Ball"] = "Trainer"
     },
 }
@@ -225,7 +225,7 @@ Pokemon.cardData["Base 2"] = {
         ["Charmander"] = "Fire", ["Cubone"] = "Fighting", ["Diglett"] = "Fighting", ["Doduo"] = "Colorless",
         ["Drowzee"] = "Psychic", ["Exeggcute"] = "Grass", ["Gastly"] = "Psychic", ["Goldeen"] = "Water",
         ["Jigglypuff"] = "Colorless", ["Machop"] = "Fighting", ["Magnemite"] = "Lightning", ["Meowth"] = "Colorless",
-        ["Metapod"] = "Grass", ["Nidoran♀"] = "Grass", ["Nidoran♂"] = "Grass", ["Onix"] = "Fighting",
+        ["Metapod"] = "Grass", ["Nidoran ♀"] = "Grass", ["Nidoran ♂"] = "Grass", ["Onix"] = "Fighting",
         ["Paras"] = "Grass", ["Pidgey"] = "Colorless", ["Pikachu"] = "Lightning", ["Poliwag"] = "Water",
         ["Rattata"] = "Colorless", ["Rhyhorn"] = "Fighting", ["Sandshrew"] = "Fighting", ["Spearow"] = "Colorless",
         ["Squirtle"] = "Water", ["Starmie"] = "Water", ["Staryu"] = "Water", ["Tangela"] = "Grass",
