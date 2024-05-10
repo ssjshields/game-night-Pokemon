@@ -9,10 +9,9 @@ description=
 description=[url=https://github.com/Chuckleberry-Finn/game-night][img]https://raw.githubusercontent.com/Chuckleberry-Finn/game-night/main/images/addOnGuideBanner.png[/img][/url]
 description=
 description=
-description=[i]This project is Non-Commercial Fan Content. The literal and graphical information presented in this download about the Pokémon Trading Card Game, including card text and images, are copyright and/or property of The Pokémon Company (Pokémon), Nintendo, Game Freak, Creatures, and/or Wizards of the Coast.[/i]
-description=[i]This content is not produced by, endorsed by, supported by, or affiliated with The Pokémon Company (Pokémon), Nintendo, Game Freak, Creatures, or Wizards of the Coast.[/i]
-description=
+description=[img]https://raw.githubusercontent.com/ssjshields/game-night-Pokemon/main/images/cr.png[/img]
 description=
 description=[h3]The remainder of the content is Copyright 2024 Nurver, and Oppolla. This item is not authorized for posting on Steam, except under the Steam account(s) named Nurver, and Oppolla.[/h3]
 tags=Build 41;Multiplayer;Pop Culture;Silly/Fun
 visibility=public
+
