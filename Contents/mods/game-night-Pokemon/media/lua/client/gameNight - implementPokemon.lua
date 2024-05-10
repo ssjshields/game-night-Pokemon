@@ -34,6 +34,12 @@ function Pokemon.generatePokemonCards()
             end
         end
     end
+
+    deckActionHandler.addDeck("pokemonCards", Pokemon.tradingCards, nil, Pokemon.altIcons)
+
+    gamePieceAndBoardHandler.registerSpecial("Base.pokemonCards", {
+        actions = { examineCard=true}, examineScale = 0.75, applyCards = "applyCardForPokemon", textureSize = {100,140}
+    })
 end
 Events.OnGameBoot.Add(Pokemon.generatePokemonCards)
 
@@ -411,11 +417,6 @@ function applyItemDetails.applyCardForPokemon(item)
     --]]
 end
 
-deckActionHandler.addDeck("pokemonCards", Pokemon.tradingCards, nil, Pokemon.altIcons)
-
-gamePieceAndBoardHandler.registerSpecial("Base.pokemonCards", {
-    actions = { examineCard=true}, examineScale = 0.75, applyCards = "applyCardForPokemon", textureSize = {100,140}
-})
 
 
 --[[
