@@ -292,13 +292,13 @@ Pokemon.cardData["Gym Challenge"] = {
 Pokemon.cardData["Gym Heroes"] = {
 
     rareHolo = {
-        ["Blaine's Moltres"] = "Fire", ["Brock's Rhydon"] = "Fighting", ["Erika's Clefable"] = "Colorless",
-        ["Erika's Dragonair"] = "Colorless", ["Erika's Vileplume"] = "Grass",
-        ["Lt. Surge's Electabuzz 2"] = "Lightning", ["Lt. Surge's Fearow"] = "Colorless",
-        ["Lt. Surge's Magneton"] = "Lightning", ["Misty's Seadra"] = "Water", ["Misty's Tentacruel"] = "Water",
-        ["Rocket's Hitmonchan"] = "Fighting", ["Rocket's Moltres"] = "Fire", ["Rocket's Scyther"] = "Grass",
-        ["Sabrina's Gengar"] = "Psychic", ["Blaine"] = "Trainer", ["Erika (Alt)"] = "Trainer", ["Lt. Surge (Alt)"] = "Trainer",
-        ["Misty (Alt)"] = "Trainer", ["The Rocket's Trap"] = "Trainer", ["Brock (Alt)"] = "Trainer",
+        ["Blaine's Moltres (Holo)"] = "Fire", ["Brock's Rhydon (Holo)"] = "Fighting", ["Erika's Clefable (Holo)"] = "Colorless",
+        ["Erika's Dragonair (Holo)"] = "Colorless", ["Erika's Vileplume (Holo)"] = "Grass",
+        ["Lt. Surge's Electabuzz 2 (Holo)"] = "Lightning", ["Lt. Surge's Fearow (Holo)"] = "Colorless",
+        ["Lt. Surge's Magneton (Holo)"] = "Lightning", ["Misty's Seadra (Holo)"] = "Water", ["Misty's Tentacruel (Holo)"] = "Water",
+        ["Rocket's Hitmonchan (Holo)"] = "Fighting", ["Rocket's Moltres (Holo)"] = "Fire", ["Rocket's Scyther (Holo)"] = "Grass",
+        ["Sabrina's Gengar (Holo)"] = "Psychic", ["Blaine (Holo)"] = "Trainer", ["Erika (Holo)"] = "Trainer", ["Lt. Surge (Holo)"] = "Trainer",
+        ["Misty (Holo)"] = "Trainer", ["The Rocket's Trap (Holo)"] = "Trainer", ["Brock (Holo)"] = "Trainer",
     },
 
     rare = {
