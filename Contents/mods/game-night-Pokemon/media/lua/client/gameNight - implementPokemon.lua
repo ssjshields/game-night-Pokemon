@@ -47,10 +47,10 @@ Events.OnGameBoot.Add(Pokemon.generatePokemonCards)
 Pokemon.cardData["Base"] = {
 
     rareHolo = {
-        ["Alakazam"] = "Psychic", ["Blastoise"] = "Water", ["Chansey"] = "Colorless", ["Charizard"] = "Fire",
-        ["Clefairy"] = "Colorless", ["Gyarados"] = "Water", ["Hitmonchan"] = "Fighting", ["Machamp"] = "Fighting",
-        ["Magneton"] = "Lightning", ["Mewtwo"] = "Psychic", ["Nidoking"] = "Grass", ["Ninetales"] = "Fire",
-        ["Poliwrath"] = "Water", ["Raichu"] = "Lightning", ["Venusaur"] = "Grass", ["Zapdos"] = "Lightning"
+        ["Alakazam (Holo)"] = "Psychic", ["Blastoise (Holo)"] = "Water", ["Chansey (Holo)"] = "Colorless", ["Charizard (Holo)"] = "Fire",
+        ["Clefairy (Holo)"] = "Colorless", ["Gyarados (Holo)"] = "Water", ["Hitmonchan (Holo)"] = "Fighting", ["Machamp (Holo)"] = "Fighting",
+        ["Magneton (Holo)"] = "Lightning", ["Mewtwo (Holo)"] = "Psychic", ["Nidoking (Holo)"] = "Grass", ["Ninetales (Holo)"] = "Fire",
+        ["Poliwrath (Holo)"] = "Water", ["Raichu (Holo)"] = "Lightning", ["Venusaur (Holo)"] = "Grass", ["Zapdos (Holo)"] = "Lightning"
     },
 
     rare = {
@@ -92,10 +92,10 @@ Pokemon.cardData["Base"] = {
 -- Jungle Set
 Pokemon.cardData["Jungle"] = {
     rareHolo = {
-        ["Clefable"] = "Colorless", ["Electrode"] = "Lightning", ["Flareon"] = "Fire", ["Jolteon"] = "Lightning",
-        ["Kangaskhan"] = "Colorless", ["Mr. Mime"] = "Psychic", ["Nidoqueen"] = "Grass", ["Pidgeot"] = "Colorless",
-        ["Pinsir"] = "Grass", ["Scyther"] = "Grass", ["Snorlax"] = "Colorless", ["Vaporeon"] = "Water",
-        ["Venomoth"] = "Grass", ["Victreebel"] = "Grass", ["Vileplume"] = "Grass", ["Wigglytuff"] = "Colorless"
+        ["Clefable (Holo)"] = "Colorless", ["Electrode (Holo)"] = "Lightning", ["Flareon (Holo)"] = "Fire", ["Jolteon (Holo)"] = "Lightning",
+        ["Kangaskhan (Holo)"] = "Colorless", ["Mr. Mime (Holo)"] = "Psychic", ["Nidoqueen (Holo)"] = "Grass", ["Pidgeot (Holo)"] = "Colorless",
+        ["Pinsir (Holo)"] = "Grass", ["Scyther (Holo)"] = "Grass", ["Snorlax (Holo)"] = "Colorless", ["Vaporeon (Holo)"] = "Water",
+        ["Venomoth (Holo)"] = "Grass", ["Victreebel (Holo)"] = "Grass", ["Vileplume (Holo)"] = "Grass", ["Wigglytuff (Holo)"] = "Colorless"
     },
 
     rare = {
@@ -123,10 +123,10 @@ Pokemon.cardData["Jungle"] = {
 -- Fossil Set
 Pokemon.cardData["Fossil"] = {
     rareHolo = {
-        ["Aerodactyl"] = "Fighting", ["Articuno"] = "Water", ["Ditto"] = "Colorless", ["Dragonite"] = "Colorless",
-        ["Gengar"] = "Psychic", ["Haunter"] = "Psychic", ["Hitmonlee"] = "Fighting", ["Hypno"] = "Psychic",
-        ["Kabutops"] = "Fighting", ["Lapras"] = "Water", ["Magneton"] = "Lightning", ["Moltres"] = "Fire",
-        ["Muk"] = "Grass", ["Raichu"] = "Lightning", ["Zapdos"] = "Lightning",
+        ["Aerodactyl (Holo)"] = "Fighting", ["Articuno (Holo)"] = "Water", ["Ditto (Holo)"] = "Colorless", ["Dragonite (Holo)"] = "Colorless",
+        ["Gengar (Holo)"] = "Psychic", ["Haunter (Holo)"] = "Psychic", ["Hitmonlee (Holo)"] = "Fighting", ["Hypno (Holo)"] = "Psychic",
+        ["Kabutops (Holo)"] = "Fighting", ["Lapras (Holo)"] = "Water", ["Magneton (Holo)"] = "Lightning", ["Moltres (Holo)"] = "Fire",
+        ["Muk (Holo)"] = "Grass", ["Raichu (Holo)"] = "Lightning", ["Zapdos (Holo)"] = "Lightning",
     },
 
     rare = {
@@ -155,13 +155,13 @@ Pokemon.cardData["Fossil"] = {
 Pokemon.cardData["Rocket"] = {
 
     rareHolo = {
-        ["Rainbow Energy (Alt)"] = "Rainbow",
-        ["Dark Alakazam"] = "Psychic", ["Dark Arbok"] = "Grass", ["Dark Blastoise"] = "Water",
-        ["Dark Charizard"] = "Fire", ["Dark Dragonite"] = "Colorless", ["Dark Dugtrio"] = "Fighting",
-        ["Dark Golbat"] = "Grass", ["Dark Gyarados"] = "Water", ["Dark Hypno"] = "Psychic",
-        ["Dark Machamp"] = "Fighting", ["Dark Magneton"] = "Lightning", ["Dark Slowbro"] = "Psychic",
-        ["Dark Vileplume"] = "Grass", ["Dark Weezing"] = "Grass", ["Here Comes Team Rocket!"] = "Trainer",
-        ["Rocket's Sneak Attack"] = "Trainer", ["Rainbow Energy"] = "Rainbow",
+        ["Rainbow Energy (Holo)"] = "Rainbow",
+        ["Dark Alakazam (Holo)"] = "Psychic", ["Dark Arbok (Holo)"] = "Grass", ["Dark Blastoise (Holo)"] = "Water",
+        ["Dark Charizard (Holo)"] = "Fire", ["Dark Dragonite (Holo)"] = "Colorless", ["Dark Dugtrio (Holo)"] = "Fighting",
+        ["Dark Golbat (Holo)"] = "Grass", ["Dark Gyarados (Holo)"] = "Water", ["Dark Hypno (Holo)"] = "Psychic",
+        ["Dark Machamp (Holo)"] = "Fighting", ["Dark Magneton (Holo)"] = "Lightning", ["Dark Slowbro (Holo)"] = "Psychic",
+        ["Dark Vileplume (Holo)"] = "Grass", ["Dark Weezing (Holo)"] = "Grass", ["Here Comes Team Rocket! (Holo)"] = "Trainer",
+        ["Rocket's Sneak Attack (Holo)"] = "Trainer", ["Rainbow Energy (Holo)"] = "Rainbow",
     },
 
     rare = {
@@ -198,11 +198,11 @@ Pokemon.cardData["Rocket"] = {
 
 Pokemon.cardData["Base 2"] = {
     rareHolo = {
-        ["Alakazam"] = "Psychic", ["Blastoise"] = "Water", ["Chansey"] = "Colorless", ["Charizard"] = "Fire",
-        ["Clefable"] = "Colorless", ["Clefairy"] = "Colorless", ["Gyarados"] = "Water", ["Hitmonchan"] = "Fighting",
-        ["Magneton"] = "Lightning", ["Mewtwo"] = "Psychic", ["Nidoking"] = "Grass", ["Nidoqueen"] = "Grass",
-        ["Ninetales"] = "Fire", ["Pidgeot"] = "Colorless", ["Poliwrath"] = "Water", ["Raichu"] = "Lightning",
-        ["Scyther"] = "Grass", ["Venusaur"] = "Grass", ["Wigglytuff"] = "Colorless", ["Zapdos"] = "Lightning"
+        ["Alakazam (Holo)"] = "Psychic", ["Blastoise (Holo)"] = "Water", ["Chansey (Holo)"] = "Colorless", ["Charizard (Holo)"] = "Fire",
+        ["Clefable (Holo)"] = "Colorless", ["Clefairy (Holo)"] = "Colorless", ["Gyarados (Holo)"] = "Water", ["Hitmonchan (Holo)"] = "Fighting",
+        ["Magneton (Holo)"] = "Lightning", ["Mewtwo (Holo)"] = "Psychic", ["Nidoking (Holo)"] = "Grass", ["Nidoqueen (Holo)"] = "Grass",
+        ["Ninetales (Holo)"] = "Fire", ["Pidgeot (Holo)"] = "Colorless", ["Poliwrath (Holo)"] = "Water", ["Raichu (Holo)"] = "Lightning",
+        ["Scyther (Holo)"] = "Grass", ["Venusaur (Holo)"] = "Grass", ["Wigglytuff (Holo)"] = "Colorless", ["Zapdos (Holo)"] = "Lightning"
     },
 
     rare = {
@@ -250,13 +250,13 @@ Pokemon.cardData["Base 2"] = {
 
 Pokemon.cardData["Gym Challenge"] = {
     rareHolo = {
-        ["Blaine's Arcanine"] = "Fire", ["Blaine's Charizard"] = "Fire", ["Brock's Ninetales"] = "Fire",
-        ["Erika's Venusaur"] = "Grass", ["Giovanni's Gyarados"] = "Water", ["Giovanni's Machamp"] = "Fighting",
-        ["Giovanni's Nidoking"] = "Grass", ["Giovanni's Persian"] = "Colorless", ["Koga's Beedrill"] = "Grass",
-        ["Koga's Ditto"] = "Colorless", ["Lt. Surge's Raichu"] = "Lightning", ["Misty's Golduck"] = "Water",
-        ["Misty's Gyarados"] = "Water", ["Rocket's Mewtwo"] = "Psychic", ["Rocket's Zapdos"] = "Lightning",
-        ["Sabrina's Alakazam"] = "Psychic", ["Blaine"] = "Trainer", ["Giovanni"] = "Trainer", ["Koga"] = "Trainer",
-        ["Sabrina"] = "Trainer"
+        ["Blaine's Arcanine (Holo)"] = "Fire", ["Blaine's Charizard (Holo)"] = "Fire", ["Brock's Ninetales (Holo)"] = "Fire",
+        ["Erika's Venusaur (Holo)"] = "Grass", ["Giovanni's Gyarados (Holo)"] = "Water", ["Giovanni's Machamp (Holo)"] = "Fighting",
+        ["Giovanni's Nidoking (Holo)"] = "Grass", ["Giovanni's Persian (Holo)"] = "Colorless", ["Koga's Beedrill (Holo)"] = "Grass",
+        ["Koga's Ditto (Holo)"] = "Colorless", ["Lt. Surge's Raichu (Holo)"] = "Lightning", ["Misty's Golduck (Holo)"] = "Water",
+        ["Misty's Gyarados (Holo)"] = "Water", ["Rocket's Mewtwo (Holo)"] = "Psychic", ["Rocket's Zapdos (Holo)"] = "Lightning",
+        ["Sabrina's Alakazam (Holo)"] = "Psychic", ["Blaine (Holo)"] = "Trainer", ["Giovanni (Holo)"] = "Trainer", ["Koga (Holo)"] = "Trainer",
+        ["Sabrina (Holo)"] = "Trainer"
     },
     rare = {
         ["Blaine"] = "Trainer", ["Brock's Protection"] = "Trainer", ["Chaos Gym"] = "Trainer",
