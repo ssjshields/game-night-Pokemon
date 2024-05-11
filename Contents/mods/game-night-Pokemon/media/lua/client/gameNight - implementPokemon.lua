@@ -153,19 +153,9 @@ Pokemon.cardData["Fossil"] = {
 
 
 Pokemon.cardData["Rocket"] = {
-    --TODO: Check missing cards: Seems to be most rocket trainers
-    -- The Boss's Way,
-    -- Nightly Garbage Run,
-    -- Potion Energy
-    -- Full Heal Energy
-    -- Goop Gas Attack
-    -- Digger
-    -- Challenge!
-    -- Imposter Oak's Revenge
-    -- Rainbow Energy
-    -- Sleep
 
     rareHolo = {
+        ["Rainbow Energy (Alt)"] = "Rainbow",
         ["Dark Alakazam"] = "Psychic", ["Dark Arbok"] = "Grass", ["Dark Blastoise"] = "Water",
         ["Dark Charizard"] = "Fire", ["Dark Dragonite"] = "Colorless", ["Dark Dugtrio"] = "Fighting",
         ["Dark Golbat"] = "Grass", ["Dark Gyarados"] = "Water", ["Dark Hypno"] = "Psychic",
@@ -175,6 +165,7 @@ Pokemon.cardData["Rocket"] = {
     },
 
     rare = {
+        ["Rainbow Energy"] = "Rainbow",
         ["Dark Alakazam"] = "Psychic", ["Dark Arbok"] = "Grass", ["Dark Blastoise"] = "Water",
         ["Dark Charizard"] = "Fire", ["Dark Dragonite"] = "Colorless", ["Dark Dugtrio"] = "Fighting",
         ["Dark Golbat"] = "Grass", ["Dark Gyarados"] = "Water", ["Dark Hypno"] = "Psychic",
@@ -183,13 +174,18 @@ Pokemon.cardData["Rocket"] = {
     },
 
     uncommon = {
+        ["The Boss's Way"] = "Trainer", ["Imposter Oak's Revenge"] = "Trainer",
         ["Dark Charmeleon"] = "Fire", ["Dark Dragonair"] = "Colorless", ["Dark Electrode"] = "Lightning",
         ["Dark Flareon"] = "Fire", ["Dark Gloom"] = "Grass", ["Dark Golduck"] = "Water",
         ["Dark Jolteon"] = "Lightning", ["Dark Kadabra"] = "Psychic", ["Dark Machoke"] = "Fighting",
         ["Dark Muk"] = "Grass", ["Dark Persian"] = "Colorless", ["Dark Primeape"] = "Fighting",
         ["Dark Rapidash"] = "Fire", ["Dark Vaporeon"] = "Water", ["Dark Wartortle"] = "Water",
-        ["Magikarp"] = "Water", ["Porygon"] = "Colorless",
-    --}, common = {
+        ["Magikarp"] = "Water", ["Porygon"] = "Colorless", ["Digger"] = "Trainer", ["Challenge!"] = "Trainer",
+        ["Potion Energy"] = "Colorless", ["Full Heal Energy"] = "Colorless", ["Nightly Garbage Run"] = "Trainer",
+    },
+
+    common = {
+        ["Sleep!"] = "Trainer", ["Goop Gas Attack"] = "Trainer",
         ["Abra"] = "Psychic", ["Charmander"] = "Fire", ["Dark Raticate"] = "Colorless", ["Diglett"] = "Fighting",
         ["Dratini"] = "Colorless", ["Drowzee"] = "Psychic", ["Eevee"] = "Colorless", ["Ekans"] = "Grass",
         ["Grimer"] = "Grass", ["Koffing"] = "Grass", ["Machop"] = "Fighting", ["Magnemite"] = "Lightning",
@@ -294,7 +290,7 @@ Pokemon.cardData["Gym Challenge"] = {
 
 
 Pokemon.cardData["Gym Heroes"] = {
-    
+
     rareHolo = {
         ["Blaine's Moltres"] = "Fire", ["Brock's Rhydon"] = "Fighting", ["Erika's Clefable"] = "Colorless",
         ["Erika's Dragonair"] = "Colorless", ["Erika's Vileplume"] = "Grass",
