@@ -22,7 +22,7 @@ for typeID, coins in pairs(Pokemon.Tokens.types) do
         })
     end
 end
-gamePieceAndBoardHandler.registerTypes({ Pokemon.Tokens.typesToRegister })
+gamePieceAndBoardHandler.registerTypes(Pokemon.Tokens.typesToRegister)
 
 
 gamePieceAndBoardHandler.registerSpecial("Base.MetalPikachuCoin", {
