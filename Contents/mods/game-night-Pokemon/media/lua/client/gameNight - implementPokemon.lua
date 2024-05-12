@@ -18,7 +18,7 @@ for typeID, coins in pairs(Pokemon.Tokens.types) do
         table.insert(Pokemon.Tokens.typesToRegister, "Base."..coin)
         gamePieceAndBoardHandler.registerSpecial("Base."..coin, {
             alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
-            actions = { coinFlip=true, examine=true }, examineScale = 1, textureSize = {64,64}, altState=typeID, shiftAction = "coinFlip",
+            actions = { coinFlip=true, examine=true }, textureSize = {64,64}, altState=typeID, shiftAction = "coinFlip",
         })
     end
 end
@@ -27,7 +27,7 @@ gamePieceAndBoardHandler.registerTypes(Pokemon.Tokens.typesToRegister)
 
 gamePieceAndBoardHandler.registerSpecial("Base.MetalPikachuCoin", {
     alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
-    actions = { coinFlip=true, examine=true }, examineScale = 1, textureSize = {64,64}, altState="MetalPikachuCoinFlipped", shiftAction = "coinFlip",
+    actions = { coinFlip=true, examine=true }, textureSize = {64,64}, altState="MetalPikachuCoinFlipped", shiftAction = "coinFlip",
 })
 
 
