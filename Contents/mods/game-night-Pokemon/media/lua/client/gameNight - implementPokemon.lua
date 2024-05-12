@@ -4,6 +4,33 @@ local gamePieceAndBoardHandler = applyItemDetails.gamePieceAndBoardHandler
 
 local Pokemon = {}
 
+
+Pokemon.Tokens = {}
+
+Pokemon.Tokens.types = {
+    Pkmn_baseCoinFlipped = {"AerodactylCoin", "ChanseyCoin", "EeveeCoin", "VileplumeCoin",},
+    Pkmn_base2CoinFlipped = {"PikachuCoin", "MeowthCoin", "StarmieCoin",}
+}
+
+Pokemon.Tokens.typesToRegister = {"Base.MetalPikachuCoin"}
+for typeID, coins in pairs(Pokemon.Tokens.types) do
+    for _,coin in pairs(coins) do
+        table.insert(Pokemon.Tokens.typesToRegister, "Base."..coin)
+        gamePieceAndBoardHandler.registerSpecial("Base."..coin, {
+            alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
+            actions = { coinFlip=true }, textureSize = {125,125}, altState=typeID, shiftAction = "coinFlip",
+        })
+    end
+end
+gamePieceAndBoardHandler.registerTypes({ Pokemon.Tokens.typesToRegister })
+
+
+gamePieceAndBoardHandler.registerSpecial("Base.MetalPikachuCoin", {
+    alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
+    actions = { coinFlip=true }, textureSize = {125,125}, altState="MetalPikachuCoinFlipped", shiftAction = "coinFlip",
+})
+
+
 Pokemon.catalogue = {}
 Pokemon.altNames = {}
 

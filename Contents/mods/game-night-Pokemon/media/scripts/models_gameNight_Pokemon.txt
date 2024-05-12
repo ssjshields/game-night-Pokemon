@@ -5,4 +5,14 @@ module Base
 
     model pokemon_Deck { mesh = WorldItems/cardpack, texture = Item_pokemonCards/deckTexture, scale = 0.024, }
     model pokemon_Card { mesh = WorldItems/cardpack, texture = Item_pokemonCards/deckTexture, scale = 0.024, }
+
+    model pkmnTokenAerodactyl { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/AerodactylCoin, scale = 0.004, }
+    model pkmnTokenChanseyCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/ChanseyCoin, scale = 0.004, }
+    model pkmnTokenEeveeCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/EeveeCoin, scale = 0.004, }
+    model pkmnTokenMeowthCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/MeowthCoin, scale = 0.004, }
+    model pkmnTokenPikachuCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/PikachuCoin, scale = 0.004, }
+    model pkmnTokenStarmieCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/StarmieCoin, scale = 0.004, }
+    model pkmnTokenVileplumeCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/VileplumeCoin, scale = 0.004, }
+    model pkmnTokenMetalPikachuCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/MetalPikachuCoin, scale = 0.004, }
+
 }

@@ -1,6 +1,71 @@
 module Base
 {
 
+    item AerodactylCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenAerodactylCoin,
+            DisplayName = Aerodactyl Coin,
+            Icon = OutOfPlayTextures/PokeTokens/AerodactylCoin,
+        }
+
+    item ChanseyCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenChanseyCoin,
+            DisplayName = Chansey Coin,
+            Icon = OutOfPlayTextures/PokeTokens/ChanseyCoin,
+        }
+
+    item EeveeCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenEeveeCoin,
+            DisplayName = Eevee Coin,
+            Icon = OutOfPlayTextures/PokeTokens/EeveeCoin,
+        }
+
+    item MeowthCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenMeowthCoin,
+            DisplayName = Meowth Coin,
+            Icon = OutOfPlayTextures/PokeTokens/MeowthCoin,
+        }
+
+    item PikachuCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenPikachuCoin,
+            DisplayName = Pikachu Coin,
+            Icon = OutOfPlayTextures/PokeTokens/PikachuCoin,
+        }
+
+    item StarmieCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenStarmieCoin,
+            DisplayName = Starmie Coin,
+            Icon = OutOfPlayTextures/PokeTokens/StarmieCoin,
+        }
+
+    item VileplumeCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenVileplumeCoin,
+            DisplayName = Vileplume Coin,
+            Icon = OutOfPlayTextures/PokeTokens/VileplumeCoin,
+        }
+
+    item MetalPikachuCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenMetalPikachuCoin,
+            DisplayName = Metal Pikachu Coin,
+            Icon = OutOfPlayTextures/PokeTokens/MetalPikachuCoin,
+        }
+
+
     item pokemonStarterKit
     {
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal,
