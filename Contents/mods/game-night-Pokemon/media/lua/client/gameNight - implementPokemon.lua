@@ -437,8 +437,6 @@ end
 
 function applyItemDetails.applyCardForPokemon(item)
     local applyBoosters = item:getModData()["gameNight_specialOnCardApplyBoosters"]
-    ---TEMPORARY
-    applyBoosters = applyBoosters or 1
     if applyBoosters then
         item:getModData()["gameNight_specialOnCardApplyBoosters"] = nil
         applyItemDetails.applyBoostersToPokemonCards(item, applyBoosters)
