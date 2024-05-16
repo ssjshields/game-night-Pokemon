@@ -443,14 +443,31 @@ function applyItemDetails.applyCardForPokemon(item)
         return
     end
 
-    --[[
-    if not item:getModData()["gameNight_cardDeck"] then
-        local cards = Pokemon.buildDeck()
+
+    local applyDeck = item:getModData()["gameNight_specialOnCardApplyDeck"]
+    if applyDeck then
+        item:getModData()["gameNight_specialOnCardApplyDeck"] = nil
+
+        local cards, coinType = Pokemon.buildDeck(applyDeck)
         item:getModData()["gameNight_cardDeck"] = cards
         item:getModData()["gameNight_cardFlipped"] = {}
         for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
+
+        local coin = InventoryItemFactory.CreateItem("Base."..coinType)
+        if coin then
+            local container = item:getContainer()
+            if container then container:AddItem(coin) end
+
+            local worldItem = item:getWorldItem()
+            ---@type IsoGridSquare
+            local worldItemSq = worldItem and worldItem:getSquare()
+            if worldItemSq then worldItemSq:AddWorldInventoryItem(coin, 0, 0, 0) end
+
+            gamePieceAndBoardHandler.refreshInventory(getPlayer())
+        end
+
     end
-    --]]
+
 end
 
 
