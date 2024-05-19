@@ -472,7 +472,7 @@ function applyItemDetails.applyCardForPokemon(item)
         if applyDeck then
             item:getModData()["gameNight_specialOnCardApplyDeck"] = nil
 
-            local cards, coinType = Pokemon.buildDeck(applyDeck)
+            local cards, cardNames, coinType = Pokemon.buildDeck(applyDeck)
             item:getModData()["gameNight_cardDeck"] = cards
             item:getModData()["gameNight_cardFlipped"] = {}
             for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
@@ -495,7 +495,7 @@ end
 
 
 function Pokemon.buildDeck(deckID)
-    local cards, cardNames = {}, {}
+    local cards = {}
     local deckData = Pokemon.Decks[deckID]
     local set = deckData.set
 
@@ -504,7 +504,6 @@ function Pokemon.buildDeck(deckID)
         for card,numberOf in pairs(cardIDs) do
             local cardID = card.." ("..set..")"
             for n=1, numberOf do table.insert(cards, set.."/"..cardID) end
-            cardNames[cardID] = card
         end
     end
 
@@ -514,15 +513,12 @@ function Pokemon.buildDeck(deckID)
     if outlierCards then
         for cardID,numberOf in pairs(outlierCards) do
             for n=1, numberOf do table.insert(cards, set.."/"..cardID) end
-            local lastOpenParenIndex = cardID:find(" %([^%(]*$")
-            local cardName = lastOpenParenIndex and cardID:sub(1, lastOpenParenIndex - 1) or cardID
-            cardNames[cardID] = cardName
         end
     end
 
     local coinType = deckData.coin and "Base."..deckData.coin.."Coin"
 
-    return cards, cardNames, coinType
+    return cards, coinType
 end
 
 
