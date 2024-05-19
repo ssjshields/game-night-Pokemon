@@ -51,13 +51,25 @@ function Pokemon.generatePokemonCards()
         for rarity,cards in pairs(rarities) do
             Pokemon.cardByRarity[set][rarity] = {}
             for card,type in pairs(cards) do
-                local cardID = card.." ("..set..")"
+
+                local holo = rarity and rarity=="rareHolo" and " (Holo)" or ""
+
+                --- Dear diary, today I sacrificed performance cause I'm too lazy to change the file names.
+                --- This checks for a texture if `holo` is true, if it's not present it removes holo from the card ID.
+                if holo then
+                    local textureFound = getTexture("media/textures/Item_PokemonCards/"..set.."/"..card..holo.." ("..set..")")
+                    if not textureFound then holo = "" end
+                end
+
+                local cardID = card..holo.." ("..set..")"
                 Pokemon.cardByType[cardID] = type
                 table.insert(Pokemon.cardByRarity[set][rarity], cardID)
                 table.insert(Pokemon.tradingCards, cardID)
 
                 Pokemon.altIcons[cardID] = set.."/"..cardID
-                --Pokemon.altNames[cardID] = card
+
+                local tmpHolo = rarity and rarity=="rareHolo" and " (Holo)" or ""
+                Pokemon.altNames[cardID] = card..tmpHolo --holo
             end
         end
     end
@@ -117,6 +129,7 @@ Pokemon.cardData["Base"] = {
 }
 
 -- Jungle Set
+
 Pokemon.cardData["Jungle"] = {
     rareHolo = {
         ["Clefable (Holo)"] = "Colorless", ["Electrode (Holo)"] = "Lightning", ["Flareon (Holo)"] = "Fire", ["Jolteon (Holo)"] = "Lightning",
@@ -402,7 +415,31 @@ function applyItemDetails.pokemon.rollCard(setID, rarity)
 end
 
 
-function applyItemDetails.pokemon.unpackBooster(setID, cards)
+
+function applyItemDetails.pokemon.weighedProbability(outcomesAndWeights)
+    local totalWeight = 0
+    for outcome, weight in pairs(outcomesAndWeights) do totalWeight = totalWeight + weight end
+    local randomNumber = ZombRand(totalWeight)+1
+    local cumulativeWeight = 0
+    for outcome, weight in pairs(outcomesAndWeights) do
+        cumulativeWeight = cumulativeWeight + weight
+        if randomNumber <= cumulativeWeight then
+            return outcome
+        end
+    end
+end
+
+
+function applyItemDetails.pokemon.spawnRandomCard()
+    local rarity = applyItemDetails.MOM.weighedProbability({ common = 7, uncommon = 3, rare = 1})
+    local setID = Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
+    local card = applyItemDetails.pokemon.rollCard(setID, rarity)
+    return card
+end
+
+
+function applyItemDetails.pokemon.unpackBooster(setID)
+    local cards = {}
     for i=1, 7 do
         local card = applyItemDetails.pokemon.rollCard(setID, "common")
         table.insert(cards, card)
@@ -422,286 +459,505 @@ function applyItemDetails.pokemon.unpackBooster(setID, cards)
 end
 
 
-function applyItemDetails.applyBoostersToPokemonCards(item, n, setID)
-    local cards = {}
-    n = n or 1
-
+function applyItemDetails.applyBoostersToPokemonCards(item, setID)
     setID = setID or Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
-
-    for i=1, n do applyItemDetails.pokemon.unpackBooster(setID, cards) end
+    local cards = applyItemDetails.pokemon.unpackBooster(setID)
     item:getModData()["gameNight_cardDeck"] = cards
     item:getModData()["gameNight_cardFlipped"] = {}
     for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
 end
 
 
+
 function applyItemDetails.applyCardForPokemon(item)
-    local applyBoosters = item:getModData()["gameNight_specialOnCardApplyBoosters"]
+    local applyBoosters = item:getModData()["gameNight_specialOnCardApplyBooster"]
     if applyBoosters then
-        item:getModData()["gameNight_specialOnCardApplyBoosters"] = nil
+        item:getModData()["gameNight_specialOnCardApplyBooster"] = nil
         applyItemDetails.applyBoostersToPokemonCards(item, applyBoosters)
         return
     end
 
+    if not item:getModData()["gameNight_cardDeck"] then
+        local applyDeck = item:getModData()["gameNight_specialOnCardApplyDeck"] or Pokemon.Decks[ZombRand(#Pokemon.Decks)+1]
+        if applyDeck then
+            item:getModData()["gameNight_specialOnCardApplyDeck"] = nil
 
-    local applyDeck = item:getModData()["gameNight_specialOnCardApplyDeck"]
-    if applyDeck then
-        item:getModData()["gameNight_specialOnCardApplyDeck"] = nil
+            local cards, coinType = Pokemon.buildDeck(applyDeck)
+            item:getModData()["gameNight_cardDeck"] = cards
+            item:getModData()["gameNight_cardFlipped"] = {}
+            for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
 
-        local cards, coinType = Pokemon.buildDeck(applyDeck)
-        item:getModData()["gameNight_cardDeck"] = cards
-        item:getModData()["gameNight_cardFlipped"] = {}
-        for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
+            local coin = InventoryItemFactory.CreateItem("Base."..coinType)
+            if coin then
+                local container = item:getContainer()
+                if container then container:AddItem(coin) end
 
-        local coin = InventoryItemFactory.CreateItem("Base."..coinType)
-        if coin then
-            local container = item:getContainer()
-            if container then container:AddItem(coin) end
+                local worldItem = item:getWorldItem()
+                ---@type IsoGridSquare
+                local worldItemSq = worldItem and worldItem:getSquare()
+                if worldItemSq then worldItemSq:AddWorldInventoryItem(coin, 0, 0, 0) end
 
-            local worldItem = item:getWorldItem()
-            ---@type IsoGridSquare
-            local worldItemSq = worldItem and worldItem:getSquare()
-            if worldItemSq then worldItemSq:AddWorldInventoryItem(coin, 0, 0, 0) end
-
-            gamePieceAndBoardHandler.refreshInventory(getPlayer())
-        end
-
-    end
-
-end
-
-
-
---[[
-
-MTG.colorCodedRarity = {Land={}, Common={}, Uncommon={}, Rare={}}
-
---- Build entire catalogue as a deck
-for set,cards in pairs(Pokemon.tradingCards) do
-    for i,card in pairs(cards) do
-        local cardID = "MTG Alpha "..set.." "..i
-        MTG.altNames[cardID] = card
-
-        local keyed = false
-        for rarity,data in pairs(MTG.colorCodedRarity) do
-            if not keyed then
-                for n,c in pairs(MTG["alpha"..rarity]) do
-                    if c == (set.." "..i) then
-                        MTG.colorCodedRarity[rarity][set] = MTG.colorCodedRarity[rarity][set] or {}
-                        table.insert(MTG.colorCodedRarity[rarity][set], c)
-                        keyed = true
-                    end
-                end
+                gamePieceAndBoardHandler.refreshInventory(getPlayer())
             end
         end
-
-        table.insert(MTG.catalogue, cardID)
-    end
-end
-deckActionHandler.addDeck("mtgCards", MTG.catalogue, MTG.altNames)
-
-
-applyItemDetails.MTG = {}
-
-function applyItemDetails.MTG.rollLand(rarity)
-    --The chance of getting a basic land instead of another card is approximately:
-    -- 4.13% for rares, 21.5% for uncommon and 38.84% for commons.
-    local chance = rarity and (rarity == "Rare" and 4.13 or rarity == "Uncommon" and 21.5 or rarity == "Common" and 38.84)
-    if chance then
-        return (ZombRandFloat(0.0,100.0) < chance)
-    end
-    return false
-end
-
-
-function applyItemDetails.MTG.weighedProbability(outcomesAndWeights)
-    local totalWeight = 0
-    for outcome, weight in pairs(outcomesAndWeights) do totalWeight = totalWeight + weight end
-    local randomNumber = ZombRand(totalWeight)+1
-    local cumulativeWeight = 0
-    for outcome, weight in pairs(outcomesAndWeights) do
-        cumulativeWeight = cumulativeWeight + weight
-        if randomNumber <= cumulativeWeight then
-            return outcome
-        end
     end
 end
 
 
-function applyItemDetails.MTG.rollCardOfParticularColor(rarity, set)
-    local cardPool = MTG.colorCodedRarity[rarity][set]
-    return ("MTG Alpha "..cardPool[ZombRand(#cardPool)+1])
-end
-
-
-function applyItemDetails.MTG.rollCard(rarity)
-    --roll for land first
-    local rollLand = applyItemDetails.MTG.rollLand(rarity)
-    if rollLand then
-        if rarity == "Rare" then
-            -- The only lands on the rare sheets were five copies of Island.
-            return ("MTG Alpha Blue Land "..ZombRand(3)+1)
-        else
-            return ("MTG Alpha "..MTG.alphaLand[ZombRand(#MTG.alphaLand)+1])
-        end
-    end
-
-    local cardPool = MTG["alpha"..rarity]
-    return ("MTG Alpha "..cardPool[ZombRand(#cardPool)+1])
-end
-
-
-
-function applyItemDetails.MTG.unpackBooster(cards)
-    -- 11 common, 3 uncommon, 1 rare -- 15
-
-    for i=1, 11 do
-        local card = applyItemDetails.MTG.rollCard("Common")
-        table.insert(cards, card)
-    end
-
-    for i=1, 3 do
-        local card = applyItemDetails.MTG.rollCard("Uncommon")
-        table.insert(cards, card)
-    end
-
-    for i=1, 1 do
-        local card = applyItemDetails.MTG.rollCard("Rare")
-        table.insert(cards, card)
-    end
-
-    return cards
-end
-
-
-function applyItemDetails.applyBoostersToCards(item, n)
-    item:getModData()["gameNight_cardAltNames"] = nil
+function Pokemon.buildDeck(deckID)
     local cards = {}
-    n = n or 1
-    for i=1, n do applyItemDetails.MTG.unpackBooster(cards) end
-    item:getModData()["gameNight_cardDeck"] = cards
-    item:getModData()["gameNight_cardFlipped"] = {}
-    for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
-end
+    local deckData = Pokemon.Decks[deckID]
+    local set = deckData.set
 
-
-function applyItemDetails.applyCardForMTG(item)
-    local applyBoosters = item:getModData()["gameNight_specialOnCardApplyBoosters"]
-    --- recipe sets this modData to the resulting item, 1 booster = 15 cards, 4 = 60.
-    if applyBoosters then
-        item:getModData()["gameNight_specialOnCardApplyBoosters"] = nil
-        applyItemDetails.applyBoostersToCards(item, applyBoosters)
-        return
+    local cardIDs = deckData.cards
+    for cardID,numberOf in pairs(cardIDs) do
+        for n=1, numberOf do table.insert(cards, cardID.." "..set) end
     end
 
-    item:getModData()["gameNight_cardAltNames"] = nil
-    if not item:getModData()["gameNight_cardDeck"] then
-        local cards = MTG.buildDeck()
-        item:getModData()["gameNight_cardDeck"] = cards
-        item:getModData()["gameNight_cardFlipped"] = {}
-        for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
+    --`outliers` are cards included in a deck from another set - only seems to be once case of this.
+    ---See: Thunderstorm
+    local outlierCards = deckData.outliers
+    for cardID,numberOf in pairs(outlierCards) do
+        for n=1, numberOf do table.insert(cards, cardID) end
     end
+
+    local coinType = deckData.coin and "Base."..deckData.coin.."Coin"
+
+    return cards, coinType
 end
 
 
-gamePieceAndBoardHandler.registerSpecial("Base.mtgCards", { shiftAction = {"tapCard"}, actions = { tapCard=true, examine=true}, examineScale = 0.75, applyCards = "applyCardForMTG", textureSize = {100,140} })
+Pokemon.Decks = {
+
+    ["2-Player Base Starter"] = {
+        set = "Base",
+        coin = "Eevee",
+        cards = {
+            ["Machamp (Holo)"] = 1, ["Diglett"] = 3, ["Machop"] = 4, ["Machoke"] = 2, ["Ponyta"] = 4,
+            ["Charmander"] = 4, ["Charmeleon"] = 2, ["Growlithe"] = 1, ["Rattata"] = 2, ["Dratini"] = 1, ["Bill"] = 1,
+            ["Energy Removal"] = 1, ["Energy Retrieval"] = 1, ["Gust of Wind"] = 1, ["Pokedex"] = 1, ["Potion"] = 2,
+            ["Switch"] = 2, ["Fighting Energy"] = 14, ["Fire Energy"] = 14
+        },
+    },
+
+    --Chansey Coin
+    ["Blackout"] = {
+        set = "Base",
+        coin = "Chansey",
+        cards = {
+            ["Hitmonchan (Holo)"] = 1, ["Farfetch'd"] = 2, ["Wartortle"] = 2, ["Squirtle"] = 4, ["Staryu"] = 3,
+            ["Onix"] = 3, ["Sandshrew"] = 3, ["Machoke"] = 2, ["Machop"] = 4, ["Super Energy Removal"] = 1,
+            ["PlusPower"] = 1, ["Professor Oak"] = 1, ["Gust of Wind"] = 1, ["Energy Removal"] = 4,
+            ["Fighting Energy"] = 16, ["Water Energy"] = 12
+        }
+    },
+
+    ["Brushfire"] = {
+        set = "Base",
+        coin = "Chansey",
+        cards = {
+            ["Ninetales (Holo)"] = 1, ["Weedle"] = 4, ["Tangela"] = 2, ["Nidoran♂"] = 4, ["Arcanine"] = 1,
+            ["Growlithe"] = 2, ["Charmeleon"] = 2, ["Vulpix"] = 2, ["Charmander"] = 4, ["Lass"] = 1, ["PlusPower"] = 1,
+            ["Energy Retrieval"] = 2, ["Switch"] = 1, ["Potion"] = 3, ["Gust of Wind"] = 1, ["Energy Removal"] = 1,
+            ["Grass Energy"] = 10, ["Fire Energy"] = 18
+        }
+    },
+
+    ["Overgrowth"] = {
+        set = "Base",
+        coin = "Chansey",
+        cards = {
+            ["Gyarados (Holo)"] = 1, ["Magikarp"] = 2, ["Starmie"] = 3, ["Staryu"] = 4, ["Beedrill"] = 1,
+            ["Kakuna"] = 2, ["Ivysaur"] = 2, ["Weedle"] = 4, ["Bulbasaur"] = 4, ["Potion"] = 1, ["Bill"] = 2,
+            ["Super Potion"] = 2, ["Switch"] = 2, ["Gust of Wind"] = 2, ["Water Energy"] = 12, ["Grass Energy"] = 16,
+        },
+
+    },
+
+    ["Zap!"] = {
+        set = "Base",
+        coin = "Chansey",
+        cards = {
+            ["Mewtwo (Holo)"] = 1, ["Kadabra"] = 1, ["Jynx"] = 2, ["Haunter"] = 2, ["Gastly"] = 3, ["Drowzee"] = 2,
+            ["Abra"] = 3, ["Pikachu"] = 4, ["Magnemite"] = 3, ["Computer Search"] = 1, ["Defender"] = 1,
+            ["Super Potion"] = 1, ["Professor Oak"] = 1, ["Switch"] = 2, ["Potion"] = 1, ["Gust of Wind"] = 2,
+            ["Bill"] = 2, ["Lightning Energy"] = 12, ["Psychic Energy"] = 16
+        }
+
+    },
+
+    --Vileplume Coin
+    ["Power Reserve"] = {
+        set = "Jungle",
+        coin = "Vileplume",
+        cards = {
+            ["Kangaskhan (Holo)"] = 1, ["Oddish"] = 2, ["Nidoran♀"] = 4, ["Bellsprout"] = 4, ["Weepinbell"] = 2,
+            ["Nidorina"] = 2, ["Gloom"] = 1, ["Abra"] = 4, ["Kadabra"] = 2, ["Jynx"] = 1, ["Switch"] = 1,
+            ["Potion"] = 3, ["Gust of Wind"] = 2, ["Bill"] = 2, ["Pokedex"] = 1, ["Psychic Energy"] = 11,
+            ["Grass Energy"] = 17
+        }
+    },
 
 
-function deckActionHandler.tapCard_isValid(deckItem, player) if deckItem and deckItem:getWorldItem() then return true end end
-function deckActionHandler.tapCard(deckItem, player)
-    local current = deckItem:getModData()["gameNight_rotation"] or 0
-    local state = current == 90 and 0 or 90
+    ["Water Blast"] = {
+        set = "Jungle",
+        coin = "Vileplume",
+        cards = {
+            ["Vaporeon (Holo)"] = 1,
+            ["Rhyhorn"] = 3,
+            ["Meowth"] = 4,
+            ["Eevee"] = 4,
+            ["Rhydon"] = 1,
+            ["Persian"] = 2,
+            ["Poliwag"] = 4,
+            ["Machop"] = 2,
+            ["Seel"] = 1,
+            ["Poliwhirl"] = 2,
+            ["Switch"] = 1,
+            ["Potion"] = 2,
+            ["Gust of Wind"] = 2,
+            ["Super Potion"] = 2,
+            ["Professor Oak"] = 1,
+            ["Water Energy"] = 14,
+            ["Fighting Energy"] = 14
+        }
+    },
 
-    gamePieceAndBoardHandler.playSound(deckItem, player)
-    gamePieceAndBoardHandler.pickupAndPlaceGamePiece(player, deckItem, {gamePieceAndBoardHandler.setModDataValue, deckItem, "gameNight_rotation", state})
-end
 
-MTG.deckArchetypesList = {
-    --- 5 mono decks
-    White = {"White"},
-    Black = {"Black"},
-    Green = {"Green"},
-    Blue = {"Blue"},
-    Red = {"Red"},
+    --Aerodactyl Coin
+    ["BodyGuard"] = {
+        set = "Fossil",
+        coin = "Aerodactyl",
+        cards = {
+            ["Muk (Holo)"] = 1,
+            ["Geodude"] = 3,
+            ["Graveler"] = 2,
+            ["Grimer"] = 4,
+            ["Zubat"] = 4,
+            ["Golbat"] = 2,
+            ["Onix"] = 1,
+            ["Bulbasaur"] = 2,
+            ["Koffing"] = 4,
+            ["Potion"] = 4,
+            ["Professor Oak"] = 2,
+            ["Pokemon Center"] = 1,
+            ["Super Potion"] = 2,
+            ["Grass Energy"] = 16,
+            ["Fighting Energy"] = 12
+        }
+    },
 
-    --- 10 duo decks
-    Azorius = {"White", "Blue"},
-    Dimir = {"Blue", "Black"},
-    Rakdos = {"Black", "Red"},
-    Gruul = {"Red", "Green"},
-    Selesnya = {"White", "Green"},
-    Orzhov = {"White", "Black"},
-    Izzet = {"Blue", "Red"},
-    Golgari = {"Black", "Green"},
-    Boros = {"Red", "White"},
-    Simic = {"Blue", "Green"},
+    ["LockDown"] = {
+        set = "Fossil",
+        coin = "Aerodactyl",
+        cards = {
+            ["Lapras (Holo)"] = 1,
+            ["Magmar"] = 2,
+            ["Horsea"] = 4,
+            ["Seadra"] = 2,
+            ["Krabby"] = 4,
+            ["Kingler"] = 2,
+            ["Vulpix"] = 3,
+            ["Ponyta"] = 3,
+            ["Gambler"] = 1,
+            ["Energy Search"] = 1,
+            ["Bill"] = 2,
+            ["Switch"] = 2,
+            ["Potion"] = 2,
+            ["Super Potion"] = 2,
+            ["Full Heal"] = 1,
+            ["Fire Energy"] = 14,
+            ["Water Energy"] = 14
+        }
+    },
 
-    --- 10 trio decks
-    Bant = {"White", "Blue", "Green"},
-    Esper = {"White", "Blue", "Black"},
-    Grixis = {"Blue", "Black", "Red"},
-    Jund = {"Black", "Red", "Green"},
-    Naya = {"White", "Red", "Green"},
-    Abzan = {"White", "Black", "Green"},
-    Jeskai = {"White", "Blue", "Red"},
-    Sultai = {"Blue", "Black", "Green"},
-    Mardu = {"White", "Black", "Red"},
-    Temur = {"Blue", "Red", "Green"}
 
+    ["2-Player Base 2 Starter"] = {
+        set = "Base",
+        coin = "Eevee",
+        cards = {
+            ["Diglett"] = 3, ["Machop"] = 3, ["Machoke"] = 2, ["Machamp (Holo)"] = 1, ["Seel"] = 2, ["Goldeen"] = 4,
+            ["Seaking"] = 2, ["Staryu"] = 3, ["Meowth"] = 2, ["Doduo"] = 2, ["Dratini"] = 1, ["Bill"] = 1,
+            ["Energy Removal"] = 2, ["Gust of Wind"] = 1, ["Poke Ball"] = 2, ["Pokedex"] = 1, ["Switch"] = 1,
+            ["Fighting Energy"] = 14, ["Water Energy"] = 14
+        }
+    },
+
+
+    --Pikachu Coin
+    ["Grass Chopper"] = {
+        set = "Base 2",
+        coin = "Pikachu",
+        cards = {
+            ["Clefairy (Holo)"] = 1,
+            ["Nidoran♂"] = 2,
+            ["Nidorina"] = 1,
+            ["Nidoran♀"] = 3,
+            ["Weepinbell"] = 2,
+            ["Bellsprout"] = 4,
+            ["Sandshrew"] = 4,
+            ["Machoke"] = 2,
+            ["Machop"] = 4,
+            ["Energy Removal"] = 1,
+            ["Super Energy Removal (Holo)"] = 1,
+            ["Super Potion"] = 1,
+            ["PlusPower"] = 2,
+            ["Gust of Wind"] = 1,
+            ["Potion"] = 3,
+            ["Fighting Energy"] = 14,
+            ["Grass Energy"] = 14
+        }
+    },
+
+    ["Hot Water"] = {
+        set = "Base 2",
+        coin = "Pikachu",
+        cards = {
+            ["Poliwrath (Holo)"] = 1,
+            ["Dodrio"] = 1,
+            ["Doduo"] = 3,
+            ["Magmar"] = 2,
+            ["Charmeleon"] = 1,
+            ["Charmander"] = 3,
+            ["Goldeen"] = 3,
+            ["Poliwhirl"] = 2,
+            ["Poliwag"] = 4,
+            ["Pokemon Trader"] = 1,
+            ["Energy Retrieval"] = 2,
+            ["Potion"] = 3,
+            ["Poke Ball"] = 2,
+            ["Energy Removal"] = 3,
+            ["Gust of Wind"] = 1,
+            ["Water Energy"] = 15,
+            ["Fire Energy"] = 13
+        }
+    },
+
+    ["Lightning Bug"] = {
+        set = "Base 2",
+        coin = "Pikachu",
+        cards = {
+            ["Chansey (Holo)"] = 1,
+            ["Magnemite"] = 3,
+            ["Pikachu"] = 4,
+            ["Beedrill"] = 1,
+            ["Kakuna"] = 2,
+            ["Weedle"] = 4,
+            ["Metapod"] = 1,
+            ["Caterpie"] = 4,
+            ["Pokedex"] = 1,
+            ["PlusPower"] = 1,
+            ["Defender"] = 2,
+            ["Energy Retrieval"] = 2,
+            ["Switch"] = 1,
+            ["Gust of Wind"] = 2,
+            ["Bill"] = 3,
+            ["Grass Energy"] = 16,
+            ["Lightning Energy"] = 12
+        }
+    },
+
+    ["Psych Out"] = {
+        set = "Base 2",
+        coin = "Pikachu",
+        cards = {
+            ["Wigglytuff (Holo)"] = 1,
+            ["Jigglypuff"] = 3,
+            ["Jynx"] = 2,
+            ["Drowzee"] = 2,
+            ["Kadabra"] = 1,
+            ["Abra"] = 3,
+            ["Wartortle"] = 1,
+            ["Squirtle"] = 4,
+            ["Seel"] = 1,
+            ["Starmie"] = 1,
+            ["Staryu"] = 3,
+            ["Computer Search"] = 1,
+            ["Super Potion"] = 1,
+            ["Potion"] = 1,
+            ["Switch"] = 2,
+            ["Defender"] = 2,
+            ["Gust of Wind"] = 3,
+            ["Water Energy"] = 15,
+            ["Psychic Energy"] = 13
+        }
+    },
+
+
+    --Meowth Coin
+    ["Trouble"] = {
+        set = "Rocket",
+        coin = "Meowth",
+        cards = {
+            ["Dark Arbok (Holo)"] = 1,
+            ["Meowth"] = 2,
+            ["Farfetch'd"] = 2,
+            ["Weedle"] = 2,
+            ["Ekans"] = 4,
+            ["Kadabra"] = 1,
+            ["Jynx"] = 1,
+            ["Haunter"] = 1,
+            ["Gastly"] = 2,
+            ["Drowzee"] = 3,
+            ["Abra"] = 2,
+            ["Dark Kadabra"] = 2,
+            ["Switch"] = 1,
+            ["Potion"] = 2,
+            ["Gust of Wind"] = 1,
+            ["The Boss's Way"] = 1,
+            ["Bill"] = 1,
+            ["Full Heal Energy"] = 1,
+            ["Grass Energy"] = 10,
+            ["Psychic Energy"] = 18
+        }
+    },
+
+    ["Devastation"] = {
+        set = "Rocket",
+        coin = "Meowth",
+        cards = {
+            ["Dark Weezing (Holo)"] = 1,
+            ["Eevee"] = 3,
+            ["Wartortle"] = 1,
+            ["Squirtle"] = 3,
+            ["Magikarp"] = 1,
+            ["Dark Wartortle"] = 1,
+            ["Dark Vaporeon"] = 2,
+            ["Weedle"] = 3,
+            ["Tangela"] = 3,
+            ["Oddish"] = 3,
+            ["Koffing"] = 4,
+            ["Dark Gloom"] = 1,
+            ["Super Potion"] = 1,
+            ["Potion"] = 2,
+            ["Imposter Oak's Revenge"] = 1,
+            ["Gust of Wind"] = 1,
+            ["Full Heal"] = 1,
+            ["Water Energy"] = 10,
+            ["Grass Energy"] = 18
+        }
+    },
+
+
+    --Metal Pikachu Coin
+    ["Thunderstorm"] = {
+        set = "Base",
+        coin = "MetalPikachu",
+        cards = {
+            ["Zapdos (Holo)"] = 1, ["Electabuzz (Holo)"] = 1, ["Raichu (Holo)"] = 1, ["Farfetch'd"] = 1, ["Fearow"] = 1,
+            ["Golduck"] = 1, ["Doduo"] = 1, ["Magnemite"] = 2, ["Pikachu"] = 4, ["Psyduck"] = 3, ["Spearow"] = 2,
+            ["Defender"] = 1, ["Energy Retrieval"] = 2, ["Professor Oak"] = 1, ["Super Potion"] = 1, ["Bill"] = 2,
+            ["Energy Search"] = 2, ["Poke Ball"] = 1, ["Potion"] = 1, ["Double Colorless Energy"] = 2,
+            ["Full Heal Energy"] = 1, ["Potion Energy"] = 1, ["Lightning Energy"] = 16, ["Water Energy"] = 8,
+        },
+
+        outliers = {--Gym Heroes
+            ["Lt. Surge's Voltorb (Gym Heroes)"] = 1, ["Misty's Wrath (Gym Heroes)"] = 1, ["Misty's Poliwag (Gym Heroes)"] = 1,
+        }
+    },
+
+    --Metal Pikachu Coin
+    ["Tempest"] = {
+        set = "Base",
+        coin = "MetalPikachu",
+        cards = {
+            ["Zapdos (Holo)"] = 1, ["Electabuzz (Holo)"] = 1, ["Raichu (Holo)"] = 1, ["Farfetch'd"] = 1, ["Fearow"] = 2,
+            ["Golduck"] = 1, ["Doduo"] = 1, ["Magnemite"] = 2, ["Pikachu"] = 4, ["Psyduck"] = 3, ["Pidgey"] = 1,
+            ["Spearow"] = 4, ["Defender"] = 1, ["Energy Retrieval"] = 2, ["Professor Oak"] = 1, ["Super Potion"] = 2,
+            ["Bill"] = 2, ["Energy Removal"] = 1, ["Energy Search"] = 2, ["Potion"] = 1,
+            ["Double Colorless Energy"] = 2, ["Lightning Energy"] = 16, ["Water Energy"] = 8
+        }
+    },
+
+    --Starmie Coin
+    ["Brock"] = {
+        set = "Gym Heroes",
+        coin = "Starmie",
+        cards = {
+            ["Brock's Rhydon (Holo)"] = 1, ["Brock's Sandshrew"] = 2, ["Brock's Rhyhorn"] = 3, ["Brock's Onix"] = 4,
+            ["Brock's Mankey"] = 3, ["Brock's Geodude"] = 3, ["Brock's Lickitung"] = 1, ["Brock's Graveler"] = 1,
+            ["Brock"] = 1, ["Potion"] = 3, ["Energy Retrieval"] = 2, ["Brock's Training Method"] = 2, ["Full Heal"] = 1,
+            ["Switch"] = 2, ["Bill"] = 1, ["Pewter City Gym"] = 1, ["Fighting Energy"] = 28
+        }
+    },
+
+    ["Misty"] = {
+        set = "Gym Heroes",
+        coin = "Starmie",
+        cards = {
+            ["Misty's Tentacruel (Holo)"] = 1, ["Misty's Psyduck"] = 2, ["Misty's Staryu"] = 4, ["Misty's Poliwag"] = 3,
+            ["Misty's Horsea"] = 4, ["Misty's Tentacool"] = 2, ["Misty's Goldeen"] = 3, ["Misty's Starmie"] = 2,
+            ["Misty's Poliwhirl"] = 1, ["Misty"] = 1, ["Potion"] = 2, ["Poke Ball"] = 3, ["Energy Removal"] = 2,
+            ["Cerulean City Gym"] = 1, ["Switch"] = 1, ["Water Energy"] = 28
+        }
+    },
+
+    ["Lt. Surge"] = {
+        set = "Gym Heroes",
+        coin = "Starmie",
+        cards = {
+            ["Lt. Surge's Magneton (Holo)"] = 1, ["Lt. Surge's Voltorb"] = 3, ["Lt. Surge's Magnemite"] = 4,
+            ["Lt. Surge's Rattata"] = 4, ["Lt. Surge's Raticate"] = 2, ["Lt. Surge's Spearow"] = 4,
+            ["Lt. Surge's Pikachu"] = 4, ["Lt. Surge"] = 1, ["Vermilion City Gym"] = 1, ["Gust of Wind"] = 2,
+            ["Secret Mission"] = 2, ["Potion"] = 2, ["PlusPower"] = 1, ["Energy Removal"] = 1, ["Lightning Energy"] = 28
+        }
+    },
+
+    ["Erika"] = {
+        set = "Gym Heroes",
+        coin = "Starmie",
+        cards = {
+            ["Erika's Vileplume (Holo)"] = 1, ["Erika's Tangela"] = 4, ["Erika's Oddish"] = 4,
+            ["Erika's Exeggcute"] = 3, ["Erika's Dratini"] = 1, ["Erika's Weepinbell"] = 2, ["Erika's Bellsprout"] = 4,
+            ["Erika's Gloom"] = 2, ["Erika's Exeggutor"] = 1, ["Erika"] = 1, ["Erika's Perfume"] = 1, ["Potion"] = 2,
+            ["Poke Ball"] = 2, ["Switch"] = 3, ["Celadon City Gym"] = 1,
+            ["Grass Energy"] = 22, ["Psychic Energy"] = 6
+        }
+    },
+
+    ["Sabrina"] = {
+        set = "Gym Challenge",
+        coin = "Starmie",
+        cards = {
+            ["Sabrina's Alakazam (Holo)"] = 1, ["Sabrina's Porygon"] = 3, ["Sabrina's Drowzee"] = 3,
+            ["Sabrina's Gastly"] = 4, ["Sabrina's Kadabra"] = 2, ["Sabrina's Abra"] = 4, ["Sabrina's Jynx"] = 2,
+            ["Sabrina's Haunter"] = 2, ["Sabrina"] = 1, ["Bill"] = 2, ["Potion"] = 2, ["Sabrina's Gaze"] = 2,
+            ["Sabrina's Psychic Control"] = 1, ["Switch"] = 2, ["Saffron City Gym"] = 1, ["Psychic Energy"] = 28
+        }
+    },
+
+    ["Koga"] = {
+        set = "Gym Challenge",
+        coin = "Starmie",
+        cards = {
+            ["Koga's Beedrill (Holo)"] = 1, ["Koga's Ekans"] = 3, ["Koga's Pidgey"] = 3, ["Koga's Weezing"] = 2,
+            ["Koga's Kakuna"] = 2, ["Koga's Koffing"] = 3, ["Koga's Weedle"] = 4, ["Koga's Grimer"] = 3, ["Koga"] = 1,
+            ["Gust of Wind"] = 2, ["Potion"] = 3, ["Full Heal"] = 1, ["Energy Removal"] = 1, ["PlusPower"] = 1,
+            ["Fuchsia City Gym"] = 1, ["Grass Energy"] = 28
+        }
+    },
+
+    ["Blaine"] = {
+        set = "Gym Challenge",
+        coin = "Starmie",
+        cards = {
+            ["Blaine's Arcanine (Holo)"] = 1, ["Blaine's Growlithe"] = 2, ["Blaine's Charmeleon"] = 2,
+            ["Blaine's Doduo"] = 2, ["Blaine's Ponyta"] = 4, ["Blaine's Charmander"] = 3, ["Blaine's Vulpix"] = 2,
+            ["Blaine's Dodrio"] = 1, ["Blaine's Rapidash"] = 2, ["Blaine"] = 1, ["Bill"] = 2, ["Fervor"] = 2,
+            ["Blaine's Gamble"] = 1, ["Potion"] = 2, ["Super Potion"] = 1, ["Max Revive"] = 1,
+            ["Cinnabar City Gym"] = 1, ["Fire Energy"] = 28
+        }
+    },
+
+    ["Giovanni"] = {
+        set = "Gym Challenge",
+        coin = "Starmie",
+        cards = {
+            ["Giovanni's Persian (Holo)"] = 1, ["Giovanni's Nidoran♀"] = 3, ["Giovanni's Nidorina"] = 1,
+            ["Giovanni's Meowth"] = 1, ["Giovanni's Nidoran♂"] = 4, ["Giovanni's Machop"] = 4,
+            ["Giovanni's Nidorino"] = 2, ["Giovanni's Machoke"] = 2, ["Giovanni"] = 1, ["Energy Removal"] = 2,
+            ["Warp Point"] = 2, ["Potion"] = 2, ["Bill"] = 2, ["Full Heal"] = 1, ["Viridian City Gym"] = 1,
+            ["Fighting Energy"] = 8, ["Grass Energy"] = 20
+        }
+    },
 }
-
-function MTG.buildDeck(archetype)
-
-    local cards = {}
-
-    archetype = archetype or applyItemDetails.MTG.weighedProbability(
-            {White=4, Black=4, Green=4, Blue=4, Red=4,
-             Azorius=8, Dimir=8, Rakdos=8, Gruul=8, Selesnya=8, Orzhov=8, Izzet=8, Golgari=8, Boros=8, Simic=8,
-             Bant = 1, Esper = 1, Grixis = 1, Jund = 1, Naya = 1, Abzan = 1, Jeskai = 1, Sultai = 1, Mardu = 1, Temur = 1
-            })
-
-    local deckSize = ZombRand(55,66)
-
-    local colors = MTG.deckArchetypesList[archetype]
-
-    local colorString = ""
-    for i,c in ipairs(colors) do colorString = colorString..c..((#colors>1 and i~=#colors) and "/" or "") end
-    local rarities = {Common=0, Uncommon = 0, Rare =0}
-    --avg goal of 6 artifacts
-    --11 instead of 10 skews the average lower
-    local artifactGoal = math.floor(deckSize/11)+ZombRand(3) -- 0 to 2 additional
-    for i=1, artifactGoal do
-        local rarity = applyItemDetails.MTG.weighedProbability({ Uncommon = 3, Rare = 1})
-        rarities[rarity] = rarities[rarity]+1
-        local card = applyItemDetails.MTG.rollCardOfParticularColor(rarity, "Artifacts")
-        table.insert(cards, card)
-    end
-
-    --avg goal of 24 land
-    local landGoal = math.floor(deckSize/2.5)+ZombRand(4) --0 to 3
-    for i=1, landGoal do
-        local color = colors[ZombRand(#colors)+1]
-        local card = applyItemDetails.MTG.rollCardOfParticularColor("Land", color.." Land")
-        table.insert(cards, card)
-    end
-
-    local remainingCount = deckSize - #cards
-    for i=1, remainingCount do
-        local color = colors[ZombRand(#colors)+1]
-        local rarity = applyItemDetails.MTG.weighedProbability({ Common = 11, Uncommon = 3, Rare = 1})
-        rarities[rarity] = rarities[rarity]+1
-        local card = applyItemDetails.MTG.rollCardOfParticularColor(rarity, color)
-        table.insert(cards, card)
-    end
-
-    if getDebug() then
-        print("DECK BUILT: ", " c:"..#cards, " +a:"..artifactGoal, " +l:"..landGoal, " +o:"..remainingCount,
-                "=("..remainingCount+landGoal+artifactGoal..")",
-                " (r:"..rarities.Rare," u:"..rarities.Uncommon," c:"..rarities.Common..")",
-                "  ["..colorString.."]")
-    end
-
-    return cards
-end
-
---]]

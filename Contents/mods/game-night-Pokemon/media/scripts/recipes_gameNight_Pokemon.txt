@@ -1,7 +1,7 @@
 module Base
 {
 
-    recipe Unseal Box { pokemonStarterKit, Result:pokemonCards, CanBeDoneFromFloor:true, OnCreate:Recipe.GameNight.OpenKitPokemon, Time:50.0, }
-    recipe Unseal Booster { pokemonBoosterPack, Result:pokemonCards, CanBeDoneFromFloor:true, OnCreate:Recipe.GameNight.OpenBoosterPokemon, Time:50.0, }
+    recipe Unseal Box { [Recipe.GetItemTypes.pokemonKit], Result:pokemonCards, CanBeDoneFromFloor:true, OnCreate:Recipe.GameNight.OpenKitPokemon, Time:50.0, }
+    recipe Unseal Booster { [Recipe.GetItemTypes.pokemonBooster], Result:pokemonCards, CanBeDoneFromFloor:true, OnCreate:Recipe.GameNight.OpenBoosterPokemon, Time:50.0, }
 
 }
