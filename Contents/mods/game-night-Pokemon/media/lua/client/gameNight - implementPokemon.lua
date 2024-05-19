@@ -31,9 +31,6 @@ gamePieceAndBoardHandler.registerSpecial("Base.MetalPikachuCoin", {
 })
 
 
-Pokemon.catalogue = {}
-Pokemon.altNames = {}
-
 Pokemon.tradingCards = {}
 Pokemon.altIcons = {}
 Pokemon.altNames = {}
@@ -472,7 +469,7 @@ function applyItemDetails.applyCardForPokemon(item)
         if applyDeck then
             item:getModData()["gameNight_specialOnCardApplyDeck"] = nil
 
-            local cards, cardNames, coinType = Pokemon.buildDeck(applyDeck)
+            local cards, coinType = Pokemon.buildDeck(applyDeck)
             item:getModData()["gameNight_cardDeck"] = cards
             item:getModData()["gameNight_cardFlipped"] = {}
             for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
