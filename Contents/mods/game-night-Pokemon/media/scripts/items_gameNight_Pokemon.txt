@@ -75,7 +75,7 @@ module Base
 
     item pokemonBoosterPack_Base
     {
-        DisplayName = Pokemon Booster Pack, gameNight_specialOnCardApplyBooster = "Base"
+        DisplayName = Pokemon Booster Pack, gameNight_specialOnCardApplyBooster = Base,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonBooster,
         Icon = Boxes/pokemonBoosterPack, WorldStaticModel = pokemon_Booster,
 
@@ -83,7 +83,7 @@ module Base
 
     item pokemonBoosterPack_Jungle
     {
-        DisplayName = Pokemon Booster Pack (Jungle), gameNight_specialOnCardApplyBooster = "Jungle"
+        DisplayName = Pokemon Booster Pack (Jungle), gameNight_specialOnCardApplyBooster = Jungle,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonBooster,
         Icon = Boxes/pokemonBoosterPack, WorldStaticModel = pokemon_Booster,
 
@@ -91,7 +91,7 @@ module Base
 
     item pokemonBoosterPack_Fossil
     {
-        DisplayName = Pokemon Booster Pack (Fossil), gameNight_specialOnCardApplyBooster = "Fossil"
+        DisplayName = Pokemon Booster Pack (Fossil), gameNight_specialOnCardApplyBooster = Fossil,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonBooster,
         Icon = Boxes/pokemonBoosterPack, WorldStaticModel = pokemon_Booster,
 
@@ -99,7 +99,7 @@ module Base
 
     item pokemonBoosterPack_Rocket
     {
-        DisplayName = Pokemon Booster Pack (Rocket), gameNight_specialOnCardApplyBooster = "Rocket"
+        DisplayName = Pokemon Booster Pack (Rocket), gameNight_specialOnCardApplyBooster = Rocket,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonBooster,
         Icon = Boxes/pokemonBoosterPack, WorldStaticModel = pokemon_Booster,
 
@@ -107,7 +107,7 @@ module Base
 
     item pokemonBoosterPack_Base2
     {
-        DisplayName = Pokemon Booster Pack (Base 2), gameNight_specialOnCardApplyBooster = "Base 2"
+        DisplayName = Pokemon Booster Pack (Base 2), gameNight_specialOnCardApplyBooster = Base 2,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonBooster,
         Icon = Boxes/pokemonBoosterPack, WorldStaticModel = pokemon_Booster,
 
@@ -115,7 +115,7 @@ module Base
 
     item pokemonBoosterPack_GymChallenge
     {
-        DisplayName = Pokemon Booster Pack (Gym Challenge), gameNight_specialOnCardApplyBooster = "Gym Challenge"
+        DisplayName = Pokemon Booster Pack (Gym Challenge), gameNight_specialOnCardApplyBooster = Gym Challenge,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonBooster,
         Icon = Boxes/pokemonBoosterPack, WorldStaticModel = pokemon_Booster,
 
@@ -123,7 +123,7 @@ module Base
 
     item pokemonBoosterPack_GymHeroes
     {
-        DisplayName = Pokemon Booster Pack (Gym Heroes), gameNight_specialOnCardApplyBooster = "Gym Heroes"
+        DisplayName = Pokemon Booster Pack (Gym Heroes), gameNight_specialOnCardApplyBooster = Gym Heroes,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonBooster,
         Icon = Boxes/pokemonBoosterPack, WorldStaticModel = pokemon_Booster,
 
@@ -132,182 +132,182 @@ module Base
 
     item pokemonStarterKit_2PlayerBaseStarter
     {
-        DisplayName = Pokemon Starter Kit (2-Player), gameNight_specialOnCardApplyDeck = "2-Player Base Starter",
+        DisplayName = Pokemon Starter Kit (2-Player), gameNight_specialOnCardApplyDeck = 2-Player Base Starter,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Blackout
     {
-        DisplayName = Pokemon Starter Kit (Blackout), gameNight_specialOnCardApplyDeck = "Blackout",
+        DisplayName = Pokemon Starter Kit (Blackout), gameNight_specialOnCardApplyDeck = Blackout,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Brushfire
     {
-        DisplayName = Pokemon Starter Kit (Brushfire), gameNight_specialOnCardApplyDeck = "Brushfire",
+        DisplayName = Pokemon Starter Kit (Brushfire), gameNight_specialOnCardApplyDeck = Brushfire,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Overgrowth
     {
-        DisplayName = Pokemon Starter Kit (Overgrowth), gameNight_specialOnCardApplyDeck = "Overgrowth",
+        DisplayName = Pokemon Starter Kit (Overgrowth), gameNight_specialOnCardApplyDeck = Overgrowth,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Zap
     {
-        DisplayName = Pokemon Starter Kit (Zap!), gameNight_specialOnCardApplyDeck = "Zap!",
+        DisplayName = Pokemon Starter Kit (Zap!), gameNight_specialOnCardApplyDeck = Zap!,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_PowerReserve
     {
-        DisplayName = Pokemon Starter Kit (Power Reserve), gameNight_specialOnCardApplyDeck = "Power Reserve",
+        DisplayName = Pokemon Starter Kit (Power Reserve), gameNight_specialOnCardApplyDeck = Power Reserve,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_WaterBlast
     {
-        DisplayName = Pokemon Starter Kit (Water Blast), gameNight_specialOnCardApplyDeck = "Water Blast",
+        DisplayName = Pokemon Starter Kit (Water Blast), gameNight_specialOnCardApplyDeck = Water Blast,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_BodyGuard
     {
-        DisplayName = Pokemon Starter Kit (BodyGuard), gameNight_specialOnCardApplyDeck = "BodyGuard",
+        DisplayName = Pokemon Starter Kit (BodyGuard), gameNight_specialOnCardApplyDeck = BodyGuard,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_LockDown
     {
-        DisplayName = Pokemon Starter Kit (LockDown), gameNight_specialOnCardApplyDeck = "LockDown",
+        DisplayName = Pokemon Starter Kit (LockDown), gameNight_specialOnCardApplyDeck = LockDown,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_2PlayerBase2Starter
     {
-        DisplayName = Pokemon Starter Kit (2-Player Base 2), gameNight_specialOnCardApplyDeck = "2-Player Base 2 Starter",
+        DisplayName = Pokemon Starter Kit (2-Player Base 2), gameNight_specialOnCardApplyDeck = 2-Player Base 2 Starter,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_GrassChopper
     {
-        DisplayName = Pokemon Starter Kit (Grass Chopper), gameNight_specialOnCardApplyDeck = "Grass Chopper",
+        DisplayName = Pokemon Starter Kit (Grass Chopper), gameNight_specialOnCardApplyDeck = Grass Chopper,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_HotWater
     {
-        DisplayName = Pokemon Starter Kit (Hot Water), gameNight_specialOnCardApplyDeck = "Hot Water",
+        DisplayName = Pokemon Starter Kit (Hot Water), gameNight_specialOnCardApplyDeck = Hot Water,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_LightningBug
     {
-        DisplayName = Pokemon Starter Kit (Lightning Bug), gameNight_specialOnCardApplyDeck = "Lightning Bug",
+        DisplayName = Pokemon Starter Kit (Lightning Bug), gameNight_specialOnCardApplyDeck = Lightning Bug,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_PsychOut
     {
-        DisplayName = Pokemon Starter Kit (Psych Out), gameNight_specialOnCardApplyDeck = "Psych Out",
+        DisplayName = Pokemon Starter Kit (Psych Out), gameNight_specialOnCardApplyDeck = Psych Out,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Trouble
     {
-        DisplayName = Pokemon Starter Kit (Trouble), gameNight_specialOnCardApplyDeck = "Trouble",
+        DisplayName = Pokemon Starter Kit (Trouble), gameNight_specialOnCardApplyDeck = Trouble,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Devastation
     {
-        DisplayName = Pokemon Starter Kit (Devastation), gameNight_specialOnCardApplyDeck = "Devastation",
+        DisplayName = Pokemon Starter Kit (Devastation), gameNight_specialOnCardApplyDeck = Devastation,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Tempest
     {
-        DisplayName = Pokemon Starter Kit (Tempest), gameNight_specialOnCardApplyDeck = "Tempest",
+        DisplayName = Pokemon Starter Kit (Tempest), gameNight_specialOnCardApplyDeck = Tempest,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Thunderstorm
     {
-        DisplayName = Pokemon Starter Kit (Thunderstorm), gameNight_specialOnCardApplyDeck = "Thunderstorm",
+        DisplayName = Pokemon Starter Kit (Thunderstorm), gameNight_specialOnCardApplyDeck = Thunderstorm,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Brock
     {
-        DisplayName = Pokemon Starter Kit (Brock), gameNight_specialOnCardApplyDeck = "Brock",
+        DisplayName = Pokemon Starter Kit (Brock), gameNight_specialOnCardApplyDeck = Brock,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Misty
     {
-        DisplayName = Pokemon Starter Kit (Misty), gameNight_specialOnCardApplyDeck = "Misty",
+        DisplayName = Pokemon Starter Kit (Misty), gameNight_specialOnCardApplyDeck = Misty,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_LtSurge
     {
-        DisplayName = Pokemon Starter Kit (Lt. Surge), gameNight_specialOnCardApplyDeck = "Lt. Surge",
+        DisplayName = Pokemon Starter Kit (Lt. Surge), gameNight_specialOnCardApplyDeck = Lt. Surge,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Koga
     {
-        DisplayName = Pokemon Starter Kit (Koga), gameNight_specialOnCardApplyDeck = "Koga",
+        DisplayName = Pokemon Starter Kit (Koga), gameNight_specialOnCardApplyDeck = Koga,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Erika
     {
-        DisplayName = Pokemon Starter Kit (Erika), gameNight_specialOnCardApplyDeck = "Erika",
+        DisplayName = Pokemon Starter Kit (Erika), gameNight_specialOnCardApplyDeck = Erika,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Giovanni
     {
-        DisplayName = Pokemon Starter Kit (Giovanni), gameNight_specialOnCardApplyDeck = "Giovanni",
+        DisplayName = Pokemon Starter Kit (Giovanni), gameNight_specialOnCardApplyDeck = Giovanni,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Sabrina
     {
-        DisplayName = Pokemon Starter Kit (Sabrina), gameNight_specialOnCardApplyDeck = "Sabrina",
+        DisplayName = Pokemon Starter Kit (Sabrina), gameNight_specialOnCardApplyDeck = Sabrina,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
     item pokemonStarterKit_Blaine
     {
-        DisplayName = Pokemon Starter Kit (Blaine), gameNight_specialOnCardApplyDeck = "Blaine",
+        DisplayName = Pokemon Starter Kit (Blaine), gameNight_specialOnCardApplyDeck = Blaine,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }

@@ -53,23 +53,13 @@ function Pokemon.generatePokemonCards()
             for card,type in pairs(cards) do
 
                 local holo = rarity and rarity=="rareHolo" and " (Holo)" or ""
-
-                --- Dear diary, today I sacrificed performance cause I'm too lazy to change the file names.
-                --- This checks for a texture if `holo` is true, if it's not present it removes holo from the card ID.
-                if holo then
-                    local textureFound = getTexture("media/textures/Item_PokemonCards/"..set.."/"..card..holo.." ("..set..")")
-                    if not textureFound then holo = "" end
-                end
-
                 local cardID = card..holo.." ("..set..")"
                 Pokemon.cardByType[cardID] = type
                 table.insert(Pokemon.cardByRarity[set][rarity], cardID)
                 table.insert(Pokemon.tradingCards, cardID)
 
                 Pokemon.altIcons[cardID] = set.."/"..cardID
-
-                local tmpHolo = rarity and rarity=="rareHolo" and " (Holo)" or ""
-                Pokemon.altNames[cardID] = card..tmpHolo --holo
+                Pokemon.altNames[cardID] = card..holo
             end
         end
     end
@@ -505,25 +495,34 @@ end
 
 
 function Pokemon.buildDeck(deckID)
-    local cards = {}
+    local cards, cardNames = {}, {}
     local deckData = Pokemon.Decks[deckID]
     local set = deckData.set
 
     local cardIDs = deckData.cards
-    for cardID,numberOf in pairs(cardIDs) do
-        for n=1, numberOf do table.insert(cards, cardID.." "..set) end
+    if cardIDs then
+        for card,numberOf in pairs(cardIDs) do
+            local cardID = card.." ("..set..")"
+            for n=1, numberOf do table.insert(cards, set.."/"..cardID) end
+            cardNames[cardID] = card
+        end
     end
 
     --`outliers` are cards included in a deck from another set - only seems to be once case of this.
     ---See: Thunderstorm
     local outlierCards = deckData.outliers
-    for cardID,numberOf in pairs(outlierCards) do
-        for n=1, numberOf do table.insert(cards, cardID) end
+    if outlierCards then
+        for cardID,numberOf in pairs(outlierCards) do
+            for n=1, numberOf do table.insert(cards, set.."/"..cardID) end
+            local lastOpenParenIndex = cardID:find(" %([^%(]*$")
+            local cardName = lastOpenParenIndex and cardID:sub(1, lastOpenParenIndex - 1) or cardID
+            cardNames[cardID] = cardName
+        end
     end
 
     local coinType = deckData.coin and "Base."..deckData.coin.."Coin"
 
-    return cards, coinType
+    return cards, cardNames, coinType
 end
 
 
