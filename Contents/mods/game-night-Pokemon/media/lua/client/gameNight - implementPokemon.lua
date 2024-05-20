@@ -466,9 +466,15 @@ function applyItemDetails.applyCardForPokemon(item)
 
         local applyDeck = item:getModData()["gameNight_specialOnCardApplyDeck"] or Pokemon.Decks[ZombRand(#Pokemon.Decks)+1]
         if applyDeck then
+
             item:getModData()["gameNight_specialOnCardApplyDeck"] = nil
 
             local cards, coinType = Pokemon.buildDeck(applyDeck)
+
+            if applyDeck == "ALL_CARDS" then cards = Pokemon.tradingCards end
+
+            print("Pokemon.tradingCards: ", #Pokemon.tradingCards)
+
             item:getModData()["gameNight_cardDeck"] = cards
             item:getModData()["gameNight_cardFlipped"] = {}
             for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end

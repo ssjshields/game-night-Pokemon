@@ -312,4 +312,10 @@ module Base
         Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
     }
 
+    item pokemon_ALL_CARDS
+    {
+        DisplayName = Pokemon Starter Kit (ALL CARDS), gameNight_specialOnCardApplyDeck = ALL_CARDS,
+        DisplayCategory = GameBox, Weight = 0.1, Type = Normal, Tags = pokemonKit,
+        Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
+    }
 }
