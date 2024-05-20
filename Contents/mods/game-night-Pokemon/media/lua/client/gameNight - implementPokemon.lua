@@ -457,7 +457,7 @@ function applyItemDetails.applyCardForPokemon(item)
 
     if not item:getModData()["gameNight_cardDeck"] then
 
-        local applyBoosters = item:getModData()["gameNight_specialOnCardApplyBooster"] or Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
+        local applyBoosters = item:getModData()["gameNight_specialOnCardApplyBooster"] --or Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
         if applyBoosters then
             item:getModData()["gameNight_specialOnCardApplyBooster"] = nil
             applyItemDetails.applyBoostersToPokemonCards(item, applyBoosters)
@@ -473,7 +473,7 @@ function applyItemDetails.applyCardForPokemon(item)
             item:getModData()["gameNight_cardFlipped"] = {}
             for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
 
-            local coin = InventoryItemFactory.CreateItem("Base."..coinType)
+            local coin = coinType and InventoryItemFactory.CreateItem("Base."..coinType)
             if coin then
                 local container = item:getContainer()
                 if container then container:AddItem(coin) end
@@ -493,6 +493,8 @@ end
 function Pokemon.buildDeck(deckID)
     local cards = {}
     local deckData = Pokemon.Decks[deckID]
+    if not deckData then return end
+
     local set = deckData.set
 
     local cardIDs = deckData.cards
