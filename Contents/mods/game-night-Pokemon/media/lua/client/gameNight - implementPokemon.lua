@@ -49,14 +49,13 @@ function Pokemon.generatePokemonCards()
             Pokemon.cardByRarity[set][rarity] = {}
             for card,type in pairs(cards) do
 
-                local holo = rarity and rarity=="rareHolo" and " (Holo)" or ""
-                local cardID = card..holo.." ("..set..")"
+                local cardID = card.." ("..set..")"
                 Pokemon.cardByType[cardID] = type
                 table.insert(Pokemon.cardByRarity[set][rarity], cardID)
                 table.insert(Pokemon.tradingCards, cardID)
 
                 Pokemon.altIcons[cardID] = set.."/"..cardID
-                Pokemon.altNames[cardID] = card..holo
+                Pokemon.altNames[cardID] = card
             end
         end
     end
@@ -82,7 +81,7 @@ Pokemon.cardData["Base"] = {
     rare = {
         ["Beedrill"] = "Grass", ["Dragonair"] = "Colorless", ["Dugtrio"] = "Fighting", ["Electabuzz"] = "Lightning",
         ["Electrode"] = "Lightning", ["Pidgeotto"] = "Colorless", ["Clefairy Doll"] = "Trainer",
-        ["Computer Search"] = "Trainer", ["Devolution Spray"] = "Trainer", ["Imposter Professor Oak"] = "Trainer",
+        ["Computer Search"] = "Trainer", ["Devolution Spray"] = "Trainer", ["Impostor Professor Oak"] = "Trainer",
         ["Item Finder"] = "Trainer", ["Lass"] = "Trainer", ["Pokemon Breeder"] = "Trainer",
         ["Pokemon Trader"] = "Trainer", ["Scoop Up"] = "Trainer", ["Super Energy Removal"] = "Trainer"
     },
@@ -182,7 +181,6 @@ Pokemon.cardData["Fossil"] = {
 Pokemon.cardData["Rocket"] = {
 
     rareHolo = {
-        ["Rainbow Energy (Holo)"] = "Rainbow",
         ["Dark Alakazam (Holo)"] = "Psychic", ["Dark Arbok (Holo)"] = "Grass", ["Dark Blastoise (Holo)"] = "Water",
         ["Dark Charizard (Holo)"] = "Fire", ["Dark Dragonite (Holo)"] = "Colorless", ["Dark Dugtrio (Holo)"] = "Fighting",
         ["Dark Golbat (Holo)"] = "Grass", ["Dark Gyarados (Holo)"] = "Water", ["Dark Hypno (Holo)"] = "Psychic",
@@ -192,7 +190,7 @@ Pokemon.cardData["Rocket"] = {
     },
 
     rare = {
-        ["Rainbow Energy"] = "Rainbow",
+        ["Rainbow Energy"] = "Rainbow", ["Rocket's Sneak Attack"] = "Trainer",
         ["Dark Alakazam"] = "Psychic", ["Dark Arbok"] = "Grass", ["Dark Blastoise"] = "Water",
         ["Dark Charizard"] = "Fire", ["Dark Dragonite"] = "Colorless", ["Dark Dugtrio"] = "Fighting",
         ["Dark Golbat"] = "Grass", ["Dark Gyarados"] = "Water", ["Dark Hypno"] = "Psychic",
@@ -321,7 +319,7 @@ Pokemon.cardData["Gym Heroes"] = {
     rareHolo = {
         ["Blaine's Moltres (Holo)"] = "Fire", ["Brock's Rhydon (Holo)"] = "Fighting", ["Erika's Clefable (Holo)"] = "Colorless",
         ["Erika's Dragonair (Holo)"] = "Colorless", ["Erika's Vileplume (Holo)"] = "Grass",
-        ["Lt. Surge's Electabuzz 2 (Holo)"] = "Lightning", ["Lt. Surge's Fearow (Holo)"] = "Colorless",
+        ["Lt. Surge's Electabuzz (Holo)"] = "Lightning", ["Lt. Surge's Fearow (Holo)"] = "Colorless",
         ["Lt. Surge's Magneton (Holo)"] = "Lightning", ["Misty's Seadra (Holo)"] = "Water", ["Misty's Tentacruel (Holo)"] = "Water",
         ["Rocket's Hitmonchan (Holo)"] = "Fighting", ["Rocket's Moltres (Holo)"] = "Fire", ["Rocket's Scyther (Holo)"] = "Grass",
         ["Sabrina's Gengar (Holo)"] = "Psychic", ["Blaine (Holo)"] = "Trainer", ["Erika (Holo)"] = "Trainer", ["Lt. Surge (Holo)"] = "Trainer",
@@ -331,7 +329,7 @@ Pokemon.cardData["Gym Heroes"] = {
     rare = {
         ["Brock's Golem"] = "Fighting", ["Brock's Onix 1"] = "Fighting", ["Brock's Rhyhorn 1"] = "Fighting",
         ["Brock's Sandslash"] = "Fighting", ["Brock's Zubat 1"] = "Grass", ["Erika's Clefairy"] = "Colorless",
-        ["Erika's Victreebel"] = "Grass", ["Lt. Surge's Raichu"] = "Lightning", ["Lt. Surge's Electabuzz 1"] = "Lightning",
+        ["Erika's Victreebel"] = "Grass", ["Lt. Surge's Raichu"] = "Lightning", ["Lt. Surge's Electabuzz"] = "Lightning",
         ["Lt. Surge's Magnemite 1"] = "Lightning", ["Misty's Cloyster"] = "Water", ["Misty's Goldeen 1"] = "Water",
         ["Misty's Poliwrath"] = "Water", ["Misty's Tentacool 1"] = "Water",
         ["Rocket's Snorlax"] = "Colorless", ["Sabrina's Venomoth"] = "Grass", ["Blaine's Quiz #1"] = "Trainer",
@@ -341,7 +339,7 @@ Pokemon.cardData["Gym Heroes"] = {
 
     uncommon = {
         ["Blaine's Growlithe 1"] = "Fire", ["Blaine's Kangaskhan"] = "Colorless", ["Blaine's Magmar"] = "Fire",
-        ["Brock's Geodude"] = "Fighting", ["Brock's Golbat"] = "Grass", ["Brock's Graveler"] = "Fighting",
+        ["Brock's Geodude 1"] = "Fighting", ["Brock's Golbat"] = "Grass", ["Brock's Graveler"] = "Fighting",
         ["Brock's Lickitung"] = "Colorless", ["Erika's Dratini"] = "Colorless", ["Erika's Exeggcute 1"] = "Grass",
         ["Erika's Exeggutor"] = "Grass", ["Erika's Gloom 1"] = "Grass", ["Erika's Gloom 2"] = "Grass", ["Erika's Oddish 1"] = "Grass",
         ["Erika's Weepinbell 1"] = "Grass", ["Erika's Weepinbell 2"] = "Grass", ["Lt. Surge's Raticate"] = "Colorless",
@@ -358,8 +356,8 @@ Pokemon.cardData["Gym Heroes"] = {
 
     common = {
         ["Blaine's Charmander"] = "Fire", ["Blaine's Growlithe 2"] = "Fire", ["Blaine's Ponyta"] = "Fire",
-        ["Blaine's Tauros"] = "Colorless", ["Blaine's Vulpix"] = "Fire", ["Brock's Geodude"] = "Fighting",
-        ["Brock's Mankey"] = "Fighting", ["Brock's Onix 2"] = "Fighting", ["Brock's Rhyhorn 2"] = "Fighting",
+        ["Blaine's Tauros"] = "Colorless", ["Blaine's Vulpix"] = "Fire", ["Brock's Geodude 2"] = "Fighting",
+        ["Brock's Mankey 1"] = "Fighting", ["Brock's Mankey 2"] = "Fighting", ["Brock's Onix 2"] = "Fighting", ["Brock's Rhyhorn 2"] = "Fighting",
         ["Brock's Sandshrew 1"] = "Fighting", ["Brock's Sandshrew 2"] = "Fighting", ["Brock's Vulpix"] = "Fire",
         ["Brock's Zubat 2"] = "Grass", ["Erika's Bellsprout 1"] = "Grass", ["Erika's Bellsprout 2"] = "Grass", 
         ["Erika's Oddish 2"] = "Grass", ["Erika's Exeggcute 2"] = "Grass", ["Erika's Tangela"] = "Grass",
@@ -393,10 +391,10 @@ function applyItemDetails.pokemon.rollCard(setID, rarity)
     --if not set then return end
     local cards = set[rarity]
     if not cards and rarity == "rareHolo" then cards = Pokemon.cardByRarity[setID]["rare"] end
+    if not cards then return end
 
-    --if not cards then return end
     local card = cards[ZombRand(#cards)+1]
-    --if not card then return end
+    if not card then return end
 
     return card
 end
@@ -447,7 +445,7 @@ end
 
 
 function applyItemDetails.applyBoostersToPokemonCards(item, setID)
-    setID = setID or Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
+    setID = setID
     local cards = applyItemDetails.pokemon.unpackBooster(setID)
     item:getModData()["gameNight_cardDeck"] = cards
     item:getModData()["gameNight_cardFlipped"] = {}
@@ -455,16 +453,17 @@ function applyItemDetails.applyBoostersToPokemonCards(item, setID)
 end
 
 
-
 function applyItemDetails.applyCardForPokemon(item)
-    local applyBoosters = item:getModData()["gameNight_specialOnCardApplyBooster"]
-    if applyBoosters then
-        item:getModData()["gameNight_specialOnCardApplyBooster"] = nil
-        applyItemDetails.applyBoostersToPokemonCards(item, applyBoosters)
-        return
-    end
 
     if not item:getModData()["gameNight_cardDeck"] then
+
+        local applyBoosters = item:getModData()["gameNight_specialOnCardApplyBooster"] or Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
+        if applyBoosters then
+            item:getModData()["gameNight_specialOnCardApplyBooster"] = nil
+            applyItemDetails.applyBoostersToPokemonCards(item, applyBoosters)
+            return
+        end
+
         local applyDeck = item:getModData()["gameNight_specialOnCardApplyDeck"] or Pokemon.Decks[ZombRand(#Pokemon.Decks)+1]
         if applyDeck then
             item:getModData()["gameNight_specialOnCardApplyDeck"] = nil
@@ -595,22 +594,9 @@ Pokemon.Decks = {
         set = "Jungle",
         coin = "Vileplume",
         cards = {
-            ["Vaporeon (Holo)"] = 1,
-            ["Rhyhorn"] = 3,
-            ["Meowth"] = 4,
-            ["Eevee"] = 4,
-            ["Rhydon"] = 1,
-            ["Persian"] = 2,
-            ["Poliwag"] = 4,
-            ["Machop"] = 2,
-            ["Seel"] = 1,
-            ["Poliwhirl"] = 2,
-            ["Switch"] = 1,
-            ["Potion"] = 2,
-            ["Gust of Wind"] = 2,
-            ["Super Potion"] = 2,
-            ["Professor Oak"] = 1,
-            ["Water Energy"] = 14,
+            ["Vaporeon (Holo)"] = 1, ["Rhyhorn"] = 3, ["Meowth"] = 4, ["Eevee"] = 4, ["Rhydon"] = 1, ["Persian"] = 2,
+            ["Poliwag"] = 4, ["Machop"] = 2, ["Seel"] = 1, ["Poliwhirl"] = 2, ["Switch"] = 1, ["Potion"] = 2,
+            ["Gust of Wind"] = 2, ["Super Potion"] = 2, ["Professor Oak"] = 1, ["Water Energy"] = 14,
             ["Fighting Energy"] = 14
         }
     },
@@ -621,21 +607,9 @@ Pokemon.Decks = {
         set = "Fossil",
         coin = "Aerodactyl",
         cards = {
-            ["Muk (Holo)"] = 1,
-            ["Geodude"] = 3,
-            ["Graveler"] = 2,
-            ["Grimer"] = 4,
-            ["Zubat"] = 4,
-            ["Golbat"] = 2,
-            ["Onix"] = 1,
-            ["Bulbasaur"] = 2,
-            ["Koffing"] = 4,
-            ["Potion"] = 4,
-            ["Professor Oak"] = 2,
-            ["Pokemon Center"] = 1,
-            ["Super Potion"] = 2,
-            ["Grass Energy"] = 16,
-            ["Fighting Energy"] = 12
+            ["Muk (Holo)"] = 1, ["Geodude"] = 3, ["Graveler"] = 2, ["Grimer"] = 4, ["Zubat"] = 4, ["Golbat"] = 2,
+            ["Onix"] = 1, ["Bulbasaur"] = 2, ["Koffing"] = 4, ["Potion"] = 4, ["Professor Oak"] = 2,
+            ["Pokemon Center"] = 1, ["Super Potion"] = 2, ["Grass Energy"] = 16, ["Fighting Energy"] = 12
         }
     },
 
@@ -643,23 +617,9 @@ Pokemon.Decks = {
         set = "Fossil",
         coin = "Aerodactyl",
         cards = {
-            ["Lapras (Holo)"] = 1,
-            ["Magmar"] = 2,
-            ["Horsea"] = 4,
-            ["Seadra"] = 2,
-            ["Krabby"] = 4,
-            ["Kingler"] = 2,
-            ["Vulpix"] = 3,
-            ["Ponyta"] = 3,
-            ["Gambler"] = 1,
-            ["Energy Search"] = 1,
-            ["Bill"] = 2,
-            ["Switch"] = 2,
-            ["Potion"] = 2,
-            ["Super Potion"] = 2,
-            ["Full Heal"] = 1,
-            ["Fire Energy"] = 14,
-            ["Water Energy"] = 14
+            ["Lapras (Holo)"] = 1, ["Magmar"] = 2, ["Horsea"] = 4, ["Seadra"] = 2, ["Krabby"] = 4, ["Kingler"] = 2,
+            ["Vulpix"] = 3, ["Ponyta"] = 3, ["Gambler"] = 1, ["Energy Search"] = 1, ["Bill"] = 2, ["Switch"] = 2,
+            ["Potion"] = 2, ["Super Potion"] = 2, ["Full Heal"] = 1, ["Fire Energy"] = 14, ["Water Energy"] = 14
         }
     },
 
@@ -681,23 +641,10 @@ Pokemon.Decks = {
         set = "Base 2",
         coin = "Pikachu",
         cards = {
-            ["Clefairy (Holo)"] = 1,
-            ["Nidoran♂"] = 2,
-            ["Nidorina"] = 1,
-            ["Nidoran♀"] = 3,
-            ["Weepinbell"] = 2,
-            ["Bellsprout"] = 4,
-            ["Sandshrew"] = 4,
-            ["Machoke"] = 2,
-            ["Machop"] = 4,
-            ["Energy Removal"] = 1,
-            ["Super Energy Removal (Holo)"] = 1,
-            ["Super Potion"] = 1,
-            ["PlusPower"] = 2,
-            ["Gust of Wind"] = 1,
-            ["Potion"] = 3,
-            ["Fighting Energy"] = 14,
-            ["Grass Energy"] = 14
+            ["Clefairy (Holo)"] = 1, ["Nidoran♂"] = 2, ["Nidorina"] = 1, ["Nidoran♀"] = 3, ["Weepinbell"] = 2,
+            ["Bellsprout"] = 4, ["Sandshrew"] = 4, ["Machoke"] = 2, ["Machop"] = 4, ["Energy Removal"] = 1,
+            ["Super Energy Removal (Holo)"] = 1, ["Super Potion"] = 1, ["PlusPower"] = 2, ["Gust of Wind"] = 1,
+            ["Potion"] = 3, ["Fighting Energy"] = 14, ["Grass Energy"] = 14
         }
     },
 
@@ -705,23 +652,10 @@ Pokemon.Decks = {
         set = "Base 2",
         coin = "Pikachu",
         cards = {
-            ["Poliwrath (Holo)"] = 1,
-            ["Dodrio"] = 1,
-            ["Doduo"] = 3,
-            ["Magmar"] = 2,
-            ["Charmeleon"] = 1,
-            ["Charmander"] = 3,
-            ["Goldeen"] = 3,
-            ["Poliwhirl"] = 2,
-            ["Poliwag"] = 4,
-            ["Pokemon Trader"] = 1,
-            ["Energy Retrieval"] = 2,
-            ["Potion"] = 3,
-            ["Poke Ball"] = 2,
-            ["Energy Removal"] = 3,
-            ["Gust of Wind"] = 1,
-            ["Water Energy"] = 15,
-            ["Fire Energy"] = 13
+            ["Poliwrath (Holo)"] = 1, ["Dodrio"] = 1, ["Doduo"] = 3, ["Magmar"] = 2, ["Charmeleon"] = 1,
+            ["Charmander"] = 3, ["Goldeen"] = 3, ["Poliwhirl"] = 2, ["Poliwag"] = 4, ["Pokemon Trader"] = 1,
+            ["Energy Retrieval"] = 2, ["Potion"] = 3, ["Poke Ball"] = 2, ["Energy Removal"] = 3, ["Gust of Wind"] = 1,
+            ["Water Energy"] = 15, ["Fire Energy"] = 13
         }
     },
 
@@ -729,22 +663,9 @@ Pokemon.Decks = {
         set = "Base 2",
         coin = "Pikachu",
         cards = {
-            ["Chansey (Holo)"] = 1,
-            ["Magnemite"] = 3,
-            ["Pikachu"] = 4,
-            ["Beedrill"] = 1,
-            ["Kakuna"] = 2,
-            ["Weedle"] = 4,
-            ["Metapod"] = 1,
-            ["Caterpie"] = 4,
-            ["Pokedex"] = 1,
-            ["PlusPower"] = 1,
-            ["Defender"] = 2,
-            ["Energy Retrieval"] = 2,
-            ["Switch"] = 1,
-            ["Gust of Wind"] = 2,
-            ["Bill"] = 3,
-            ["Grass Energy"] = 16,
+            ["Chansey (Holo)"] = 1, ["Magnemite"] = 3, ["Pikachu"] = 4, ["Beedrill"] = 1, ["Kakuna"] = 2,
+            ["Weedle"] = 4, ["Metapod"] = 1, ["Caterpie"] = 4, ["Pokedex"] = 1, ["PlusPower"] = 1, ["Defender"] = 2,
+            ["Energy Retrieval"] = 2, ["Switch"] = 1, ["Gust of Wind"] = 2, ["Bill"] = 3, ["Grass Energy"] = 16,
             ["Lightning Energy"] = 12
         }
     },
@@ -753,25 +674,10 @@ Pokemon.Decks = {
         set = "Base 2",
         coin = "Pikachu",
         cards = {
-            ["Wigglytuff (Holo)"] = 1,
-            ["Jigglypuff"] = 3,
-            ["Jynx"] = 2,
-            ["Drowzee"] = 2,
-            ["Kadabra"] = 1,
-            ["Abra"] = 3,
-            ["Wartortle"] = 1,
-            ["Squirtle"] = 4,
-            ["Seel"] = 1,
-            ["Starmie"] = 1,
-            ["Staryu"] = 3,
-            ["Computer Search"] = 1,
-            ["Super Potion"] = 1,
-            ["Potion"] = 1,
-            ["Switch"] = 2,
-            ["Defender"] = 2,
-            ["Gust of Wind"] = 3,
-            ["Water Energy"] = 15,
-            ["Psychic Energy"] = 13
+            ["Wigglytuff (Holo)"] = 1, ["Jigglypuff"] = 3, ["Jynx"] = 2, ["Drowzee"] = 2, ["Kadabra"] = 1, ["Abra"] = 3,
+            ["Wartortle"] = 1, ["Squirtle"] = 4, ["Seel"] = 1, ["Starmie"] = 1, ["Staryu"] = 3, ["Computer Search"] = 1,
+            ["Super Potion"] = 1, ["Potion"] = 1, ["Switch"] = 2, ["Defender"] = 2, ["Gust of Wind"] = 3,
+            ["Water Energy"] = 15, ["Psychic Energy"] = 13
         }
     },
 
@@ -781,26 +687,10 @@ Pokemon.Decks = {
         set = "Rocket",
         coin = "Meowth",
         cards = {
-            ["Dark Arbok (Holo)"] = 1,
-            ["Meowth"] = 2,
-            ["Farfetch'd"] = 2,
-            ["Weedle"] = 2,
-            ["Ekans"] = 4,
-            ["Kadabra"] = 1,
-            ["Jynx"] = 1,
-            ["Haunter"] = 1,
-            ["Gastly"] = 2,
-            ["Drowzee"] = 3,
-            ["Abra"] = 2,
-            ["Dark Kadabra"] = 2,
-            ["Switch"] = 1,
-            ["Potion"] = 2,
-            ["Gust of Wind"] = 1,
-            ["The Boss's Way"] = 1,
-            ["Bill"] = 1,
-            ["Full Heal Energy"] = 1,
-            ["Grass Energy"] = 10,
-            ["Psychic Energy"] = 18
+            ["Dark Arbok (Holo)"] = 1, ["Meowth"] = 2, ["Farfetch'd"] = 2, ["Weedle"] = 2, ["Ekans"] = 4,
+            ["Kadabra"] = 1, ["Jynx"] = 1, ["Haunter"] = 1, ["Gastly"] = 2, ["Drowzee"] = 3, ["Abra"] = 2,
+            ["Dark Kadabra"] = 2, ["Switch"] = 1, ["Potion"] = 2, ["Gust of Wind"] = 1, ["The Boss's Way"] = 1,
+            ["Bill"] = 1, ["Full Heal Energy"] = 1, ["Grass Energy"] = 10, ["Psychic Energy"] = 18
         }
     },
 
@@ -808,25 +698,10 @@ Pokemon.Decks = {
         set = "Rocket",
         coin = "Meowth",
         cards = {
-            ["Dark Weezing (Holo)"] = 1,
-            ["Eevee"] = 3,
-            ["Wartortle"] = 1,
-            ["Squirtle"] = 3,
-            ["Magikarp"] = 1,
-            ["Dark Wartortle"] = 1,
-            ["Dark Vaporeon"] = 2,
-            ["Weedle"] = 3,
-            ["Tangela"] = 3,
-            ["Oddish"] = 3,
-            ["Koffing"] = 4,
-            ["Dark Gloom"] = 1,
-            ["Super Potion"] = 1,
-            ["Potion"] = 2,
-            ["Imposter Oak's Revenge"] = 1,
-            ["Gust of Wind"] = 1,
-            ["Full Heal"] = 1,
-            ["Water Energy"] = 10,
-            ["Grass Energy"] = 18
+            ["Dark Weezing (Holo)"] = 1, ["Eevee"] = 3, ["Wartortle"] = 1, ["Squirtle"] = 3, ["Magikarp"] = 1,
+            ["Dark Wartortle"] = 1, ["Dark Vaporeon"] = 2, ["Weedle"] = 3, ["Tangela"] = 3, ["Oddish"] = 3,
+            ["Koffing"] = 4, ["Dark Gloom"] = 1, ["Super Potion"] = 1, ["Potion"] = 2, ["Imposter Oak's Revenge"] = 1,
+            ["Gust of Wind"] = 1, ["Full Heal"] = 1, ["Water Energy"] = 10, ["Grass Energy"] = 18
         }
     },
 
@@ -836,7 +711,7 @@ Pokemon.Decks = {
         set = "Base",
         coin = "MetalPikachu",
         cards = {
-            ["Zapdos (Holo)"] = 1, ["Electabuzz (Holo)"] = 1, ["Raichu (Holo)"] = 1, ["Farfetch'd"] = 1, ["Fearow"] = 1,
+            ["Zapdos (Holo)"] = 1, ["Electabuzz"] = 1, ["Raichu (Holo)"] = 1, ["Farfetch'd"] = 1, ["Fearow"] = 1,
             ["Golduck"] = 1, ["Doduo"] = 1, ["Magnemite"] = 2, ["Pikachu"] = 4, ["Psyduck"] = 3, ["Spearow"] = 2,
             ["Defender"] = 1, ["Energy Retrieval"] = 2, ["Professor Oak"] = 1, ["Super Potion"] = 1, ["Bill"] = 2,
             ["Energy Search"] = 2, ["Poke Ball"] = 1, ["Potion"] = 1, ["Double Colorless Energy"] = 2,
@@ -867,7 +742,7 @@ Pokemon.Decks = {
         coin = "Starmie",
         cards = {
             ["Brock's Rhydon (Holo)"] = 1, ["Brock's Sandshrew"] = 2, ["Brock's Rhyhorn"] = 3, ["Brock's Onix"] = 4,
-            ["Brock's Mankey"] = 3, ["Brock's Geodude"] = 3, ["Brock's Lickitung"] = 1, ["Brock's Graveler"] = 1,
+            ["Brock's Mankey 1"] = 1, ["Brock's Mankey 2"] = 2, ["Brock's Geodude"] = 3, ["Brock's Lickitung"] = 1, ["Brock's Graveler"] = 1,
             ["Brock"] = 1, ["Potion"] = 3, ["Energy Retrieval"] = 2, ["Brock's Training Method"] = 2, ["Full Heal"] = 1,
             ["Switch"] = 2, ["Bill"] = 1, ["Pewter City Gym"] = 1, ["Fighting Energy"] = 28
         }
@@ -878,9 +753,9 @@ Pokemon.Decks = {
         coin = "Starmie",
         cards = {
             ["Misty's Tentacruel (Holo)"] = 1, ["Misty's Psyduck"] = 2, ["Misty's Staryu"] = 4, ["Misty's Poliwag"] = 3,
-            ["Misty's Horsea"] = 4, ["Misty's Tentacool"] = 2, ["Misty's Goldeen"] = 3, ["Misty's Starmie"] = 2,
-            ["Misty's Poliwhirl"] = 1, ["Misty"] = 1, ["Potion"] = 2, ["Poke Ball"] = 3, ["Energy Removal"] = 2,
-            ["Cerulean City Gym"] = 1, ["Switch"] = 1, ["Water Energy"] = 28
+            ["Misty's Horsea"] = 4, ["Misty's Tentacool 2"] = 1, ["Misty's Tentacool 2"] = 1, ["Misty's Goldeen"] = 3,
+            ["Misty's Starmie"] = 2, ["Misty's Poliwhirl"] = 1, ["Misty"] = 1, ["Potion"] = 2, ["Poke Ball"] = 3,
+            ["Energy Removal"] = 2, ["Cerulean City Gym"] = 1, ["Switch"] = 1, ["Water Energy"] = 28
         }
     },
 
@@ -888,10 +763,11 @@ Pokemon.Decks = {
         set = "Gym Heroes",
         coin = "Starmie",
         cards = {
-            ["Lt. Surge's Magneton (Holo)"] = 1, ["Lt. Surge's Voltorb"] = 3, ["Lt. Surge's Magnemite"] = 4,
-            ["Lt. Surge's Rattata"] = 4, ["Lt. Surge's Raticate"] = 2, ["Lt. Surge's Spearow"] = 4,
-            ["Lt. Surge's Pikachu"] = 4, ["Lt. Surge"] = 1, ["Vermilion City Gym"] = 1, ["Gust of Wind"] = 2,
-            ["Secret Mission"] = 2, ["Potion"] = 2, ["PlusPower"] = 1, ["Energy Removal"] = 1, ["Lightning Energy"] = 28
+            ["Lt. Surge's Magneton (Holo)"] = 1, ["Lt. Surge's Voltorb"] = 3, ["Lt. Surge's Magnemite 1"] = 2,
+            ["Lt. Surge's Magnemite 2"] = 2, ["Lt. Surge's Rattata"] = 4, ["Lt. Surge's Raticate"] = 2,
+            ["Lt. Surge's Spearow 1"] = 2, ["Lt. Surge's Spearow 2"] = 2, ["Lt. Surge's Pikachu"] = 4,
+            ["Lt. Surge"] = 1, ["Vermilion City Gym"] = 1, ["Gust of Wind"] = 2, ["Secret Mission"] = 2,
+            ["Potion"] = 2, ["PlusPower"] = 1, ["Energy Removal"] = 1, ["Lightning Energy"] = 28
         }
     },
 
@@ -900,9 +776,10 @@ Pokemon.Decks = {
         coin = "Starmie",
         cards = {
             ["Erika's Vileplume (Holo)"] = 1, ["Erika's Tangela"] = 4, ["Erika's Oddish"] = 4,
-            ["Erika's Exeggcute"] = 3, ["Erika's Dratini"] = 1, ["Erika's Weepinbell"] = 2, ["Erika's Bellsprout"] = 4,
-            ["Erika's Gloom"] = 2, ["Erika's Exeggutor"] = 1, ["Erika"] = 1, ["Erika's Perfume"] = 1, ["Potion"] = 2,
-            ["Poke Ball"] = 2, ["Switch"] = 3, ["Celadon City Gym"] = 1,
+            ["Erika's Exeggcute"] = 3, ["Erika's Dratini"] = 1, ["Erika's Weepinbell 2"] = 1,
+            ["Erika's Weepinbell 2"] = 1, ["Erika's Bellsprout 1"] = 2, ["Erika's Bellsprout 2"] = 2,
+            ["Erika's Gloom 1"] = 1, ["Erika's Gloom 2"] = 1, ["Erika's Exeggutor"] = 1, ["Erika"] = 1,
+            ["Erika's Perfume"] = 1, ["Potion"] = 2, ["Poke Ball"] = 2, ["Switch"] = 3, ["Celadon City Gym"] = 1,
             ["Grass Energy"] = 22, ["Psychic Energy"] = 6
         }
     },
