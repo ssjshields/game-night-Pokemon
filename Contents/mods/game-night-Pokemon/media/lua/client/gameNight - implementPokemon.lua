@@ -45,10 +45,15 @@ function Pokemon.generatePokemonCards()
     for set,rarities in pairs(Pokemon.cardData) do
         table.insert(Pokemon.cardSets, set)
         Pokemon.cardByRarity[set] = {}
+
+        print("set: " .. set)
+
         for rarity,cards in pairs(rarities) do
             Pokemon.cardByRarity[set][rarity] = {}
-            for card,type in pairs(cards) do
 
+            local tmpCount = 0
+            for card,type in pairs(cards) do
+                tmpCount = tmpCount + 1
                 local cardID = card.." ("..set..")"
                 Pokemon.cardByType[cardID] = type
                 table.insert(Pokemon.cardByRarity[set][rarity], cardID)
@@ -57,6 +62,8 @@ function Pokemon.generatePokemonCards()
                 Pokemon.altIcons[cardID] = set.."/"..cardID
                 Pokemon.altNames[cardID] = card
             end
+
+            print("  -- " .. rarity.." = "..tmpCount)
         end
     end
 
@@ -166,13 +173,15 @@ Pokemon.cardData["Fossil"] = {
         ["Arbok"] = "Grass", ["Cloyster"] = "Water", ["Gastly"] = "Psychic", ["Golbat"] = "Grass",
         ["Golduck"] = "Water", ["Golem"] = "Fighting", ["Graveler"] = "Fighting", ["Kingler"] = "Water",
         ["Magmar"] = "Fire", ["Omastar"] = "Water", ["Sandslash"] = "Fighting", ["Seadra"] = "Water",
-        ["Slowbro"] = "Psychic", ["Tentacruel"] = "Water", ["Weezing"] = "Grass",
+        ["Slowbro"] = "Psychic", ["Tentacruel"] = "Water", ["Weezing"] = "Grass", ["Mr. Fuji"] = "Trainer",
     },
 
     common = {
         ["Ekans"] = "Grass", ["Geodude"] = "Fighting", ["Grimer"] = "Grass", ["Horsea"] = "Water",
         ["Kabuto"] = "Fighting", ["Krabby"] = "Water", ["Omanyte"] = "Water", ["Psyduck"] = "Water",
         ["Shellder"] = "Water", ["Slowpoke"] = "Psychic", ["Tentacool"] = "Water", ["Zubat"] = "Grass",
+        ["Energy Search"] = "Trainer", ["Gambler"] = "Trainer", ["Mysterious Fossil"] = "Trainer",
+        ["Recycle"] = "Trainer",
     },
 
 }
@@ -186,7 +195,7 @@ Pokemon.cardData["Rocket"] = {
         ["Dark Golbat (Holo)"] = "Grass", ["Dark Gyarados (Holo)"] = "Water", ["Dark Hypno (Holo)"] = "Psychic",
         ["Dark Machamp (Holo)"] = "Fighting", ["Dark Magneton (Holo)"] = "Lightning", ["Dark Slowbro (Holo)"] = "Psychic",
         ["Dark Vileplume (Holo)"] = "Grass", ["Dark Weezing (Holo)"] = "Grass", ["Here Comes Team Rocket! (Holo)"] = "Trainer",
-        ["Rocket's Sneak Attack (Holo)"] = "Trainer", ["Rainbow Energy (Holo)"] = "Rainbow",
+        ["Rocket's Sneak Attack (Holo)"] = "Trainer", ["Rainbow Energy (Holo)"] = "Rainbow", ["Dark Raichu (Holo)"] = "Lightning",
     },
 
     rare = {
@@ -195,7 +204,7 @@ Pokemon.cardData["Rocket"] = {
         ["Dark Charizard"] = "Fire", ["Dark Dragonite"] = "Colorless", ["Dark Dugtrio"] = "Fighting",
         ["Dark Golbat"] = "Grass", ["Dark Gyarados"] = "Water", ["Dark Hypno"] = "Psychic",
         ["Dark Machamp"] = "Fighting", ["Dark Magneton"] = "Lightning", ["Dark Slowbro"] = "Psychic",
-        ["Dark Vileplume"] = "Grass", ["Dark Weezing"] = "Grass",
+        ["Dark Vileplume"] = "Grass", ["Dark Weezing"] = "Grass", ["Here Comes Team Rocket!"] = "Trainer",
     },
 
     uncommon = {
@@ -281,35 +290,47 @@ Pokemon.cardData["Gym Challenge"] = {
         ["Koga's Ditto (Holo)"] = "Colorless", ["Lt. Surge's Raichu (Holo)"] = "Lightning", ["Misty's Golduck (Holo)"] = "Water",
         ["Misty's Gyarados (Holo)"] = "Water", ["Rocket's Mewtwo (Holo)"] = "Psychic", ["Rocket's Zapdos (Holo)"] = "Lightning",
         ["Sabrina's Alakazam (Holo)"] = "Psychic", ["Blaine (Holo)"] = "Trainer", ["Giovanni (Holo)"] = "Trainer", ["Koga (Holo)"] = "Trainer",
-        ["Sabrina (Holo)"] = "Trainer"
+        ["Sabrina (Holo)"] = "Trainer",
     },
     rare = {
-        ["Blaine"] = "Trainer", ["Brock's Protection"] = "Trainer", ["Chaos Gym"] = "Trainer",
-        ["Erika's Kindness"] = "Trainer", ["Giovanni"] = "Trainer", ["Giovanni's Last Resort"] = "Trainer",
-        ["Koga"] = "Trainer", ["Lt. Surge's Secret Plan"] = "Trainer", ["Misty's Wish"] = "Trainer",
-        ["Resistance Gym"] = "Trainer", ["Sabrina"] = "Trainer"
+        ["Blaine's Ninetales"] = "Fire", ["Brock's Dugtrio"] = "Fighting", ["Giovanni's Nidoqueen"] = "Grass",
+        ["Giovanni's Pinsir"] = "Grass", ["Koga's Arbok"] = "Grass", ["Koga's Muk"] = "Grass", ["Koga's Pidgeotto"] = "Colorless",
+        ["Lt. Surge's Jolteon"] = "Lightning", ["Sabrina's Gengar"] = "Psychic", ["Sabrina's Golduck"] = "Water",
+        ["Blaine"] = "Trainer", ["Brock's Protection"] = "Trainer", ["Chaos Gym"] = "Trainer", ["Erika's Kindness"] = "Trainer",
+        ["Giovanni"] = "Trainer", ["Giovanni's Last Resort"] = "Trainer", ["Koga"] = "Trainer", ["Lt. Surge's Secret Plan"] = "Trainer",
+        ["Misty's Wish"] = "Trainer", ["Resistance Gym"] = "Trainer", ["Sabrina"] = "Trainer",
     },
     uncommon = {
-        ["Blaine's Quiz #2"] = "Trainer", ["Blaine's Quiz #3"] = "Trainer", ["Cinnabar City Gym"] = "Trainer",
-        ["Fuchsia City Gym"] = "Trainer", ["Koga's Ninja Trick"] = "Trainer", ["Master Ball"] = "Trainer",
-        ["Max Revive"] = "Trainer", ["Misty's Tears"] = "Trainer", ["Rocket's Minefield Gym"] = "Trainer",
-        ["Rocket's Secret Experiment"] = "Trainer", ["Sabrina's Psychic Control"] = "Trainer",
-        ["Saffron City Gym"] = "Trainer", ["Viridian City Gym"] = "Trainer"
+        ["Blaine's Charmeleon"] = "Fire", ["Blaine's Dodrio"] = "Colorless", ["Blaine's Rapidash"] = "Fire",
+        ["Brock's Graveler"] = "Fighting", ["Brock's Primeape"] = "Fighting", ["Brock's Sandslash"] = "Fighting",
+        ["Brock's Vulpix"] = "Fire", ["Erika's Bellsprout"] = "Grass", ["Erika's Bulbasaur"] = "Grass",
+        ["Erika's Clefairy"] = "Colorless", ["Erika's Ivysaur"] = "Grass", ["Giovanni's Machoke"] = "Fighting",
+        ["Giovanni's Meowth"] = "Colorless", ["Giovanni's Nidorina"] = "Grass", ["Giovanni's Nidorino"] = "Grass",
+        ["Koga's Golbat"] = "Grass", ["Koga's Kakuna"] = "Grass", ["Koga's Koffing"] = "Grass", ["Koga's Pidgey"] = "Colorless",
+        ["Koga's Weezing"] = "Grass", ["Lt. Surge's Eevee"] = "Colorless", ["Lt. Surge's Electrode"] = "Lightning",
+        ["Lt. Surge's Raticate"] = "Colorless", ["Misty's Dewgong"] = "Water", ["Sabrina's Haunter"] = "Psychic",
+        ["Sabrina's Hypno"] = "Psychic", ["Sabrina's Jynx"] = "Psychic", ["Sabrina's Kadabra"] = "Psychic",
+        ["Sabrina's Mr. Mime"] = "Psychic", ["Blaine's Quiz #2"] = "Trainer", ["Blaine's Quiz #3"] = "Trainer",
+        ["Cinnabar City Gym"] = "Trainer", ["Fuchsia City Gym"] = "Trainer", ["Koga's Ninja Trick"] = "Trainer", ["Master Ball"] = "Trainer",
+        ["Max Revive"] = "Trainer", ["Misty's Tears"] = "Trainer", ["Rocket's Minefield Gym"] = "Trainer", ["Rocket's Secret Experiment"] = "Trainer",
+        ["Sabrina's Psychic Control"] = "Trainer", ["Saffron City Gym"] = "Trainer", ["Viridian City Gym"] = "Trainer",
     },
     common = {
-        ["Blaine's Arcanine"] = "Fire", ["Blaine's Charizard"] = "Fire", ["Brock's Ninetales"] = "Fire",
-        ["Erika's Venusaur"] = "Grass", ["Giovanni's Gyarados"] = "Water", ["Giovanni's Machamp"] = "Fighting",
-        ["Giovanni's Nidoking"] = "Grass", ["Giovanni's Persian"] = "Colorless", ["Koga's Beedrill"] = "Grass",
-        ["Koga's Ditto"] = "Colorless", ["Lt. Surge's Raichu"] = "Lightning", ["Misty's Golduck"] = "Water",
-        ["Misty's Gyarados"] = "Water", ["Rocket's Mewtwo"] = "Psychic", ["Rocket's Zapdos"] = "Lightning",
-        ["Sabrina's Alakazam"] = "Psychic", ["Blaine's Quiz #2"] = "Trainer", ["Blaine's Quiz #3"] = "Trainer",
-        ["Cinnabar City Gym"] = "Trainer", ["Fuchsia City Gym"] = "Trainer", ["Koga's Ninja Trick"] = "Trainer",
-        ["Master Ball"] = "Trainer", ["Max Revive"] = "Trainer", ["Misty's Tears"] = "Trainer",
-        ["Rocket's Minefield Gym"] = "Trainer", ["Rocket's Secret Experiment"] = "Trainer",
-        ["Sabrina's Psychic Control"] = "Trainer", ["Saffron City Gym"] = "Trainer", ["Viridian City Gym"] = "Trainer",
-        ["Fervor"] = "Trainer", ["Transparent Walls"] = "Trainer", ["Warp Point"] = "Trainer",
-        ["Fighting Energy"] = "Fighting", ["Fire Energy"] = "Fire", ["Grass Energy"] = "Grass",
-        ["Lightning Energy"] = "Lightning", ["Psychic Energy"] = "Psychic", ["Water Energy"] = "Water"
+        ["Blaine's Charmander"] = "Fire", ["Blaine's Doduo"] = "Colorless", ["Blaine's Growlithe"] = "Fire",
+        ["Blaine's Mankey"] = "Fighting", ["Blaine's Ponyta"] = "Fire", ["Blaine's Rhyhorn"] = "Fighting",
+        ["Blaine's Vulpix"] = "Fire", ["Brock's Diglett"] = "Fighting", ["Brock's Geodude"] = "Fighting",
+        ["Erika's Jigglypuff"] = "Colorless", ["Erika's Oddish"] = "Grass", ["Erika's Paras"] = "Grass",
+        ["Giovanni's Machop"] = "Fighting", ["Giovanni's Magikarp"] = "Water", ["Giovanni's Meowth"] = "Colorless",
+        ["Giovanni's Nidoran (Female)"] = "Grass", ["Giovanni's Nidoran (Male)"] = "Grass", ["Koga's Ekans"] = "Grass",
+        ["Koga's Grimer"] = "Grass", ["Koga's Koffing"] = "Grass", ["Koga's Pidgey"] = "Colorless", ["Koga's Tangela"] = "Grass",
+        ["Koga's Weedle"] = "Grass", ["Koga's Zubat"] = "Grass", ["Lt. Surge's Pikachu"] = "Lightning",
+        ["Lt. Surge's Rattata"] = "Colorless", ["Lt. Surge's Voltorb"] = "Lightning", ["Misty's Horsea"] = "Water",
+        ["Misty's Magikarp"] = "Water", ["Misty's Poliwag"] = "Water", ["Misty's Psyduck"] = "Water", ["Misty's Seel"] = "Water",
+        ["Misty's Staryu"] = "Water", ["Sabrina's Abra 1"] = "Psychic", ["Sabrina's Abra 2"] = "Psychic", ["Sabrina's Drowzee"] = "Psychic",
+        ["Sabrina's Gastly 1"] = "Psychic", ["Sabrina's Gastly 2"] = "Psychic", ["Sabrina's Porygon"] = "Colorless",
+        ["Sabrina's Psyduck"] = "Water", ["Fervor"] = "Trainer", ["Transparent Walls"] = "Trainer",
+        ["Warp Point"] = "Trainer", ["Fighting Energy"] = "Fighting", ["Fire Energy"] = "Fire", ["Grass Energy"] = "Grass",
+        ["Lightning Energy"] = "Lightning", ["Psychic Energy"] = "Psychic", ["Water Energy"] = "Water",
     }
 }
 
@@ -322,7 +343,7 @@ Pokemon.cardData["Gym Heroes"] = {
         ["Lt. Surge's Electabuzz (Holo)"] = "Lightning", ["Lt. Surge's Fearow (Holo)"] = "Colorless",
         ["Lt. Surge's Magneton (Holo)"] = "Lightning", ["Misty's Seadra (Holo)"] = "Water", ["Misty's Tentacruel (Holo)"] = "Water",
         ["Rocket's Hitmonchan (Holo)"] = "Fighting", ["Rocket's Moltres (Holo)"] = "Fire", ["Rocket's Scyther (Holo)"] = "Grass",
-        ["Sabrina's Gengar (Holo)"] = "Psychic", ["Blaine (Holo)"] = "Trainer", ["Erika (Holo)"] = "Trainer", ["Lt. Surge (Holo)"] = "Trainer",
+        ["Sabrina's Gengar (Holo)"] = "Psychic", ["Erika (Holo)"] = "Trainer", ["Lt. Surge (Holo)"] = "Trainer",
         ["Misty (Holo)"] = "Trainer", ["The Rocket's Trap (Holo)"] = "Trainer", ["Brock (Holo)"] = "Trainer",
     },
 
@@ -330,7 +351,7 @@ Pokemon.cardData["Gym Heroes"] = {
         ["Brock's Golem"] = "Fighting", ["Brock's Onix 1"] = "Fighting", ["Brock's Rhyhorn 1"] = "Fighting",
         ["Brock's Sandslash"] = "Fighting", ["Brock's Zubat 1"] = "Grass", ["Erika's Clefairy"] = "Colorless",
         ["Erika's Victreebel"] = "Grass", ["Lt. Surge's Raichu"] = "Lightning", ["Lt. Surge's Electabuzz"] = "Lightning",
-        ["Lt. Surge's Magnemite 1"] = "Lightning", ["Misty's Cloyster"] = "Water", ["Misty's Goldeen 1"] = "Water",
+        ["Misty's Cloyster"] = "Water", ["Misty's Goldeen 1"] = "Water",
         ["Misty's Poliwrath"] = "Water", ["Misty's Tentacool 1"] = "Water",
         ["Rocket's Snorlax"] = "Colorless", ["Sabrina's Venomoth"] = "Grass", ["Blaine's Quiz #1"] = "Trainer",
         ["Brock"] = "Trainer", ["Charity"] = "Trainer", ["Erika"] = "Trainer", ["Lt. Surge"] = "Trainer",
@@ -351,24 +372,24 @@ Pokemon.cardData["Gym Heroes"] = {
         ["Lt. Surge's Treaty"] = "Trainer", ["Minion of Team Rocket"] = "Trainer", ["Misty's Wrath"] = "Trainer",
         ["Pewter City Gym"] = "Trainer", ["Recall"] = "Trainer", ["Sabrina's ESP"] = "Trainer",
         ["Secret Mission"] = "Trainer", ["Tickling Machine"] = "Trainer", ["Vermilion City Gym"] = "Trainer",
-        ["Misty's Tentacool 2"] = "Water",
+        ["Misty's Tentacool 2"] = "Water", ["Lt. Surge's Magnemite 1"] = "Lightning",
     },
 
     common = {
         ["Blaine's Charmander"] = "Fire", ["Blaine's Growlithe 2"] = "Fire", ["Blaine's Ponyta"] = "Fire",
         ["Blaine's Tauros"] = "Colorless", ["Blaine's Vulpix"] = "Fire", ["Brock's Geodude 2"] = "Fighting",
-        ["Brock's Mankey 1"] = "Fighting", ["Brock's Mankey 2"] = "Fighting", ["Brock's Onix 2"] = "Fighting", ["Brock's Rhyhorn 2"] = "Fighting",
-        ["Brock's Sandshrew 1"] = "Fighting", ["Brock's Sandshrew 2"] = "Fighting", ["Brock's Vulpix"] = "Fire",
-        ["Brock's Zubat 2"] = "Grass", ["Erika's Bellsprout 1"] = "Grass", ["Erika's Bellsprout 2"] = "Grass", 
-        ["Erika's Oddish 2"] = "Grass", ["Erika's Exeggcute 2"] = "Grass", ["Erika's Tangela"] = "Grass",
-        ["Lt. Surge's Magnemite 2"] = "Lightning", ["Lt. Surge's Pikachu"] = "Lightning",
+        ["Brock's Mankey 1"] = "Fighting", ["Brock's Mankey 2"] = "Fighting", ["Brock's Onix 2"] = "Fighting",
+        ["Brock's Rhyhorn 2"] = "Fighting", ["Brock's Sandshrew 1"] = "Fighting", ["Brock's Sandshrew 2"] = "Fighting",
+        ["Brock's Vulpix"] = "Fire", ["Brock's Zubat 2"] = "Grass", ["Erika's Bellsprout 1"] = "Grass",
+        ["Erika's Bellsprout 2"] = "Grass", ["Erika's Oddish 2"] = "Grass", ["Erika's Exeggcute 2"] = "Grass",
+        ["Erika's Tangela"] = "Grass", ["Lt. Surge's Magnemite 2"] = "Lightning", ["Lt. Surge's Pikachu"] = "Lightning",
         ["Lt. Surge's Rattata"] = "Colorless", ["Lt. Surge's Spearow 2"] = "Colorless",
         ["Lt. Surge's Voltorb"] = "Lightning", ["Misty's Goldeen 2"] = "Water",
         ["Misty's Horsea"] = "Water", ["Misty's Poliwag"] = "Water", ["Misty's Seel"] = "Water", 
         ["Misty's Shellder"] = "Water", ["Misty's Staryu"] = "Water", ["Sabrina's Abra"] = "Psychic", 
         ["Sabrina's Drowzee"] = "Psychic", ["Sabrina's Gastly"] = "Psychic", ["Sabrina's Mr. Mime"] = "Psychic",
-        ["Sabrina's Slowpoke"] = "Psychic", ["Sabrina's Venonat"] = "Grass", ["Blaine's Gamble"] = "Trainer", 
-        ["Energy Flow"] = "Trainer", ["Misty's Duel"] = "Trainer", ["Narrow Gym"] = "Trainer", 
+        ["Sabrina's Slowpoke"] = "Psychic", ["Sabrina's Venonat"] = "Grass", ["Blaine's Gamble"] = "Trainer",
+        ["Energy Flow"] = "Trainer", ["Misty's Duel"] = "Trainer", ["Narrow Gym"] = "Trainer",
         ["Sabrina's Gaze"] = "Trainer", ["Trash Exchange"] = "Trainer",
     --, energy = {
         ["Fighting Energy"] = "Fighting", ["Fire Energy"] = "Fire", ["Grass Energy"] = "Grass",
@@ -555,7 +576,7 @@ Pokemon.Decks = {
         set = "Base",
         coin = "Chansey",
         cards = {
-            ["Ninetales (Holo)"] = 1, ["Weedle"] = 4, ["Tangela"] = 2, ["Nidoran♂"] = 4, ["Arcanine"] = 1,
+            ["Ninetales (Holo)"] = 1, ["Weedle"] = 4, ["Tangela"] = 2, ["Nidoran (Male)"] = 4, ["Arcanine"] = 1,
             ["Growlithe"] = 2, ["Charmeleon"] = 2, ["Vulpix"] = 2, ["Charmander"] = 4, ["Lass"] = 1, ["PlusPower"] = 1,
             ["Energy Retrieval"] = 2, ["Switch"] = 1, ["Potion"] = 3, ["Gust of Wind"] = 1, ["Energy Removal"] = 1,
             ["Grass Energy"] = 10, ["Fire Energy"] = 18
@@ -590,7 +611,7 @@ Pokemon.Decks = {
         set = "Jungle",
         coin = "Vileplume",
         cards = {
-            ["Kangaskhan (Holo)"] = 1, ["Oddish"] = 2, ["Nidoran♀"] = 4, ["Bellsprout"] = 4, ["Weepinbell"] = 2,
+            ["Kangaskhan (Holo)"] = 1, ["Oddish"] = 2, ["Nidoran (Female)"] = 4, ["Bellsprout"] = 4, ["Weepinbell"] = 2,
             ["Nidorina"] = 2, ["Gloom"] = 1, ["Abra"] = 4, ["Kadabra"] = 2, ["Jynx"] = 1, ["Switch"] = 1,
             ["Potion"] = 3, ["Gust of Wind"] = 2, ["Bill"] = 2, ["Pokedex"] = 1, ["Psychic Energy"] = 11,
             ["Grass Energy"] = 17
@@ -649,7 +670,7 @@ Pokemon.Decks = {
         set = "Base 2",
         coin = "Pikachu",
         cards = {
-            ["Clefairy (Holo)"] = 1, ["Nidoran♂"] = 2, ["Nidorina"] = 1, ["Nidoran♀"] = 3, ["Weepinbell"] = 2,
+            ["Clefairy (Holo)"] = 1, ["Nidoran (Male)"] = 2, ["Nidorina"] = 1, ["Nidoran (Female)"] = 3, ["Weepinbell"] = 2,
             ["Bellsprout"] = 4, ["Sandshrew"] = 4, ["Machoke"] = 2, ["Machop"] = 4, ["Energy Removal"] = 1,
             ["Super Energy Removal (Holo)"] = 1, ["Super Potion"] = 1, ["PlusPower"] = 2, ["Gust of Wind"] = 1,
             ["Potion"] = 3, ["Fighting Energy"] = 14, ["Grass Energy"] = 14
@@ -830,8 +851,8 @@ Pokemon.Decks = {
         set = "Gym Challenge",
         coin = "Starmie",
         cards = {
-            ["Giovanni's Persian (Holo)"] = 1, ["Giovanni's Nidoran♀"] = 3, ["Giovanni's Nidorina"] = 1,
-            ["Giovanni's Meowth"] = 1, ["Giovanni's Nidoran♂"] = 4, ["Giovanni's Machop"] = 4,
+            ["Giovanni's Persian (Holo)"] = 1, ["Giovanni's Nidoran (Female)"] = 3, ["Giovanni's Nidorina"] = 1,
+            ["Giovanni's Meowth 1"] = 1, ["Giovanni's Nidoran (Male)"] = 4, ["Giovanni's Machop"] = 4,
             ["Giovanni's Nidorino"] = 2, ["Giovanni's Machoke"] = 2, ["Giovanni"] = 1, ["Energy Removal"] = 2,
             ["Warp Point"] = 2, ["Potion"] = 2, ["Bill"] = 2, ["Full Heal"] = 1, ["Viridian City Gym"] = 1,
             ["Fighting Energy"] = 8, ["Grass Energy"] = 20
