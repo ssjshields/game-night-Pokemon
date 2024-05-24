@@ -24,6 +24,8 @@ for typeID, coins in pairs(Pokemon.Tokens.types) do
 end
 gamePieceAndBoardHandler.registerTypes(Pokemon.Tokens.typesToRegister)
 
+gamePieceAndBoardHandler.registerSpecial("Base.pokemonBoosterPack", {nonGamePieceOnApplyDetails = "applyBoosterPackType"})
+gamePieceAndBoardHandler.registerSpecial("Base.pokemonStarterKit", {nonGamePieceOnApplyDetails = "applyStarterKitType"})
 
 gamePieceAndBoardHandler.registerSpecial("Base.MetalPikachuCoin", {
     alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
@@ -38,6 +40,7 @@ Pokemon.altNames = {}
 Pokemon.cardByType = {}
 Pokemon.cardByRarity = {}
 Pokemon.cardSets = {}
+Pokemon.cardDecks = {}
 -- Grass, Fire, Water, Lightning, Fighting, Psychic, Colorless, Trainer
 Pokemon.cardData = {}
 
@@ -45,9 +48,7 @@ function Pokemon.generatePokemonCards()
     for set,rarities in pairs(Pokemon.cardData) do
         table.insert(Pokemon.cardSets, set)
         Pokemon.cardByRarity[set] = {}
-
-        print("set: " .. set)
-
+        --print("set: " .. set)
         for rarity,cards in pairs(rarities) do
             Pokemon.cardByRarity[set][rarity] = {}
 
@@ -60,12 +61,13 @@ function Pokemon.generatePokemonCards()
                 table.insert(Pokemon.tradingCards, cardID)
 
                 Pokemon.altIcons[cardID] = set.."/"..cardID
-                Pokemon.altNames[cardID] = card
+                --Pokemon.altNames[cardID] = card
             end
-
-            print("  -- " .. rarity.." = "..tmpCount)
+            --print("  -- " .. rarity.." = "..tmpCount)
         end
     end
+
+    for deckID,cards in pairs(Pokemon.Decks) do table.insert(Pokemon.cardDecks, deckID) end
 
     deckActionHandler.addDeck("pokemonCards", Pokemon.tradingCards, nil, Pokemon.altIcons)
 
@@ -465,6 +467,24 @@ function applyItemDetails.pokemon.unpackBooster(setID)
 end
 
 
+---@param item InventoryItem
+function applyItemDetails.applyBoosterPackType(item)
+    local typeOf = item:getModData()["gameNight_specialOnCardApplyBooster"]
+    if typeOf then return end
+    local set = Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
+    item:getModData()["gameNight_specialOnCardApplyBooster"] = set
+    item:setName(item:getDisplayName().." ("..set..")")
+end
+
+function applyItemDetails.applyStarterKitType(item)
+    local typeOf = item:getModData()["gameNight_specialOnCardApplyDeck"]
+    if typeOf then return end
+    local set = Pokemon.cardDecks[ZombRand(#Pokemon.cardDecks)+1]
+    item:getModData()["gameNight_specialOnCardApplyDeck"] = set
+    item:setName(item:getDisplayName().." ("..set..")")
+end
+
+
 function applyItemDetails.applyBoostersToPokemonCards(item, setID)
     setID = setID
     local cards = applyItemDetails.pokemon.unpackBooster(setID)
@@ -491,10 +511,6 @@ function applyItemDetails.applyCardForPokemon(item)
             item:getModData()["gameNight_specialOnCardApplyDeck"] = nil
 
             local cards, coinType = Pokemon.buildDeck(applyDeck)
-
-            if applyDeck == "ALL_CARDS" then cards = Pokemon.tradingCards end
-
-            print("Pokemon.tradingCards: ", #Pokemon.tradingCards)
 
             item:getModData()["gameNight_cardDeck"] = cards
             item:getModData()["gameNight_cardFlipped"] = {}
@@ -528,7 +544,7 @@ function Pokemon.buildDeck(deckID)
     if cardIDs then
         for card,numberOf in pairs(cardIDs) do
             local cardID = card.." ("..set..")"
-            for n=1, numberOf do table.insert(cards, set.."/"..cardID) end
+            for n=1, numberOf do table.insert(cards, cardID) end
         end
     end
 
@@ -537,7 +553,7 @@ function Pokemon.buildDeck(deckID)
     local outlierCards = deckData.outliers
     if outlierCards then
         for cardID,numberOf in pairs(outlierCards) do
-            for n=1, numberOf do table.insert(cards, set.."/"..cardID) end
+            for n=1, numberOf do table.insert(cards, cardID) end
         end
     end
 
@@ -765,15 +781,19 @@ Pokemon.Decks = {
         }
     },
 
+
     --Starmie Coin
     ["Brock"] = {
         set = "Gym Heroes",
         coin = "Starmie",
         cards = {
             ["Brock's Rhydon (Holo)"] = 1, ["Brock's Sandshrew"] = 2, ["Brock's Rhyhorn"] = 3, ["Brock's Onix"] = 4,
-            ["Brock's Mankey 1"] = 1, ["Brock's Mankey 2"] = 2, ["Brock's Geodude"] = 3, ["Brock's Lickitung"] = 1, ["Brock's Graveler"] = 1,
-            ["Brock"] = 1, ["Potion"] = 3, ["Energy Retrieval"] = 2, ["Brock's Training Method"] = 2, ["Full Heal"] = 1,
-            ["Switch"] = 2, ["Bill"] = 1, ["Pewter City Gym"] = 1, ["Fighting Energy"] = 28
+            ["Brock's Mankey 1"] = 1, ["Brock's Mankey 2"] = 2, ["Brock's Geodude"] = 3, ["Brock's Lickitung"] = 1,
+            ["Brock's Graveler"] = 1, ["Brock"] = 1, ["Brock's Training Method"] = 2, ["Pewter City Gym"] = 1, ["Fighting Energy"] = 28
+        },
+        outliers = {
+            ["Bill (Base 2)"] = 1, ["Full Heal (Base 2)"] = 1, ["Potion (Base 2)"] = 3,
+            ["Energy Retrieval (Base 2)"] = 2, ["Switch (Base 2)"] = 2,
         }
     },
 
@@ -783,8 +803,13 @@ Pokemon.Decks = {
         cards = {
             ["Misty's Tentacruel (Holo)"] = 1, ["Misty's Psyduck"] = 2, ["Misty's Staryu"] = 4, ["Misty's Poliwag"] = 3,
             ["Misty's Horsea"] = 4, ["Misty's Tentacool 2"] = 1, ["Misty's Tentacool 2"] = 1, ["Misty's Goldeen"] = 3,
-            ["Misty's Starmie"] = 2, ["Misty's Poliwhirl"] = 1, ["Misty"] = 1, ["Potion"] = 2, ["Poke Ball"] = 3,
-            ["Energy Removal"] = 2, ["Cerulean City Gym"] = 1, ["Switch"] = 1, ["Water Energy"] = 28
+            ["Misty's Starmie"] = 2, ["Misty's Poliwhirl"] = 1, ["Misty"] = 1, ["Cerulean City Gym"] = 1,
+            ["Water Energy"] = 28
+        },
+
+        outliers = {
+            ["Energy Removal (Base 2)"] = 2, ["Switch (Base 2)"] = 1,
+            ["Potion (Base 2)"] = 2, ["Poke Ball (Base 2)"] = 3,
         }
     },
 
@@ -795,8 +820,12 @@ Pokemon.Decks = {
             ["Lt. Surge's Magneton (Holo)"] = 1, ["Lt. Surge's Voltorb"] = 3, ["Lt. Surge's Magnemite 1"] = 2,
             ["Lt. Surge's Magnemite 2"] = 2, ["Lt. Surge's Rattata"] = 4, ["Lt. Surge's Raticate"] = 2,
             ["Lt. Surge's Spearow 1"] = 2, ["Lt. Surge's Spearow 2"] = 2, ["Lt. Surge's Pikachu"] = 4,
-            ["Lt. Surge"] = 1, ["Vermilion City Gym"] = 1, ["Gust of Wind"] = 2, ["Secret Mission"] = 2,
-            ["Potion"] = 2, ["PlusPower"] = 1, ["Energy Removal"] = 1, ["Lightning Energy"] = 28
+            ["Lt. Surge"] = 1, ["Vermilion City Gym"] = 1, ["Secret Mission"] = 2, ["Lightning Energy"] = 28
+        },
+
+        outliers = {
+            ["Energy Removal (Base 2)"] = 1, ["Potion (Base 2)"] = 2,
+            ["PlusPower (Base 2)"] = 1, ["Gust of Wind (Base 2)"] = 2,
         }
     },
 
@@ -808,8 +837,11 @@ Pokemon.Decks = {
             ["Erika's Exeggcute"] = 3, ["Erika's Dratini"] = 1, ["Erika's Weepinbell 2"] = 1,
             ["Erika's Weepinbell 2"] = 1, ["Erika's Bellsprout 1"] = 2, ["Erika's Bellsprout 2"] = 2,
             ["Erika's Gloom 1"] = 1, ["Erika's Gloom 2"] = 1, ["Erika's Exeggutor"] = 1, ["Erika"] = 1,
-            ["Erika's Perfume"] = 1, ["Potion"] = 2, ["Poke Ball"] = 2, ["Switch"] = 3, ["Celadon City Gym"] = 1,
-            ["Grass Energy"] = 22, ["Psychic Energy"] = 6
+            ["Erika's Perfume"] = 1, ["Celadon City Gym"] = 1, ["Grass Energy"] = 22, ["Psychic Energy"] = 6
+        },
+
+        outliers = {
+            ["Potion (Base 2)"] = 2, ["Poke Ball (Base 2)"] = 2, ["Switch (Base 2)"] = 3,
         }
     },
 
@@ -819,8 +851,12 @@ Pokemon.Decks = {
         cards = {
             ["Sabrina's Alakazam (Holo)"] = 1, ["Sabrina's Porygon"] = 3, ["Sabrina's Drowzee"] = 3,
             ["Sabrina's Gastly"] = 4, ["Sabrina's Kadabra"] = 2, ["Sabrina's Abra"] = 4, ["Sabrina's Jynx"] = 2,
-            ["Sabrina's Haunter"] = 2, ["Sabrina"] = 1, ["Bill"] = 2, ["Potion"] = 2, ["Sabrina's Gaze"] = 2,
-            ["Sabrina's Psychic Control"] = 1, ["Switch"] = 2, ["Saffron City Gym"] = 1, ["Psychic Energy"] = 28
+            ["Sabrina's Haunter"] = 2, ["Sabrina"] = 1, ["Potion"] = 2, ["Sabrina's Gaze"] = 2,
+            ["Sabrina's Psychic Control"] = 1, ["Saffron City Gym"] = 1, ["Psychic Energy"] = 28
+        },
+
+        outliers = {
+            ["Bill (Base 2)"] = 2, ["Switch (Base 2)"] = 2,
         }
     },
 
@@ -830,8 +866,12 @@ Pokemon.Decks = {
         cards = {
             ["Koga's Beedrill (Holo)"] = 1, ["Koga's Ekans"] = 3, ["Koga's Pidgey"] = 3, ["Koga's Weezing"] = 2,
             ["Koga's Kakuna"] = 2, ["Koga's Koffing"] = 3, ["Koga's Weedle"] = 4, ["Koga's Grimer"] = 3, ["Koga"] = 1,
-            ["Gust of Wind"] = 2, ["Potion"] = 3, ["Full Heal"] = 1, ["Energy Removal"] = 1, ["PlusPower"] = 1,
             ["Fuchsia City Gym"] = 1, ["Grass Energy"] = 28
+        },
+
+        outliers = {
+            ["Energy Removal (Base 2)"] = 1, ["Gust of Wind (Base 2)"] = 2, ["Potion (Base 2)"] = 3,
+            ["Full Heal (Base 2)"] = 1, ["PlusPower (Base 2)"] = 1,
         }
     },
 
@@ -841,9 +881,12 @@ Pokemon.Decks = {
         cards = {
             ["Blaine's Arcanine (Holo)"] = 1, ["Blaine's Growlithe"] = 2, ["Blaine's Charmeleon"] = 2,
             ["Blaine's Doduo"] = 2, ["Blaine's Ponyta"] = 4, ["Blaine's Charmander"] = 3, ["Blaine's Vulpix"] = 2,
-            ["Blaine's Dodrio"] = 1, ["Blaine's Rapidash"] = 2, ["Blaine"] = 1, ["Bill"] = 2, ["Fervor"] = 2,
-            ["Blaine's Gamble"] = 1, ["Potion"] = 2, ["Super Potion"] = 1, ["Max Revive"] = 1,
-            ["Cinnabar City Gym"] = 1, ["Fire Energy"] = 28
+            ["Blaine's Dodrio"] = 1, ["Blaine's Rapidash"] = 2, ["Blaine"] = 1, ["Fervor"] = 2,
+            ["Blaine's Gamble"] = 1, ["Cinnabar City Gym"] = 1, ["Fire Energy"] = 28, ["Max Revive"] = 1,
+        },
+
+        outliers = {
+            ["Bill (Base 2)"] = 2, ["Potion (Base 2)"] = 2, ["Super Potion (Base 2)"] = 1,
         }
     },
 
@@ -853,9 +896,13 @@ Pokemon.Decks = {
         cards = {
             ["Giovanni's Persian (Holo)"] = 1, ["Giovanni's Nidoran (Female)"] = 3, ["Giovanni's Nidorina"] = 1,
             ["Giovanni's Meowth 1"] = 1, ["Giovanni's Nidoran (Male)"] = 4, ["Giovanni's Machop"] = 4,
-            ["Giovanni's Nidorino"] = 2, ["Giovanni's Machoke"] = 2, ["Giovanni"] = 1, ["Energy Removal"] = 2,
-            ["Warp Point"] = 2, ["Potion"] = 2, ["Bill"] = 2, ["Full Heal"] = 1, ["Viridian City Gym"] = 1,
+            ["Giovanni's Nidorino"] = 2, ["Giovanni's Machoke"] = 2, ["Giovanni"] = 1, ["Warp Point"] = 2,
+            ["Viridian City Gym"] = 1,
             ["Fighting Energy"] = 8, ["Grass Energy"] = 20
+        },
+
+        outliers = {
+            ["Energy Removal (Base 2)"] = 2, ["Bill (Base 2)"] = 2, ["Potion (Base 2)"] = 2, ["Full Heal (Base 2)"] = 1,
         }
     },
 }
