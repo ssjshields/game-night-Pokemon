@@ -747,10 +747,15 @@ Pokemon.Decks = {
         set = "Rocket",
         coin = "Meowth",
         cards = {
-            ["Dark Arbok (Holo)"] = 1, ["Meowth"] = 2, ["Farfetch'd"] = 2, ["Weedle"] = 2, ["Ekans"] = 4,
-            ["Kadabra"] = 1, ["Jynx"] = 1, ["Haunter"] = 1, ["Gastly"] = 2, ["Drowzee"] = 3, ["Abra"] = 2,
-            ["Dark Kadabra"] = 2, ["Switch"] = 1, ["Potion"] = 2, ["Gust of Wind"] = 1, ["The Boss's Way"] = 1,
-            ["Bill"] = 1, ["Full Heal Energy"] = 1, ["Grass Energy"] = 10, ["Psychic Energy"] = 18
+            ["Dark Arbok (Holo)"] = 1, ["Meowth"] = 2, ["Ekans"] = 4, ["Drowzee"] = 3, ["Abra"] = 2,
+            ["Dark Kadabra"] = 2, ["The Boss's Way"] = 1, ["Full Heal Energy"] = 1,
+        },
+
+        outliers = {
+            ["Farfetch'd (Base)"] = 2, ["Weedle (Base)"] = 2, ["Kadabra (Base)"] = 1, ["Jynx (Base)"] = 1,
+            ["Haunter (Base)"] = 1, ["Gastly (Base)"] = 2, ["Abra (Base)"] = 2, ["Switch (Base)"] = 1,
+            ["Potion (Base)"] = 2, ["Gust of Wind (Base)"] = 1, ["Bill (Base)"] = 1, ["Grass Energy (Base)"] = 10,
+            ["Psychic Energy (Base)"] = 18
         }
     },
 
@@ -758,10 +763,15 @@ Pokemon.Decks = {
         set = "Rocket",
         coin = "Meowth",
         cards = {
-            ["Dark Weezing (Holo)"] = 1, ["Eevee"] = 3, ["Wartortle"] = 1, ["Squirtle"] = 3, ["Magikarp"] = 1,
-            ["Dark Wartortle"] = 1, ["Dark Vaporeon"] = 2, ["Weedle"] = 3, ["Tangela"] = 3, ["Oddish"] = 3,
-            ["Koffing"] = 4, ["Dark Gloom"] = 1, ["Super Potion"] = 1, ["Potion"] = 2, ["Imposter Oak's Revenge"] = 1,
-            ["Gust of Wind"] = 1, ["Full Heal"] = 1, ["Water Energy"] = 10, ["Grass Energy"] = 18
+            ["Dark Weezing (Holo)"] = 1, ["Eevee"] = 3, ["Dark Wartortle"] = 1, ["Dark Vaporeon"] = 2,
+            ["Oddish"] = 3, ["Koffing"] = 4, ["Dark Gloom"] = 1, ["Imposter Oak's Revenge"] = 1,
+
+        },
+
+        outliers = {
+            ["Wartortle (Base)"] = 1, ["Squirtle (Base)"] = 3, ["Magikarp (Base)"] = 1, ["Weedle (Base)"] = 3,
+            ["Tangela (Base)"] = 3, ["Super Potion (Base)"] = 1, ["Potion (Base)"] = 2, ["Gust of Wind (Base)"] = 1,
+            ["Full Heal (Base)"] = 1, ["Water Energy (Base)"] = 10, ["Grass Energy (Base)"] = 18
         }
     },
 
@@ -771,15 +781,16 @@ Pokemon.Decks = {
         set = "Base",
         coin = "MetalPikachu",
         cards = {
-            ["Zapdos (Holo)"] = 1, ["Electabuzz"] = 1, ["Raichu (Holo)"] = 1, ["Farfetch'd"] = 1, ["Fearow"] = 1,
-            ["Golduck"] = 1, ["Doduo"] = 1, ["Magnemite"] = 2, ["Pikachu"] = 4, ["Psyduck"] = 3, ["Spearow"] = 2,
-            ["Defender"] = 1, ["Energy Retrieval"] = 2, ["Professor Oak"] = 1, ["Super Potion"] = 1, ["Bill"] = 2,
-            ["Energy Search"] = 2, ["Poke Ball"] = 1, ["Potion"] = 1, ["Double Colorless Energy"] = 2,
-            ["Full Heal Energy"] = 1, ["Potion Energy"] = 1, ["Lightning Energy"] = 16, ["Water Energy"] = 8,
+            ["Electabuzz"] = 1, ["Farfetch'd"] = 1, ["Doduo"] = 1, ["Magnemite"] = 2, ["Defender"] = 1,
+            ["Energy Retrieval"] = 2, ["Professor Oak"] = 1, ["Super Potion"] = 1, ["Bill"] = 2, ["Potion"] = 1,
+            ["Double Colorless Energy"] = 2, ["Lightning Energy"] = 16, ["Water Energy"] = 8,
         },
 
         outliers = {--Gym Heroes
             ["Lt. Surge's Voltorb (Gym Heroes)"] = 1, ["Misty's Wrath (Gym Heroes)"] = 1, ["Misty's Poliwag (Gym Heroes)"] = 1,
+            ["Zapdos (Holo) (Fossil)"] = 1, ["Raichu (Holo) (Fossil)"] = 1, ["Golduck  (Fossil)"] = 1, ["Psyduck (Fossil)"] = 2, ["Energy Search (Fossil)"] = 2,
+            ["Fearow (Jungle)"] = 1, ["Pikachu (Jungle)"] = 4, ["Spearow (Jungle)"] = 2,  ["Poke Ball (Jungle)"] = 1,
+            ["Psyduck (Rocket)"] = 1, ["Full Heal Energy (Rocket)"] = 1, ["Potion Energy (Rocket)"] = 1,
         }
     },
 
@@ -788,11 +799,15 @@ Pokemon.Decks = {
         set = "Base",
         coin = "MetalPikachu",
         cards = {
-            ["Zapdos (Holo)"] = 1, ["Electabuzz (Holo)"] = 1, ["Raichu (Holo)"] = 1, ["Farfetch'd"] = 1, ["Fearow"] = 2,
-            ["Golduck"] = 1, ["Doduo"] = 1, ["Magnemite"] = 2, ["Pikachu"] = 4, ["Psyduck"] = 3, ["Pidgey"] = 1,
-            ["Spearow"] = 4, ["Defender"] = 1, ["Energy Retrieval"] = 2, ["Professor Oak"] = 1, ["Super Potion"] = 2,
-            ["Bill"] = 2, ["Energy Removal"] = 1, ["Energy Search"] = 2, ["Potion"] = 1,
+            ["Electabuzz (Holo)"] = 1, ["Farfetch'd"] = 1,
+            ["Doduo"] = 1, ["Magnemite"] = 2, ["Pidgey"] = 1, ["Defender"] = 1, ["Energy Retrieval"] = 2,
+            ["Professor Oak"] = 1, ["Super Potion"] = 2, ["Bill"] = 2, ["Energy Removal"] = 1, ["Potion"] = 1,
             ["Double Colorless Energy"] = 2, ["Lightning Energy"] = 16, ["Water Energy"] = 8
+        },
+
+        outliers = {
+            ["Zapdos (Holo) (Fossil)"] = 1, ["Raichu (Holo) (Fossil)"] = 1, ["Golduck (Fossil)"] = 1,  ["Psyduck (Fossil)"] = 3, ["Energy Search (Fossil)"] = 2,
+            ["Fearow (Jungle)"] = 2, ["Pikachu (Jungle)"] = 4, ["Spearow (Jungle)"] = 4,
         }
     },
 
