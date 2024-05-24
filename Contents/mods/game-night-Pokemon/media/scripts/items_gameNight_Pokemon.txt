@@ -65,6 +65,14 @@ module Base
             Icon = OutOfPlayTextures/PokeTokens/MetalPikachuCoin,
         }
 
+    item PokemonStatusCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenStatusCoin,
+            DisplayName = Pokemon Status Coin,
+            Icon = OutOfPlayTextures/PokeTokens/StatusCoin,
+        }
+
 
     item pokemonCards
     {
