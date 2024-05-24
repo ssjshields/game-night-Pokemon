@@ -618,8 +618,7 @@ Pokemon.Decks = {
             ["Abra"] = 3, ["Pikachu"] = 4, ["Magnemite"] = 3, ["Computer Search"] = 1, ["Defender"] = 1,
             ["Super Potion"] = 1, ["Professor Oak"] = 1, ["Switch"] = 2, ["Potion"] = 1, ["Gust of Wind"] = 2,
             ["Bill"] = 2, ["Lightning Energy"] = 12, ["Psychic Energy"] = 16
-        }
-
+        },
     },
 
     --Vileplume Coin
@@ -628,9 +627,13 @@ Pokemon.Decks = {
         coin = "Vileplume",
         cards = {
             ["Kangaskhan (Holo)"] = 1, ["Oddish"] = 2, ["Nidoran (Female)"] = 4, ["Bellsprout"] = 4, ["Weepinbell"] = 2,
-            ["Nidorina"] = 2, ["Gloom"] = 1, ["Abra"] = 4, ["Kadabra"] = 2, ["Jynx"] = 1, ["Switch"] = 1,
-            ["Potion"] = 3, ["Gust of Wind"] = 2, ["Bill"] = 2, ["Pokedex"] = 1, ["Psychic Energy"] = 11,
-            ["Grass Energy"] = 17
+            ["Nidorina"] = 2, ["Gloom"] = 1,
+        },
+
+        outliers = {
+            ["Abra (Base)"] = 4, ["Kadabra (Base)"] = 2, ["Jynx (Base)"] = 1, ["Switch (Base)"] = 1,
+            ["Potion (Base)"] = 3, ["Gust of Wind (Base)"] = 2, ["Bill (Base)"] = 2, ["Pokedex (Base)"] = 1,
+            ["Psychic Energy (Base)"] = 11, ["Grass Energy (Base)"] = 17
         }
     },
 
@@ -640,9 +643,12 @@ Pokemon.Decks = {
         coin = "Vileplume",
         cards = {
             ["Vaporeon (Holo)"] = 1, ["Rhyhorn"] = 3, ["Meowth"] = 4, ["Eevee"] = 4, ["Rhydon"] = 1, ["Persian"] = 2,
-            ["Poliwag"] = 4, ["Machop"] = 2, ["Seel"] = 1, ["Poliwhirl"] = 2, ["Switch"] = 1, ["Potion"] = 2,
-            ["Gust of Wind"] = 2, ["Super Potion"] = 2, ["Professor Oak"] = 1, ["Water Energy"] = 14,
-            ["Fighting Energy"] = 14
+        },
+
+        outliers = {
+            ["Poliwag (Base)"] = 4, ["Machop (Base)"] = 2, ["Seel (Base)"] = 1, ["Poliwhirl (Base)"] = 2,
+            ["Switch (Base)"] = 1, ["Potion (Base)"] = 2, ["Gust of Wind (Base)"] = 2, ["Super Potion (Base)"] = 2,
+            ["Professor Oak (Base)"] = 1, ["Water Energy (Base)"] = 14, ["Fighting Energy (Base)"] = 14
         }
     },
 
@@ -653,8 +659,12 @@ Pokemon.Decks = {
         coin = "Aerodactyl",
         cards = {
             ["Muk (Holo)"] = 1, ["Geodude"] = 3, ["Graveler"] = 2, ["Grimer"] = 4, ["Zubat"] = 4, ["Golbat"] = 2,
-            ["Onix"] = 1, ["Bulbasaur"] = 2, ["Koffing"] = 4, ["Potion"] = 4, ["Professor Oak"] = 2,
-            ["Pokemon Center"] = 1, ["Super Potion"] = 2, ["Grass Energy"] = 16, ["Fighting Energy"] = 12
+        },
+
+        outliers = {
+            ["Onix (Base)"] = 1, ["Bulbasaur (Base)"] = 2, ["Koffing (Base)"] = 4, ["Potion (Base)"] = 4,
+            ["Professor Oak (Base)"] = 2, ["Pokemon Center (Base)"] = 1, ["Super Potion (Base)"] = 2,
+            ["Grass Energy (Base)"] = 16, ["Fighting Energy (Base)"] = 12
         }
     },
 
@@ -663,8 +673,13 @@ Pokemon.Decks = {
         coin = "Aerodactyl",
         cards = {
             ["Lapras (Holo)"] = 1, ["Magmar"] = 2, ["Horsea"] = 4, ["Seadra"] = 2, ["Krabby"] = 4, ["Kingler"] = 2,
-            ["Vulpix"] = 3, ["Ponyta"] = 3, ["Gambler"] = 1, ["Energy Search"] = 1, ["Bill"] = 2, ["Switch"] = 2,
-            ["Potion"] = 2, ["Super Potion"] = 2, ["Full Heal"] = 1, ["Fire Energy"] = 14, ["Water Energy"] = 14
+            ["Gambler"] = 1, ["Energy Search"] = 1,
+        },
+
+        outliers = {
+            ["Vulpix (Base)"] = 3, ["Ponyta (Base)"] = 3, ["Bill (Base)"] = 2, ["Switch (Base)"] = 2,
+            ["Potion (Base)"] = 2, ["Super Potion (Base)"] = 2, ["Full Heal (Base)"] = 1,
+            ["Fire Energy (Base)"] = 14, ["Water Energy (Base)"] = 14
         }
     },
 
@@ -801,10 +816,11 @@ Pokemon.Decks = {
         set = "Gym Heroes",
         coin = "Starmie",
         cards = {
-            ["Misty's Tentacruel (Holo)"] = 1, ["Misty's Psyduck"] = 2, ["Misty's Staryu"] = 4, ["Misty's Poliwag"] = 3,
-            ["Misty's Horsea"] = 4, ["Misty's Tentacool 2"] = 1, ["Misty's Tentacool 2"] = 1, ["Misty's Goldeen"] = 3,
-            ["Misty's Starmie"] = 2, ["Misty's Poliwhirl"] = 1, ["Misty"] = 1, ["Cerulean City Gym"] = 1,
-            ["Water Energy"] = 28
+            ["Misty's Tentacruel (Holo)"] = 1, ["Misty's Psyduck"] = 2, ["Misty's Staryu"] = 4,
+            ["Misty's Poliwag"] = 3, ["Misty's Horsea"] = 4, ["Misty's Tentacool 2"] = 1,
+            ["Misty's Tentacool 2"] = 1, ["Misty's Goldeen 1"] = 1, ["Misty's Goldeen 2"] = 2,
+            ["Misty's Starmie"] = 2, ["Misty's Poliwhirl"] = 1, ["Misty"] = 1,
+            ["Cerulean City Gym"] = 1, ["Water Energy"] = 28
         },
 
         outliers = {
