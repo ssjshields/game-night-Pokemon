@@ -41,11 +41,12 @@ gameNightDistro.proceduralDistGameNight.itemsToAdd["pokemonBoosterPack"] = {
 }
 
 gameNightDistro.proceduralDistGameNight.itemsToAdd["pokemonCards"] = {
+    rolls = 2,
     perDistFactor = {
         ["Gifts"] = 0,
         ["GigamartToys"] = 0,
         ["HolidayStuff"] = 0,
-        ["SchoolLockers"] = 1.5,
-        ["ClassroomDesk"] = 1.5,
+        ["SchoolLockers"] = 1.75,
+        ["ClassroomDesk"] = 1.75,
     }
 }
