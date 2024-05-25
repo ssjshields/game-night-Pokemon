@@ -1,8 +1,9 @@
 version=1
-title=Game Night: Poke Trading Card Game [Unofficial]
+id=3254442255
+title=Game Night: Poke Trading Card Game
 description=[h2]Add-On for [url=https://steamcommunity.com/sharedfiles/filedetails/?id=3058279917]GameNight[/url].[/h2]
 description=
-description=[i]Features all Original [b]6[/b] Sets![/i]
+description=[i]Features all original card sets![/i]
 description=
 description=[url=https://discord.gg/SReMnbV4V7][img]https://raw.githubusercontent.com/Chuckleberry-Finn/chuckImages/main/PZmodCommBanner2.png[/img][/url]
 description=
@@ -11,7 +12,6 @@ description=
 description=
 description=[img]https://raw.githubusercontent.com/ssjshields/game-night-Pokemon/main/images/cr.png[/img]
 description=
-description=[h3]The remainder of the content is Copyright 2024 Nurver, and Oppolla. This item is not authorized for posting on Steam, except under the Steam account(s) named Nurver, and Oppolla.[/h3]
+description=[h3]The remainder of the content is Copyright 2024 Chuckleberry Finn, Nurver, and Oppolla. This item is not authorized for posting on Steam, except under the Steam account(s) named Chuckleberry Finn, Nurver, and Oppolla.[/h3]
 tags=Build 41;Multiplayer;Pop Culture;Silly/Fun
 visibility=public
-
