@@ -70,7 +70,7 @@ module Base
             DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
             WorldStaticModel = pkmnTokenStatusCoin,
             DisplayName = Pokemon Status Coin,
-            Icon = OutOfPlayTextures/PokeTokens/StatusCoin,
+            Icon = OutOfPlayTextures/PokeTokens/PokemonStatusCoin,
         }
 
     item PokemonDice
