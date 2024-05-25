@@ -3,7 +3,8 @@ local deckActionHandler = applyItemDetails.deckActionHandler
 local gamePieceAndBoardHandler = applyItemDetails.gamePieceAndBoardHandler
 
 gamePieceAndBoardHandler.registerTypes({ "Base.PokemonDice" })
-gamePieceAndBoardHandler.registerSpecial("Base.PokemonDice", { addTextureDir = "dice/", noRotate=true, actions = { rollDie=6 }, shiftAction = "rollDie", })
+gamePieceAndBoardHandler.registerSpecial("Base.PokemonDice", { addTextureDir = "dice/", noRotate=true, actions = { rollDie=6, placeDieOnSide=true }, shiftAction = "rollDie", })
+
 
 local Pokemon = {}
 
