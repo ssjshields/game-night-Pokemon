@@ -510,7 +510,14 @@ function applyItemDetails.applyCardForPokemon(item)
             return
         end
 
-        local applyDeck = item:getModData()["gameNight_specialOnCardApplyDeck"] or Pokemon.cardDecks[ZombRand(#Pokemon.cardDecks)+1]
+        local wildDeck = false
+        local applyDeck = item:getModData()["gameNight_specialOnCardApplyDeck"]
+
+        if not applyDeck then
+            wildDeck = true
+            applyDeck = Pokemon.cardDecks[ZombRand(#Pokemon.cardDecks)+1]
+        end
+
         if applyDeck then
 
             local cards, coinType = Pokemon.buildDeck(applyDeck)
@@ -525,14 +532,16 @@ function applyItemDetails.applyCardForPokemon(item)
             local worldItem = item:getWorldItem()
             local worldItemSq = worldItem and worldItem:getSquare()
 
-            for n=1, 4 do
-                local damageDice = InventoryItemFactory.CreateItem("Base.PokemonDice")
-                if damageDice and container then container:AddItem(damageDice) end
-                if damageDice and worldItemSq then worldItemSq:AddWorldInventoryItem(damageDice, 0, 0, 0) end
+            if wildDeck then
+                for n=1, 4 do
+                    local damageDice = InventoryItemFactory.CreateItem("Base.PokemonDice")
+                    if damageDice and container then container:AddItem(damageDice) end
+                    if damageDice and worldItemSq then worldItemSq:AddWorldInventoryItem(damageDice, 0, 0, 0) end
 
-                local statusCoin = InventoryItemFactory.CreateItem("Base.PokemonStatusCoin")
-                if statusCoin and container then container:AddItem(statusCoin) end
-                if statusCoin and worldItemSq then worldItemSq:AddWorldInventoryItem(statusCoin, 0, 0, 0) end
+                    local statusCoin = InventoryItemFactory.CreateItem("Base.PokemonStatusCoin")
+                    if statusCoin and container then container:AddItem(statusCoin) end
+                    if statusCoin and worldItemSq then worldItemSq:AddWorldInventoryItem(statusCoin, 0, 0, 0) end
+                end
             end
 
             local coin = coinType and InventoryItemFactory.CreateItem("Base."..coinType)
