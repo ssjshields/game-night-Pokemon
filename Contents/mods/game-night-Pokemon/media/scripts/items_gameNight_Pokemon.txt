@@ -76,7 +76,7 @@ module Base
     item PokemonDice
     {
         DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
-        DisplayName = Pokemon Damage Marker, Icon = OutOfPlayTextures/dice/PokemonDice1, WorldStaticModel = PokeDice,
+        DisplayName = Pokemon Damage Marker, Icon = OutOfPlayTextures/dice/PokemonDice, WorldStaticModel = PokeDice,
     }
 
     item pokemonCards

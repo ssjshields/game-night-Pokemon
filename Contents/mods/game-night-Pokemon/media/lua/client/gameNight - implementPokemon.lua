@@ -3,7 +3,7 @@ local deckActionHandler = applyItemDetails.deckActionHandler
 local gamePieceAndBoardHandler = applyItemDetails.gamePieceAndBoardHandler
 
 gamePieceAndBoardHandler.registerTypes({ "Base.PokemonDice" })
-gamePieceAndBoardHandler.registerSpecial("Base.PokemonDice", { addTextureDir = "dice/", noRotate=true, actions = { rollDie=6, placeDieOnSide=true }, shiftAction = "rollDie", })
+gamePieceAndBoardHandler.registerSpecial("Base.PokemonDice", { addTextureDir = "dice/", noRotate=true, actions = { rollDie=6, placeDieOnSide=10 }, shiftAction = "rollDie", })
 
 
 local Pokemon = {}
@@ -315,7 +315,7 @@ Pokemon.cardData["Gym Challenge"] = {
         ["Brock's Vulpix"] = "Fire", ["Erika's Bellsprout"] = "Grass", ["Erika's Bulbasaur"] = "Grass",
         ["Erika's Clefairy"] = "Colorless", ["Erika's Ivysaur"] = "Grass", ["Giovanni's Machoke"] = "Fighting",
         ["Giovanni's Meowth 1"] = "Colorless", ["Giovanni's Nidorina"] = "Grass", ["Giovanni's Nidorino"] = "Grass",
-        ["Koga's Golbat"] = "Grass", ["Koga's Kakuna"] = "Grass", ["Koga's Koffing"] = "Grass", ["Koga's Pidgey"] = "Colorless",
+        ["Koga's Golbat"] = "Grass", ["Koga's Kakuna"] = "Grass", ["Koga's Koffing 1"] = "Grass", ["Koga's Pidgey"] = "Colorless",
         ["Koga's Weezing"] = "Grass", ["Lt. Surge's Eevee"] = "Colorless", ["Lt. Surge's Electrode"] = "Lightning",
         ["Lt. Surge's Raticate"] = "Colorless", ["Misty's Dewgong"] = "Water", ["Sabrina's Haunter"] = "Psychic",
         ["Sabrina's Hypno"] = "Psychic", ["Sabrina's Jynx"] = "Psychic", ["Sabrina's Kadabra"] = "Psychic",
@@ -331,7 +331,7 @@ Pokemon.cardData["Gym Challenge"] = {
         ["Erika's Jigglypuff"] = "Colorless", ["Erika's Oddish"] = "Grass", ["Erika's Paras"] = "Grass",
         ["Giovanni's Machop"] = "Fighting", ["Giovanni's Magikarp"] = "Water", ["Giovanni's Meowth 2"] = "Colorless",
         ["Giovanni's Nidoran (Female)"] = "Grass", ["Giovanni's Nidoran (Male)"] = "Grass", ["Koga's Ekans"] = "Grass",
-        ["Koga's Grimer"] = "Grass", ["Koga's Koffing"] = "Grass", ["Koga's Pidgey"] = "Colorless", ["Koga's Tangela"] = "Grass",
+        ["Koga's Grimer"] = "Grass", ["Koga's Koffing 2"] = "Grass", ["Koga's Pidgey"] = "Colorless", ["Koga's Tangela"] = "Grass",
         ["Koga's Weedle"] = "Grass", ["Koga's Zubat"] = "Grass", ["Lt. Surge's Pikachu"] = "Lightning",
         ["Lt. Surge's Rattata"] = "Colorless", ["Lt. Surge's Voltorb"] = "Lightning", ["Misty's Horsea"] = "Water",
         ["Misty's Magikarp"] = "Water", ["Misty's Poliwag"] = "Water", ["Misty's Psyduck"] = "Water", ["Misty's Seel"] = "Water",
@@ -841,8 +841,8 @@ Pokemon.Decks = {
         set = "Gym Heroes",
         coin = "Starmie",
         cards = {
-            ["Brock's Rhydon (Holo)"] = 1, ["Brock's Sandshrew"] = 2, ["Brock's Rhyhorn"] = 3, ["Brock's Onix"] = 4,
-            ["Brock's Mankey 1"] = 1, ["Brock's Mankey 2"] = 2, ["Brock's Geodude"] = 3, ["Brock's Lickitung"] = 1,
+            ["Brock's Rhydon (Holo)"] = 1, ["Brock's Sandshrew 2"] = 1, ["Brock's Sandshrew 1"] = 2, ["Brock's Rhyhorn 2"] = 3, ["Brock's Onix 2"] = 4,
+            ["Brock's Mankey 1"] = 1, ["Brock's Mankey 2"] = 2, ["Brock's Geodude 2"] = 3, ["Brock's Lickitung"] = 1,
             ["Brock's Graveler"] = 1, ["Brock"] = 1, ["Brock's Training Method"] = 2, ["Pewter City Gym"] = 1, ["Fighting Energy"] = 28
         },
         outliers = {
@@ -856,10 +856,9 @@ Pokemon.Decks = {
         coin = "Starmie",
         cards = {
             ["Misty's Tentacruel (Holo)"] = 1, ["Misty's Psyduck"] = 2, ["Misty's Staryu"] = 4,
-            ["Misty's Poliwag"] = 3, ["Misty's Horsea"] = 4, ["Misty's Tentacool 2"] = 1,
-            ["Misty's Tentacool 2"] = 1, ["Misty's Goldeen 1"] = 1, ["Misty's Goldeen 2"] = 2,
-            ["Misty's Starmie"] = 2, ["Misty's Poliwhirl"] = 1, ["Misty"] = 1,
-            ["Cerulean City Gym"] = 1, ["Water Energy"] = 28
+            ["Misty's Poliwag"] = 3, ["Misty's Horsea"] = 4, ["Misty's Tentacool 2"] = 2, ["Misty's Goldeen 2"] = 3,
+            ["Misty's Starmie"] = 2, ["Misty's Poliwhirl"] = 1, ["Misty"] = 1, ["Cerulean City Gym"] = 1,
+            ["Water Energy"] = 28
         },
 
         outliers = {
@@ -888,8 +887,8 @@ Pokemon.Decks = {
         set = "Gym Heroes",
         coin = "Starmie",
         cards = {
-            ["Erika's Vileplume (Holo)"] = 1, ["Erika's Tangela"] = 4, ["Erika's Oddish"] = 4,
-            ["Erika's Exeggcute"] = 3, ["Erika's Dratini"] = 1, ["Erika's Weepinbell 2"] = 1,
+            ["Erika's Vileplume (Holo)"] = 1, ["Erika's Tangela"] = 4, ["Erika's Oddish 1"] = 2, ["Erika's Oddish 2"] = 2,
+            ["Erika's Exeggcute 1"] = 1, ["Erika's Exeggcute 2"] = 2, ["Erika's Dratini"] = 1, ["Erika's Weepinbell 2"] = 1,
             ["Erika's Weepinbell 2"] = 1, ["Erika's Bellsprout 1"] = 2, ["Erika's Bellsprout 2"] = 2,
             ["Erika's Gloom 1"] = 1, ["Erika's Gloom 2"] = 1, ["Erika's Exeggutor"] = 1, ["Erika"] = 1,
             ["Erika's Perfume"] = 1, ["Celadon City Gym"] = 1, ["Grass Energy"] = 22, ["Psychic Energy"] = 6
@@ -920,7 +919,7 @@ Pokemon.Decks = {
         coin = "Starmie",
         cards = {
             ["Koga's Beedrill (Holo)"] = 1, ["Koga's Ekans"] = 3, ["Koga's Pidgey"] = 3, ["Koga's Weezing"] = 2,
-            ["Koga's Kakuna"] = 2, ["Koga's Koffing"] = 3, ["Koga's Weedle"] = 4, ["Koga's Grimer"] = 3, ["Koga"] = 1,
+            ["Koga's Kakuna"] = 2, ["Koga's Koffing 1"] = 1, ["Koga's Koffing 2"] = 3, ["Koga's Weedle"] = 4, ["Koga's Grimer"] = 3, ["Koga"] = 1,
             ["Fuchsia City Gym"] = 1, ["Grass Energy"] = 28
         },
 
@@ -937,11 +936,12 @@ Pokemon.Decks = {
             ["Blaine's Arcanine (Holo)"] = 1, ["Blaine's Growlithe"] = 2, ["Blaine's Charmeleon"] = 2,
             ["Blaine's Doduo"] = 2, ["Blaine's Ponyta"] = 4, ["Blaine's Charmander"] = 3, ["Blaine's Vulpix"] = 2,
             ["Blaine's Dodrio"] = 1, ["Blaine's Rapidash"] = 2, ["Blaine"] = 1, ["Fervor"] = 2,
-            ["Blaine's Gamble"] = 1, ["Cinnabar City Gym"] = 1, ["Fire Energy"] = 28, ["Max Revive"] = 1,
+            ["Cinnabar City Gym"] = 1, ["Fire Energy"] = 28, ["Max Revive"] = 1,
         },
 
         outliers = {
             ["Bill (Base 2)"] = 2, ["Potion (Base 2)"] = 2, ["Super Potion (Base 2)"] = 1,
+            ["Blaine's Gamble (Gym Heroes)"] = 1, ["Blaine's Growlithe 2 (Gym Heroes)"] = 2,
         }
     },
 
@@ -952,7 +952,7 @@ Pokemon.Decks = {
             ["Giovanni's Persian (Holo)"] = 1, ["Giovanni's Nidoran (Female)"] = 3, ["Giovanni's Nidorina"] = 1,
             ["Giovanni's Meowth 1"] = 1, ["Giovanni's Nidoran (Male)"] = 4, ["Giovanni's Machop"] = 4,
             ["Giovanni's Nidorino"] = 2, ["Giovanni's Machoke"] = 2, ["Giovanni"] = 1, ["Warp Point"] = 2,
-            ["Viridian City Gym"] = 1,
+            ["Viridian City Gym"] = 1, ["Giovanni's Meowth 2"] = 3,
             ["Fighting Energy"] = 8, ["Grass Energy"] = 20
         },
 
