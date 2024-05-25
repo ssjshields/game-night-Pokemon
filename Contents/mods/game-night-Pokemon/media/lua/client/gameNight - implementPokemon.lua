@@ -2,6 +2,9 @@ local applyItemDetails = require "gameNight - applyItemDetails"
 local deckActionHandler = applyItemDetails.deckActionHandler
 local gamePieceAndBoardHandler = applyItemDetails.gamePieceAndBoardHandler
 
+gamePieceAndBoardHandler.registerTypes({ "Base.PokemonDice" })
+gamePieceAndBoardHandler.registerSpecial("Base.PokemonDice", { addTextureDir = "dice/", noRotate=true, actions = { rollDie=6 }, shiftAction = "rollDie", })
+
 local Pokemon = {}
 
 
@@ -522,9 +525,15 @@ function applyItemDetails.applyCardForPokemon(item)
             local worldItem = item:getWorldItem()
             local worldItemSq = worldItem and worldItem:getSquare()
 
-            local statusCoin = InventoryItemFactory.CreateItem("Base.PokemonStatusCoin")
-            if statusCoin and container then container:AddItem(statusCoin) end
-            if statusCoin and worldItemSq then worldItemSq:AddWorldInventoryItem(statusCoin, 0, 0, 0) end
+            for n=1, 4 do
+                local damageDice = InventoryItemFactory.CreateItem("Base.PokemonDice")
+                if damageDice and container then container:AddItem(damageDice) end
+                if damageDice and worldItemSq then worldItemSq:AddWorldInventoryItem(damageDice, 0, 0, 0) end
+
+                local statusCoin = InventoryItemFactory.CreateItem("Base.PokemonStatusCoin")
+                if statusCoin and container then container:AddItem(statusCoin) end
+                if statusCoin and worldItemSq then worldItemSq:AddWorldInventoryItem(statusCoin, 0, 0, 0) end
+            end
 
             local coin = coinType and InventoryItemFactory.CreateItem("Base."..coinType)
             if coin then

@@ -17,5 +17,5 @@ module Base
 
     model pkmnTokenStatusCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/StatusCoin, scale = 0.004, }
 
-
+    model PokeDice { mesh = WorldItems/gameNightCube, texture = modelTextures/Dice, scale = 0.0015, }
 }

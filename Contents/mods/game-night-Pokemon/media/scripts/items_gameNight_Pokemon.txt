@@ -73,6 +73,11 @@ module Base
             Icon = OutOfPlayTextures/PokeTokens/StatusCoin,
         }
 
+    item PokemonDice
+    {
+        DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+        DisplayName = Pokemon Damage Marker, Icon = OutOfPlayTextures/dice/PokemonDice1, WorldStaticModel = PokeDice,
+    }
 
     item pokemonCards
     {
