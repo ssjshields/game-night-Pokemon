@@ -12,7 +12,7 @@ Pokemon.Tokens.types = {
     Pkmn_base2CoinFlipped = {"PikachuCoin", "MeowthCoin", "StarmieCoin",}
 }
 
-Pokemon.Tokens.typesToRegister = {"Base.MetalPikachuCoin"}
+Pokemon.Tokens.typesToRegister = {"Base.MetalPikachuCoin","Base.PokemonStatusCoin"}
 for typeID, coins in pairs(Pokemon.Tokens.types) do
     for _,coin in pairs(coins) do
         table.insert(Pokemon.Tokens.typesToRegister, "Base."..coin)
@@ -26,6 +26,11 @@ gamePieceAndBoardHandler.registerTypes(Pokemon.Tokens.typesToRegister)
 
 gamePieceAndBoardHandler.registerSpecial("Base.pokemonBoosterPack", {nonGamePieceOnApplyDetails = "applyBoosterPackType"})
 gamePieceAndBoardHandler.registerSpecial("Base.pokemonStarterKit", {nonGamePieceOnApplyDetails = "applyStarterKitType"})
+
+gamePieceAndBoardHandler.registerSpecial("Base.PokemonStatusCoin", {
+    alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
+    actions = { coinFlip=true, examine=true }, textureSize = {64,64}, altState="PokemonStatusCoinFlipped", shiftAction = "coinFlip",
+})
 
 gamePieceAndBoardHandler.registerSpecial("Base.MetalPikachuCoin", {
     alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
@@ -48,7 +53,6 @@ function Pokemon.generatePokemonCards()
     for set,rarities in pairs(Pokemon.cardData) do
         table.insert(Pokemon.cardSets, set)
         Pokemon.cardByRarity[set] = {}
-        --print("set: " .. set)
         for rarity,cards in pairs(rarities) do
             Pokemon.cardByRarity[set][rarity] = {}
 
@@ -63,7 +67,6 @@ function Pokemon.generatePokemonCards()
                 Pokemon.altIcons[cardID] = set.."/"..cardID
                 --Pokemon.altNames[cardID] = card
             end
-            --print("  -- " .. rarity.." = "..tmpCount)
         end
     end
 
@@ -495,39 +498,41 @@ end
 
 
 function applyItemDetails.applyCardForPokemon(item)
-
     if not item:getModData()["gameNight_cardDeck"] then
 
         local applyBoosters = item:getModData()["gameNight_specialOnCardApplyBooster"] --or Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
         if applyBoosters then
-            item:getModData()["gameNight_specialOnCardApplyBooster"] = nil
             applyItemDetails.applyBoostersToPokemonCards(item, applyBoosters)
+            item:getModData()["gameNight_specialOnCardApplyBooster"] = nil
             return
         end
 
-        local applyDeck = item:getModData()["gameNight_specialOnCardApplyDeck"] or Pokemon.Decks[ZombRand(#Pokemon.Decks)+1]
+        local applyDeck = item:getModData()["gameNight_specialOnCardApplyDeck"] or Pokemon.cardDecks[ZombRand(#Pokemon.cardDecks)+1]
         if applyDeck then
 
+            local cards, coinType = Pokemon.buildDeck(applyDeck)
+            if cards then
+                item:getModData()["gameNight_cardDeck"] = cards
+                item:getModData()["gameNight_cardFlipped"] = {}
+                for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
+            end
             item:getModData()["gameNight_specialOnCardApplyDeck"] = nil
 
-            local cards, coinType = Pokemon.buildDeck(applyDeck)
+            local container = item:getContainer()
+            local worldItem = item:getWorldItem()
+            local worldItemSq = worldItem and worldItem:getSquare()
 
-            item:getModData()["gameNight_cardDeck"] = cards
-            item:getModData()["gameNight_cardFlipped"] = {}
-            for i=1, #cards do item:getModData()["gameNight_cardFlipped"][i] = true end
+            local statusCoin = InventoryItemFactory.CreateItem("Base.PokemonStatusCoin")
+            if statusCoin and container then container:AddItem(statusCoin) end
+            if statusCoin and worldItemSq then worldItemSq:AddWorldInventoryItem(statusCoin, 0, 0, 0) end
 
             local coin = coinType and InventoryItemFactory.CreateItem("Base."..coinType)
             if coin then
-                local container = item:getContainer()
                 if container then container:AddItem(coin) end
-
-                local worldItem = item:getWorldItem()
-                ---@type IsoGridSquare
-                local worldItemSq = worldItem and worldItem:getSquare()
                 if worldItemSq then worldItemSq:AddWorldInventoryItem(coin, 0, 0, 0) end
-
-                gamePieceAndBoardHandler.refreshInventory(getPlayer())
             end
+
+            gamePieceAndBoardHandler.refreshInventory(getPlayer())
         end
     end
 end
