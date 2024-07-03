@@ -445,8 +445,10 @@ function applyItemDetails.pokemon.weighedProbability(outcomesAndWeights)
 end
 
 
-function applyItemDetails.pokemon.spawnRandomCard()
-    local rarity = applyItemDetails.MOM.weighedProbability({ common = 7, uncommon = 3, rare = 1})
+function applyItemDetails.pokemon.spawnRandomCard(zombie)
+    local rare = zombie and 1 or 2
+    local common = zombie and 7 or 5
+    local rarity = applyItemDetails.pokemon.weighedProbability({ common=common, uncommon=3, rare=rare})
     local setID = Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
     local card = applyItemDetails.pokemon.rollCard(setID, rarity)
     return card
@@ -515,8 +517,19 @@ function applyItemDetails.applyCardForPokemon(item)
         local applyDeck = item:getModData()["gameNight_specialOnCardApplyDeck"]
 
         if not applyDeck then
-            wildDeck = true
-            applyDeck = Pokemon.cardDecks[ZombRand(#Pokemon.cardDecks)+1]
+            local itemCont = item:getContainer()
+            local itemContParent = itemCont:getParent()
+            local zombie = itemContParent and instanceof(itemContParent, "IsoDeadBody")
+
+            if (ZombRand(10) < 1) or zombie then
+                local card = applyItemDetails.pokemon.spawnRandomCard(true)
+                item:getModData()["gameNight_cardDeck"] = { card }
+                item:getModData()["gameNight_cardFlipped"] = { true }
+                item:getModData()["gameNight_specialOnCardApplyDeck"] = nil
+            else
+                wildDeck = true
+                applyDeck = Pokemon.cardDecks[ZombRand(#Pokemon.cardDecks)+1]
+            end
         end
 
         if applyDeck then
@@ -550,9 +563,9 @@ function applyItemDetails.applyCardForPokemon(item)
                 if container then container:AddItem(coin) end
                 if worldItemSq then worldItemSq:AddWorldInventoryItem(coin, 0, 0, 0) end
             end
-
-            gamePieceAndBoardHandler.refreshInventory(getPlayer())
         end
+
+        gamePieceAndBoardHandler.refreshInventory(getPlayer())
     end
 end
 
