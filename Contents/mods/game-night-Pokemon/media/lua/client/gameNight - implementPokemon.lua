@@ -518,9 +518,7 @@ function applyItemDetails.applyCardForPokemon(item)
 
         if not applyDeck then
             local itemCont = item:getContainer()
-            local itemContParent = itemCont:getParent()
-            local zombie = itemContParent and instanceof(itemContParent, "IsoDeadBody")
-
+            local zombie = itemCont and (itemCont:getType() == "inventorymale" or itemCont:getType() == "inventoryfemale")
             if (ZombRand(10) < 1) or zombie then
                 local card = applyItemDetails.pokemon.spawnRandomCard(true)
                 item:getModData()["gameNight_cardDeck"] = { card }
