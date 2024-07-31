@@ -720,14 +720,16 @@ Pokemon.Decks = {
 
 
     ["2-Player Base 2 Starter"] = {
-        set = "Base",
+        set = "Base 2",
         coin = "Eevee",
         cards = {
-            ["Diglett"] = 3, ["Machop"] = 3, ["Machoke"] = 2, ["Machamp (Holo)"] = 1, ["Seel"] = 2, ["Goldeen"] = 4,
+            ["Diglett"] = 3, ["Machop"] = 3, ["Machoke"] = 2, ["Seel"] = 2, ["Goldeen"] = 4,
             ["Seaking"] = 2, ["Staryu"] = 3, ["Meowth"] = 2, ["Doduo"] = 2, ["Dratini"] = 1, ["Bill"] = 1,
             ["Energy Removal"] = 2, ["Gust of Wind"] = 1, ["Poke Ball"] = 2, ["Pokedex"] = 1, ["Switch"] = 1,
             ["Fighting Energy"] = 14, ["Water Energy"] = 14
-        }
+        },
+
+        outliers = { ["Machamp (Holo) (Base)"] = 1, }
     },
 
 
