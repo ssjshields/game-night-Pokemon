@@ -28,8 +28,8 @@ for typeID, coins in pairs(Pokemon.Tokens.types) do
 end
 gamePieceAndBoardHandler.registerTypes(Pokemon.Tokens.typesToRegister)
 
-gamePieceAndBoardHandler.registerSpecial("Base.pokemonBoosterPack", {nonGamePieceOnApplyDetails = "applyBoosterPackType"})
-gamePieceAndBoardHandler.registerSpecial("Base.pokemonStarterKit", {nonGamePieceOnApplyDetails = "applyStarterKitType"})
+gamePieceAndBoardHandler.registerSpecial("Base.pokemonBoosterPack", {nonGamePieceOnApplyDetails = "applyPokeBoosterPackType"})
+gamePieceAndBoardHandler.registerSpecial("Base.pokemonStarterKit", {nonGamePieceOnApplyDetails = "applyPokeStarterKitType"})
 
 gamePieceAndBoardHandler.registerSpecial("Base.PokemonStatusCoin", {
     alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
@@ -477,7 +477,7 @@ end
 
 
 ---@param item InventoryItem
-function applyItemDetails.applyBoosterPackType(item)
+function applyItemDetails.applyPokeBoosterPackType(item)
     local typeOf = item:getModData()["gameNight_specialOnCardApplyBooster"]
     if typeOf then return end
     local set = Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
@@ -485,7 +485,7 @@ function applyItemDetails.applyBoosterPackType(item)
     item:setName(item:getDisplayName().." ("..set..")")
 end
 
-function applyItemDetails.applyStarterKitType(item)
+function applyItemDetails.applyPokeStarterKitType(item)
     local typeOf = item:getModData()["gameNight_specialOnCardApplyDeck"]
     if typeOf then return end
     local set = Pokemon.cardDecks[ZombRand(#Pokemon.cardDecks)+1]
