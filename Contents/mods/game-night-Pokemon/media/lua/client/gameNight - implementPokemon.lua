@@ -79,7 +79,7 @@ function Pokemon.generatePokemonCards()
     deckActionHandler.addDeck("pokemonCards", Pokemon.tradingCards, nil, Pokemon.altIcons)
 
     gamePieceAndBoardHandler.registerSpecial("Base.pokemonCards", {
-        actions = { examine=true}, examineScale = 0.75, applyCards = "applyCardForPokemon", textureSize = {100,140}
+        actions = { examine=true}, examineScale = 1, applyCards = "applyCardForPokemon", textureSize = {100,140}
     })
 end
 Events.OnGameBoot.Add(Pokemon.generatePokemonCards)
