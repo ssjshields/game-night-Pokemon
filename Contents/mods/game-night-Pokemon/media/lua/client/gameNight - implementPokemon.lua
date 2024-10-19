@@ -919,12 +919,13 @@ Pokemon.Decks = {
             ["Sabrina's Alakazam (Holo)"] = 1, ["Sabrina's Porygon"] = 3, ["Sabrina's Drowzee"] = 3,
             ["Sabrina's Gastly 1"] = 2, ["Sabrina's Gastly 2"] = 2, ["Sabrina's Kadabra"] = 2,
             ["Sabrina's Abra 1"] = 2, ["Sabrina's Abra 2"] = 2, ["Sabrina's Jynx"] = 2,
-            ["Sabrina's Haunter"] = 2, ["Sabrina"] = 1, ["Potion"] = 2, ["Sabrina's Gaze"] = 2,
+            ["Sabrina's Haunter"] = 2, ["Sabrina"] = 1,
             ["Sabrina's Psychic Control"] = 1, ["Saffron City Gym"] = 1, ["Psychic Energy"] = 28
         },
 
         outliers = {
-            ["Bill (Base 2)"] = 2, ["Switch (Base 2)"] = 2,
+            ["Bill (Base 2)"] = 2, ["Switch (Base 2)"] = 2, ["Potion (Base 2)"] = 2,
+            ["Sabrina's Gaze (Gym Heroes)"] = 2,
         }
     },
 
