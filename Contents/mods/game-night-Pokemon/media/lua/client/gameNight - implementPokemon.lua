@@ -825,7 +825,7 @@ Pokemon.Decks = {
 
         outliers = {--Gym Heroes
             ["Lt. Surge's Voltorb (Gym Heroes)"] = 1, ["Misty's Wrath (Gym Heroes)"] = 1, ["Misty's Poliwag (Gym Heroes)"] = 1,
-            ["Zapdos (Holo) (Fossil)"] = 1, ["Raichu (Holo) (Fossil)"] = 1, ["Golduck  (Fossil)"] = 1, ["Psyduck (Fossil)"] = 2, ["Energy Search (Fossil)"] = 2,
+            ["Zapdos (Holo) (Fossil)"] = 1, ["Raichu (Holo) (Fossil)"] = 1, ["Golduck (Fossil)"] = 1, ["Psyduck (Fossil)"] = 2, ["Energy Search (Fossil)"] = 2,
             ["Fearow (Jungle)"] = 1, ["Pikachu (Jungle)"] = 4, ["Spearow (Jungle)"] = 2,  ["Poke Ball (Jungle)"] = 1,
             ["Psyduck (Rocket)"] = 1, ["Full Heal Energy (Rocket)"] = 1, ["Potion Energy (Rocket)"] = 1,
         }
@@ -836,7 +836,7 @@ Pokemon.Decks = {
         set = "Base",
         coin = "MetalPikachu",
         cards = {
-            ["Electabuzz (Holo)"] = 1, ["Farfetch'd"] = 1,
+            ["Electabuzz"] = 1, ["Farfetch'd"] = 1,
             ["Doduo"] = 1, ["Magnemite"] = 2, ["Pidgey"] = 1, ["Defender"] = 1, ["Energy Retrieval"] = 2,
             ["Professor Oak"] = 1, ["Super Potion"] = 2, ["Bill"] = 2, ["Energy Removal"] = 1, ["Potion"] = 1,
             ["Double Colorless Energy"] = 2, ["Lightning Energy"] = 16, ["Water Energy"] = 8
@@ -917,7 +917,8 @@ Pokemon.Decks = {
         coin = "Starmie",
         cards = {
             ["Sabrina's Alakazam (Holo)"] = 1, ["Sabrina's Porygon"] = 3, ["Sabrina's Drowzee"] = 3,
-            ["Sabrina's Gastly"] = 4, ["Sabrina's Kadabra"] = 2, ["Sabrina's Abra"] = 4, ["Sabrina's Jynx"] = 2,
+            ["Sabrina's Gastly 1"] = 2, ["Sabrina's Gastly 2"] = 2, ["Sabrina's Kadabra"] = 2,
+            ["Sabrina's Abra 1"] = 2, ["Sabrina's Abra 2"] = 2, ["Sabrina's Jynx"] = 2,
             ["Sabrina's Haunter"] = 2, ["Sabrina"] = 1, ["Potion"] = 2, ["Sabrina's Gaze"] = 2,
             ["Sabrina's Psychic Control"] = 1, ["Saffron City Gym"] = 1, ["Psychic Energy"] = 28
         },
