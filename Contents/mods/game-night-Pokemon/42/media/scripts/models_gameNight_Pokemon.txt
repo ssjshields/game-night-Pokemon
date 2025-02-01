@@ -15,7 +15,7 @@ module Base
     model pkmnTokenVileplumeCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/VileplumeCoin, scale = 0.004, }
     model pkmnTokenMetalPikachuCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/MetalPikachuCoin, scale = 0.004, }
 
-    model pkmnTokenStatusCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/StatusCoin, scale = 0.004, }
+    model pkmnTokenStatusCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/PokemonStatusCoin, scale = 0.004, }
 
     model PokeDice { mesh = WorldItems/gameNightCube, texture = modelTextures/Dice, scale = 0.0015, }
 }
