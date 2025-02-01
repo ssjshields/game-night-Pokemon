@@ -100,7 +100,7 @@ module Base
     {
         DisplayName = Pokemon Starter Kit,
         DisplayCategory = GameBox, Weight = 0.1, Type = Normal,
-        Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
+        Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox,
         Tags = SealedPokemonCards,
     }
 }
