@@ -1,0 +1,14 @@
+module Base
+{
+
+    craftRecipe UnsealMoMCards
+    {
+        Time = 25,
+        category = Miscellaneous,
+        tags = CanBeDoneInDark;InHandCraft;CanBeDoneFromFloor;RightClickOnly,
+        inputs { item 1 tags[SealedPokemonCards] flags[Prop2], }
+        OnCreate = Recipe.GameNight.OpenSealedPokemonCards,
+        outputs { item 1 Base.pokemonCards, }
+    }
+
+}

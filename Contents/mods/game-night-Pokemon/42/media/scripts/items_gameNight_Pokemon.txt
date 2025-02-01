@@ -1,0 +1,106 @@
+module Base
+{
+
+    item AerodactylCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenAerodactylCoin,
+            DisplayName = Aerodactyl Coin,
+            Icon = OutOfPlayTextures/PokeTokens/AerodactylCoin,
+        }
+
+    item ChanseyCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenChanseyCoin,
+            DisplayName = Chansey Coin,
+            Icon = OutOfPlayTextures/PokeTokens/ChanseyCoin,
+        }
+
+    item EeveeCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenEeveeCoin,
+            DisplayName = Eevee Coin,
+            Icon = OutOfPlayTextures/PokeTokens/EeveeCoin,
+        }
+
+    item MeowthCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenMeowthCoin,
+            DisplayName = Meowth Coin,
+            Icon = OutOfPlayTextures/PokeTokens/MeowthCoin,
+        }
+
+    item PikachuCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenPikachuCoin,
+            DisplayName = Pikachu Coin,
+            Icon = OutOfPlayTextures/PokeTokens/PikachuCoin,
+        }
+
+    item StarmieCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenStarmieCoin,
+            DisplayName = Starmie Coin,
+            Icon = OutOfPlayTextures/PokeTokens/StarmieCoin,
+        }
+
+    item VileplumeCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenVileplumeCoin,
+            DisplayName = Vileplume Coin,
+            Icon = OutOfPlayTextures/PokeTokens/VileplumeCoin,
+        }
+
+    item MetalPikachuCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenMetalPikachuCoin,
+            DisplayName = Metal Pikachu Coin,
+            Icon = OutOfPlayTextures/PokeTokens/MetalPikachuCoin,
+        }
+
+    item PokemonStatusCoin
+        {
+            DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+            WorldStaticModel = pkmnTokenStatusCoin,
+            DisplayName = Pokemon Status Coin,
+            Icon = OutOfPlayTextures/PokeTokens/PokemonStatusCoin,
+        }
+
+    item PokemonDice
+    {
+        DisplayCategory = GamePiece, Weight = 0.01, Type = Normal,
+        DisplayName = Pokemon Damage Marker, Icon = OutOfPlayTextures/dice/PokemonDice, WorldStaticModel = PokeDice,
+    }
+
+    item pokemonCards
+    {
+        DisplayName = Pokemon Cards, DisplayCategory = Deck, Weight = 0.01, Type = Normal,
+        Icon = pokemonCards/deck, WorldStaticModel = pokemon_Card,
+    }
+
+
+    item pokemonBoosterPack
+    {
+        DisplayName = Pokemon Booster Pack,
+        DisplayCategory = GameBox, Weight = 0.1, Type = Normal,
+        Icon = Boxes/pokemonBoosterPack, WorldStaticModel = pokemon_Booster,
+        Tags = SealedPokemonCards,
+
+    }
+
+
+    item pokemonStarterKit
+    {
+        DisplayName = Pokemon Starter Kit,
+        DisplayCategory = GameBox, Weight = 0.1, Type = Normal,
+        Icon = Boxes/pokemonStarterBox, WorldStaticModel = pokemon_StarterBox
+        Tags = SealedPokemonCards,
+    }
+}
