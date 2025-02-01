@@ -546,17 +546,17 @@ function applyItemDetails.applyCardForPokemon(item)
 
             if wildDeck then
                 for n=1, 4 do
-                    local damageDice = InventoryItemFactory.CreateItem("Base.PokemonDice")
+                    local damageDice = instanceItem("Base.PokemonDice")
                     if damageDice and container then container:AddItem(damageDice) end
                     if damageDice and worldItemSq then worldItemSq:AddWorldInventoryItem(damageDice, 0, 0, 0) end
 
-                    local statusCoin = InventoryItemFactory.CreateItem("Base.PokemonStatusCoin")
+                    local statusCoin = instanceItem("Base.PokemonStatusCoin")
                     if statusCoin and container then container:AddItem(statusCoin) end
                     if statusCoin and worldItemSq then worldItemSq:AddWorldInventoryItem(statusCoin, 0, 0, 0) end
                 end
             end
 
-            local coin = coinType and InventoryItemFactory.CreateItem("Base."..coinType)
+            local coin = coinType and instanceItem("Base."..coinType)
             if coin then
                 if container then container:AddItem(coin) end
                 if worldItemSq then worldItemSq:AddWorldInventoryItem(coin, 0, 0, 0) end
