@@ -5,10 +5,9 @@ local gameNightDistro = require "gameNight - Distributions"
 gameNightDistro.proceduralDistGameNight.itemsToAdd["pokemonStarterKit"] = {
     rolls = 6,
     perDistFactor = {
-        ["Gifts"] = 1.5,
-        ["GigamartToys"] = 1.5,
-        ["HolidayStuff"] = 1.5,
-
+        ["Gifts"] = 1,
+        ["GigamartToys"] = 1,
+        ["HolidayStuff"] = 1,
         ["ClassroomDesk"] = 0.01,
         ["BedroomDresser"] = 0.01,
         ["ClassroomMisc"] = 0.01,
@@ -24,10 +23,9 @@ gameNightDistro.proceduralDistGameNight.itemsToAdd["pokemonStarterKit"] = {
 gameNightDistro.proceduralDistGameNight.itemsToAdd["pokemonBoosterPack"] = {
     rolls = 12,
     perDistFactor = {
-        ["Gifts"] = 1.5,
-        ["GigamartToys"] = 1.5,
-        ["HolidayStuff"] = 1.5,
-
+        ["Gifts"] = 1,
+        ["GigamartToys"] = 1,
+        ["HolidayStuff"] = 1,
         ["ClassroomDesk"] = 0.015,
         ["BedroomDresser"] = 0.01,
         ["ClassroomMisc"] = 0.01,
