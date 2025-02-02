@@ -15,5 +15,5 @@ description=
 description=[img]https://raw.githubusercontent.com/ssjshields/game-night-Pokemon/main/images/cr.png[/img]
 description=
 description=[h3]The remainder of the content is Copyright 2024 Chuckleberry Finn, Nurver, and Oppolla. This item is not authorized for posting on Steam, except under the Steam account(s) named Chuckleberry Finn, Nurver, and Oppolla.[/h3]
-tags=Build 41;Multiplayer;Pop Culture;Silly/Fun
+tags=Build 41;Build 42;Multiplayer;Pop Culture;Silly/Fun
 visibility=public
