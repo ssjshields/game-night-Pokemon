@@ -1,9 +1,9 @@
-local applyItemDetails = require "gameNight - applyItemDetails"
+local applyItemDetails = require("gameNight-applyItemDetails.lua")
 local deckActionHandler = applyItemDetails.deckActionHandler
-local gamePieceAndBoardHandler = applyItemDetails.gamePieceAndBoardHandler
+local gamePieceHandler = applyItemDetails.gamePieceHandler
 
-gamePieceAndBoardHandler.registerTypes({ "Base.PokemonDice" })
-gamePieceAndBoardHandler.registerSpecial("Base.PokemonDice", { addTextureDir = "dice/", noRotate=true, actions = { rollDie=6, placeDieOnSide=10 }, shiftAction = "rollDie", })
+gamePieceHandler.registerTypes({ "Base.PokemonDice" })
+gamePieceHandler.registerSpecial("Base.PokemonDice", { addTextureDir = "dice/", noRotate=true, actions = { rollDie=6, placeDieOnSide=true }, shiftAction = "rollDie", })
 
 
 local Pokemon = {}
@@ -20,23 +20,23 @@ Pokemon.Tokens.typesToRegister = {"Base.MetalPikachuCoin","Base.PokemonStatusCoi
 for typeID, coins in pairs(Pokemon.Tokens.types) do
     for _,coin in pairs(coins) do
         table.insert(Pokemon.Tokens.typesToRegister, "Base."..coin)
-        gamePieceAndBoardHandler.registerSpecial("Base."..coin, {
+        gamePieceHandler.registerSpecial("Base."..coin, {
             alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
             actions = { flipPiece=true, coinFlip=true, examine=true }, textureSize = {64,64}, altState=typeID, shiftAction = "coinFlip",
         })
     end
 end
-gamePieceAndBoardHandler.registerTypes(Pokemon.Tokens.typesToRegister)
+gamePieceHandler.registerTypes(Pokemon.Tokens.typesToRegister)
 
-gamePieceAndBoardHandler.registerSpecial("Base.pokemonBoosterPack", {nonGamePieceOnApplyDetails = "applyPokeBoosterPackType"})
-gamePieceAndBoardHandler.registerSpecial("Base.pokemonStarterKit", {nonGamePieceOnApplyDetails = "applyPokeStarterKitType"})
+gamePieceHandler.registerSpecial("Base.pokemonBoosterPack", { hideUI = true, nonGamePieceOnApplyDetails = "applyPokeBoosterPackType"})
+gamePieceHandler.registerSpecial("Base.pokemonStarterKit", { hideUI = true, nonGamePieceOnApplyDetails = "applyPokeStarterKitType"})
 
-gamePieceAndBoardHandler.registerSpecial("Base.PokemonStatusCoin", {
+gamePieceHandler.registerSpecial("Base.PokemonStatusCoin", {
     alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
     actions = { flipPiece=true, coinFlip=true, examine=true }, textureSize = {64,64}, altState="PokemonStatusCoinFlipped", shiftAction = "coinFlip",
 })
 
-gamePieceAndBoardHandler.registerSpecial("Base.MetalPikachuCoin", {
+gamePieceHandler.registerSpecial("Base.MetalPikachuCoin", {
     alternateStackRendering = {func="DrawTextureRoundFace", rgb = {0.55, 0.44, 0.33}}, addTextureDir = "PokeTokens/",
     actions = { flipPiece=true, coinFlip=true, examine=true }, textureSize = {64,64}, altState="MetalPikachuCoinFlipped", shiftAction = "coinFlip",
 })
@@ -78,7 +78,7 @@ function Pokemon.generatePokemonCards()
 
     deckActionHandler.addDeck("pokemonCards", Pokemon.tradingCards, nil, Pokemon.altIcons)
 
-    gamePieceAndBoardHandler.registerSpecial("Base.pokemonCards", {
+    gamePieceHandler.registerSpecial("Base.pokemonCards", {
         actions = { examine=true}, examineScale = 1, applyCards = "applyCardForPokemon", textureSize = {100,140}
     })
 end
@@ -482,7 +482,7 @@ function applyItemDetails.applyPokeBoosterPackType(item)
     if typeOf then return end
     local set = Pokemon.cardSets[ZombRand(#Pokemon.cardSets)+1]
     item:getModData()["gameNight_specialOnCardApplyBooster"] = set
-    item:setName(item:getDisplayName().." ("..set..")")
+
 end
 
 function applyItemDetails.applyPokeStarterKitType(item)
@@ -490,7 +490,7 @@ function applyItemDetails.applyPokeStarterKitType(item)
     if typeOf then return end
     local set = Pokemon.cardDecks[ZombRand(#Pokemon.cardDecks)+1]
     item:getModData()["gameNight_specialOnCardApplyDeck"] = set
-    item:setName(item:getDisplayName().." ("..set..")")
+
 end
 
 
@@ -556,14 +556,14 @@ function applyItemDetails.applyCardForPokemon(item)
                 end
             end
 
-            local coin = coinType and instanceItem("Base."..coinType)
+            local coin = coinType and instanceItem(coinType)
             if coin then
                 if container then container:AddItem(coin) end
                 if worldItemSq then worldItemSq:AddWorldInventoryItem(coin, 0, 0, 0) end
             end
         end
 
-        gamePieceAndBoardHandler.refreshInventory(getPlayer())
+        gamePieceHandler.refreshInventory(getPlayer())
     end
 end
 

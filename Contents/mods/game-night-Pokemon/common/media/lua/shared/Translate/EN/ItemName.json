@@ -1,0 +1,16 @@
+{
+    "Base.pokemonCards": "Pokemon Cards",
+    "Base.pokemonStarterKit": "Pokemon Starter Kit",
+    "Base.pokemonBoosterPack": "Pokemon Booster Pack",
+
+    "Base.AerodactylCoin": "Aerodactyl Coin",
+    "Base.ChanseyCoin": "Chansey Coin",
+    "Base.EeveeCoin": "Eevee Coin",
+    "Base.MeowthCoin": "Meowth Coin",
+    "Base.PikachuCoin": "Pikachu Coin",
+    "Base.StarmieCoin": "Starmie Coin",
+    "Base.VileplumeCoin": "Vileplume Coin",
+    "Base.MetalPikachuCoin": "Pikachu Coin (Metal)",
+    "Base.PokemonStatusCoin": "Pokemon Status Marker",
+    "Base.PokemonDice": "Poke-Dice"
+}

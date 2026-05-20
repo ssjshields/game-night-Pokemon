@@ -6,7 +6,7 @@ module Base
         Time = 25,
         category = Miscellaneous,
         tags = CanBeDoneInDark;InHandCraft;CanBeDoneFromFloor;RightClickOnly,
-        inputs { item 1 tags[SealedPokemonCards] flags[Prop2], }
+        inputs { item 1 tags[gamenight:SEALED_PKMN_CARDS] flags[Prop2], }
         OnCreate = Recipe.GameNight.OpenSealedPokemonCards,
         outputs { item 1 Base.pokemonCards, }
     }

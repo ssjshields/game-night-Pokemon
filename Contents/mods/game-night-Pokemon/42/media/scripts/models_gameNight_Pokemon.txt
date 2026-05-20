@@ -3,8 +3,8 @@ module Base
     model pokemon_Booster { mesh = WorldItems/gameNightMoney, texture = Item_Boxes/pokemonBoosterPack_ground, scale = 0.0009, }
     model pokemon_StarterBox { mesh = WorldItems/cardpack, texture = Item_Boxes/pokemonStarterBox_ground, scale = 0.06, }
 
-    model pokemon_Deck { mesh = WorldItems/cardpack, texture = Item_pokemonCards/deckTexture, scale = 0.024, }
-    model pokemon_Card { mesh = WorldItems/cardpack, texture = Item_pokemonCards/deckTexture, scale = 0.024, }
+    model pokemon_Deck { mesh = WorldItems/card, texture = Item_pokemonCards/deckTexture, scale = 0.024, }
+    model pokemon_Card { mesh = WorldItems/card, texture = Item_pokemonCards/deckTexture, scale = 0.024, }
 
     model pkmnTokenAerodactylCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/AerodactylCoin, scale = 0.004, }
     model pkmnTokenChanseyCoin { mesh = WorldItems/coin, texture = Item_OutOfPlayTextures/PokeTokens/ChanseyCoin, scale = 0.004, }
