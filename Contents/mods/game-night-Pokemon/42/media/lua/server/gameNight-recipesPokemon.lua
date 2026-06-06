@@ -1,4 +1,4 @@
-require "recipecode"
+--require "recipecode"
 require("gameNight-recipes.lua")
 
 function Recipe.GameNight.OpenSealedPokemonCards(craftRecipeData, character)
