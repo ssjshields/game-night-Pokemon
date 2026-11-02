@@ -1,6 +1,5 @@
-local applyItemDetails = require("gameNight-applyItemDetails.lua")
-local deckActionHandler = applyItemDetails.deckActionHandler
-local gamePieceHandler = applyItemDetails.gamePieceHandler
+local gamePieceHandler = require("gameNight-gamePieceHandler.lua")
+local deckActionHandler = gamePieceHandler.card
 local Pokemon = require("gameNight-cardDataPokemon.lua")
 
 gamePieceHandler.registerTypes({ "Base.PokemonDice" })
@@ -42,6 +41,7 @@ gamePieceHandler.registerSpecial("Base.MetalPikachuCoin", {
 
 function Pokemon.registerPokemonCardsUI()
     deckActionHandler.addDeck("pokemonCards", Pokemon.tradingCards, nil, Pokemon.altIcons)
+    deckActionHandler.registerApplyCards("applyCardForPokemon", Pokemon.applyCardForPokemon)
 
     gamePieceHandler.registerSpecial("Base.pokemonCards", {
         actions = { examine=true}, examineScale = 1, applyCards = "applyCardForPokemon", textureSize = {100,140}
@@ -61,7 +61,7 @@ Events.OnGameBoot.Add(Pokemon.registerPokemonCardsUI)
 -- Cards produced by unsealing a Base.pokemonBoosterPack or Base.pokemonStarterKit are now built server-side, at
 -- craft time, in gameNight-recipesPokemon.lua's OpenSealedPokemonCards - by the time this function runs on such
 -- an item, gameNight_cardDeck is already set and this whole block is skipped.
-function applyItemDetails.applyCardForPokemon(item)
+function Pokemon.applyCardForPokemon(item)
     if not item:getModData()["gameNight_cardDeck"] then
 
         local itemCont = item:getContainer()
@@ -95,18 +95,18 @@ function applyItemDetails.applyCardForPokemon(item)
             if wildDeck then
                 for n=1, 4 do
                     local damageDice = instanceItem("Base.PokemonDice")
-                    if damageDice and container then container:AddItem(damageDice) end
+                    if damageDice and container then gamePieceHandler.addToContainer(container, damageDice) end
                     if damageDice and worldItemSq then worldItemSq:AddWorldInventoryItem(damageDice, 0, 0, 0) end
 
                     local statusCoin = instanceItem("Base.PokemonStatusCoin")
-                    if statusCoin and container then container:AddItem(statusCoin) end
+                    if statusCoin and container then gamePieceHandler.addToContainer(container, statusCoin) end
                     if statusCoin and worldItemSq then worldItemSq:AddWorldInventoryItem(statusCoin, 0, 0, 0) end
                 end
             end
 
             local coin = coinType and instanceItem(coinType)
             if coin then
-                if container then container:AddItem(coin) end
+                if container then gamePieceHandler.addToContainer(container, coin) end
                 if worldItemSq then worldItemSq:AddWorldInventoryItem(coin, 0, 0, 0) end
             end
         end
